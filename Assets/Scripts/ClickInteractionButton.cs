@@ -17,6 +17,8 @@ public class ClickInteractionButton : MonoBehaviour
     public void OpenScene()
     {
         SceneManager.LoadScene(sceneName);
-        SaveLevel(level);
+        if(level != 0) {
+            SaveLevel(level);
+        }
     }
 }

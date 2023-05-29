@@ -11,13 +11,13 @@ public class ExerciseText : MonoBehaviour
     void Start()
     {
         int currentLevel = PlayerPrefs.GetInt("level");
-        if(currentLevel == 0){
+        if(currentLevel == 1){
             content.text = "Das erste Gemälde diente einst als Zielscheibe in einem Schützenverein.\nFinde ein Gemälde mit zwei Vögeln.";
         }
-        if(currentLevel == 1){
+        if(currentLevel == 2){
             content.text = "Finde den Sohn von Johann Sebastian Back, welcher an einem Cembalo sitzend nicht so viel von den musikalischen Künsten seines Arbeitgebers hält.";
         }
-        if(currentLevel == 2){
+        if(currentLevel == 3){
             content.text = "Finde die Parade auf dem Opernplatz in Berlin.";
         }
     }

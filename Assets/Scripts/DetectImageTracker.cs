@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
+using UnityEngine.SceneManagement;
 
 public class DetectImageTracker : MonoBehaviour
 {
@@ -36,6 +37,8 @@ public class DetectImageTracker : MonoBehaviour
         {
             // Spawn the prefab at the same position and rotation as the tracked image
             Instantiate(_prefabToSpawn, trackedImage.transform.position, trackedImage.transform.rotation);
+            System.Threading.Thread.Sleep(3000);
+            SceneManager.LoadScene("ChangeStyleScene");
         }
     }
 }
