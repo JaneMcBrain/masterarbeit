@@ -37,8 +37,24 @@ public class DetectImageTracker : MonoBehaviour
         {
             // Spawn the prefab at the same position and rotation as the tracked image
             Instantiate(_prefabToSpawn, trackedImage.transform.position, trackedImage.transform.rotation);
-            System.Threading.Thread.Sleep(3000);
+            System.Threading.Thread.Sleep(5000);
             SceneManager.LoadScene("ChangeStyleScene");
+        }
+
+        if (trackedImage.referenceImage.name == "voegel")
+        {
+            // Spawn the prefab at the same position and rotation as the tracked image
+            Instantiate(_prefabToSpawn, trackedImage.transform.position, trackedImage.transform.rotation);
+            System.Threading.Thread.Sleep(5000);
+            SceneManager.LoadScene("CuttingScene");
+        }
+
+        if (trackedImage.referenceImage.name == "parade")
+        {
+            // Spawn the prefab at the same position and rotation as the tracked image
+            Instantiate(_prefabToSpawn, trackedImage.transform.position, trackedImage.transform.rotation);
+            System.Threading.Thread.Sleep(5000);
+            SceneManager.LoadScene("ObjectChangeScene");
         }
     }
 }
