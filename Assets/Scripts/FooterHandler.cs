@@ -36,22 +36,6 @@ public class FooterHandler : MonoBehaviour
         setPanelActive(type);
         btn.AddToClassList("is-active");
     }
-    private void OnLocationButtonClicked()
-    {
-        setPanelActive("location");
-    }
-    private void OnTourButtonClicked()
-    {
-        setPanelActive("tour");
-    }
-    private void OnAccountButtonClicked()
-    {
-        setPanelActive("account");
-    }
-    private void OnInfoButtonClicked()
-    {
-        setPanelActive("info");
-    }
 
     private void setPanelActive(string panel){
         VisualElement result = footer_uiDocument.rootVisualElement.Q(className: "is-active");
