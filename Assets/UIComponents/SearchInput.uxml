@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Components.uss?fileID=7433441132597879392&amp;guid=9832dfd09299b47d2901075e28f92a99&amp;type=3#Components" />
+    <ui:VisualElement>
+        <ui:TextField picking-mode="Ignore" text="filler text" name="SearchInput" class="input" style="font-size: 32px; flex-direction: column; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; height: 100px; width: 100%; background-color: rgb(182, 220, 255); -unity-background-image-tint-color: rgb(182, 220, 255); align-items: stretch; justify-content: center;">
+            <ui:VisualElement style="position: absolute; right: 10px; bottom: auto; width: 48px; height: 48px; top: auto; background-image: url(&apos;project://database/Assets/Icons/magnifying-glass.png?fileID=2800000&amp;guid=16b0cf9e3d8e34d5793f7cce986b0864&amp;type=3#magnifying-glass&apos;);" />
+        </ui:TextField>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,23 @@
+.h1 {
+    font-size: 64px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 64px;
+    margin-top: 10px;
+    -unity-font: url('&apos;project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&amp;guid=e3265ab4bf004d28a9537516768c1c75&amp;type=3#LiberationSans&apos;');
+    -unity-text-align: upper-center;
+}
+
+.h2 {
+    font-size: 42px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 32px;
+    margin-top: 16px;
+    border-bottom-width: 2px;
+    border-left-color: rgb(29, 29, 29);
+    border-right-color: rgb(29, 29, 29);
+    border-top-color: rgb(29, 29, 29);
+    border-bottom-color: rgb(29, 29, 29);
+    -unity-text-align: upper-left;
+}

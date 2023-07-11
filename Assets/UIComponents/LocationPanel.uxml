@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="SearchInput" src="project://database/Assets/UIComponents/SearchInput.uxml?fileID=9197481963319205126&amp;guid=48c70ae118b744d5aa818a9fd15a9370&amp;type=3#SearchInput" />
+    <Style src="project://database/Assets/Fonts.uss?fileID=7433441132597879392&amp;guid=46027659cbf7543619a8b0e4a04acfba&amp;type=3#Fonts" />
+    <Style src="project://database/Assets/Components.uss?fileID=7433441132597879392&amp;guid=9832dfd09299b47d2901075e28f92a99&amp;type=3#Components" />
+    <ui:ScrollView class="container">
+        <ui:Label text="Orte in Berlin" display-tooltip-when-elided="true" name="Label" class="h1" />
+        <ui:Instance template="SearchInput" name="SearchInput" />
+    </ui:ScrollView>
+</ui:UXML>

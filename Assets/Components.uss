@@ -1,0 +1,107 @@
+.container {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    left: auto;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    background-color: rgba(233, 233, 233, 255);
+    position: relative;
+    height: 100%;
+}
+
+.button {
+    font-size: 32px;
+    color: rgb(55, 55, 55);
+    -unity-background-image-tint-color: rgb(217, 217, 217);
+    background-color: rgba(255, 255, 255, 255);
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-left-color: rgba(255, 247, 247, 255);
+    border-right-color: rgba(255, 247, 247, 255);
+    border-top-color: rgba(255, 247, 247, 255);
+    border-bottom-color: rgba(255, 247, 247, 255);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    -unity-font-style: bold;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.button__icon {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    width: 40px;
+    height: 40px;
+}
+
+.icon-button {
+    height: 48px;
+    width: 48px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    background-color: rgba(188, 188, 188, 0);
+}
+
+.icon-button--info {
+    background-image: url('project://database/Assets/Icons/info.png?fileID=2800000&guid=6786ab31598084715a9c71f92cd36e88&type=3#info');
+}
+
+.icon-button--info:hover {
+    background-image: url('project://database/Assets/Icons/info-primary.png?fileID=2800000&guid=c92969cb30f994b3f96f89f7735c74f7&type=3#info-primary');
+}
+
+.icon-button--info.is-active {
+    background-image: url('project://database/Assets/Icons/info-primary.png?fileID=2800000&guid=c92969cb30f994b3f96f89f7735c74f7&type=3#info-primary');
+}
+
+.icon-button--account {
+    background-image: url('project://database/Assets/Icons/user.png?fileID=2800000&guid=9e4236e8d0734447eaa86f320b926b8c&type=3#user');
+}
+
+.icon-button--account.is-active {
+    background-image: url('project://database/Assets/Icons/user.png?fileID=2800000&guid=9e4236e8d0734447eaa86f320b926b8c&type=3#user');
+}
+
+.icon-button--account:hover {
+    background-image: url('project://database/Assets/Icons/user-primary.png?fileID=2800000&guid=67ba4a11128b947fe916353459a99904&type=3#user-primary');
+}
+
+.icon-button--home {
+    background-image: url('project://database/Assets/Icons/house.png?fileID=2800000&guid=8ad5532e3a8b341218edd56b1b0b46bd&type=3#house');
+}
+
+.icon-button--home:hover, .icon-button--home.is-active {
+    background-image: url('project://database/Assets/Icons/house-primary.png?fileID=2800000&guid=11a9260cedc184c20836bfbf32c9bbcc&type=3#house-primary');
+}
+
+.icon-button--location {
+    background-image: url('project://database/Assets/Icons/locations.png?fileID=2800000&guid=3f8f2dab7e1cc49088becd35a5d2746a&type=3#locations');
+}
+
+.icon-button--location:hover, .icon-button--location.is-active {
+    background-image: url('project://database/Assets/Icons/locations-primary.png?fileID=2800000&guid=d5f5f478b7f0a472c99bb09e6b25633e&type=3#locations-primary');
+}
+
+.icon-button--tour {
+    background-image: url('project://database/Assets/Icons/flag.png?fileID=2800000&guid=fef09fa05a89142a099b269476e4db56&type=3#flag');
+}
+
+.icon-button--tour:hover, .icon-button--tour.is-active  {
+    background-image: url('project://database/Assets/Icons/flag-primary.png?fileID=2800000&guid=62adec27ecf1a4c9980a9d22820075b2&type=3#flag-primary');
+}
+
+.input {
+    -unity-background-image-tint-color: rgba(194, 223, 255, 255);
+}
