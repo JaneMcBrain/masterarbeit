@@ -1,17 +1,17 @@
 using UnityEngine.UIElements;
 
-public class LocationListEntryController
+public class TourListEntryController
 {
     Label NameLabel;
-    Label TourLabel;
+    Label ProgressLabel;
 
     //This function retrieves a reference to the 
     //character name label inside the UI element.
 
     public void SetVisualElement(VisualElement visualElement)
     {
-        NameLabel = visualElement.Q<Label>("LocationName");
-        TourLabel = visualElement.Q<Label>("LocationTours");
+        NameLabel = visualElement.Q<Label>("TourName");
+        ProgressLabel = visualElement.Q<Label>("TourProgress");
     }
 
     //This function receives the character whose name this list 
@@ -19,9 +19,9 @@ public class LocationListEntryController
     //in a `ListView` are pooled and reused, it's necessary to 
     //have a `Set` function to change which character's data to display.
 
-    public void SetLocationData(Location location)
+    public void SetTourData(Tour tour)
     {
-        NameLabel.text = location.name;
-        TourLabel.text = "Touren: " + location.tours.Length.ToString();
+        NameLabel.text = tour.name;
+        ProgressLabel.text = tour.progress + "%";
     }
 }

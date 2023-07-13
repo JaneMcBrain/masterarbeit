@@ -26,6 +26,7 @@ public class Tour
     public string name;
     public string image;
     public string info;
+    public string progress;
 }
 
 public class LocationReader : MonoBehaviour

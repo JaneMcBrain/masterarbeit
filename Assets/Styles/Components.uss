@@ -7,7 +7,7 @@
     top: auto;
     right: auto;
     bottom: auto;
-    background-color: rgba(233, 233, 233, 255);
+    background-color: rgb(233, 233, 233);
     position: relative;
     height: 100%;
 }
@@ -16,13 +16,13 @@
     font-size: 32px;
     color: rgb(55, 55, 55);
     -unity-background-image-tint-color: rgb(217, 217, 217);
-    background-color: rgba(255, 255, 255, 255);
+    background-color: rgb(255, 255, 255);
     padding-top: 40px;
     padding-bottom: 40px;
-    border-left-color: rgba(255, 247, 247, 255);
-    border-right-color: rgba(255, 247, 247, 255);
-    border-top-color: rgba(255, 247, 247, 255);
-    border-bottom-color: rgba(255, 247, 247, 255);
+    border-left-color: rgb(255, 247, 247);
+    border-right-color: rgb(255, 247, 247);
+    border-top-color: rgb(255, 247, 247);
+    border-bottom-color: rgb(255, 247, 247);
     border-left-width: 0;
     border-right-width: 0;
     border-top-width: 0;
@@ -82,7 +82,11 @@
     background-image: url('project://database/Assets/Icons/house.png?fileID=2800000&guid=8ad5532e3a8b341218edd56b1b0b46bd&type=3#house');
 }
 
-.icon-button--home:hover, .icon-button--home.is-active {
+.icon-button--home:hover {
+    background-image: url('project://database/Assets/Icons/house-primary.png?fileID=2800000&guid=11a9260cedc184c20836bfbf32c9bbcc&type=3#house-primary');
+}
+
+.icon-button--home.is-active {
     background-image: url('project://database/Assets/Icons/house-primary.png?fileID=2800000&guid=11a9260cedc184c20836bfbf32c9bbcc&type=3#house-primary');
 }
 
@@ -90,7 +94,11 @@
     background-image: url('project://database/Assets/Icons/locations.png?fileID=2800000&guid=3f8f2dab7e1cc49088becd35a5d2746a&type=3#locations');
 }
 
-.icon-button--location:hover, .icon-button--location.is-active {
+.icon-button--location:hover {
+    background-image: url('project://database/Assets/Icons/locations-primary.png?fileID=2800000&guid=d5f5f478b7f0a472c99bb09e6b25633e&type=3#locations-primary');
+}
+
+.icon-button--location.is-active {
     background-image: url('project://database/Assets/Icons/locations-primary.png?fileID=2800000&guid=d5f5f478b7f0a472c99bb09e6b25633e&type=3#locations-primary');
 }
 
@@ -98,10 +106,37 @@
     background-image: url('project://database/Assets/Icons/flag.png?fileID=2800000&guid=fef09fa05a89142a099b269476e4db56&type=3#flag');
 }
 
-.icon-button--tour:hover, .icon-button--tour.is-active  {
+.icon-button--tour:hover {
+    background-image: url('project://database/Assets/Icons/flag-primary.png?fileID=2800000&guid=62adec27ecf1a4c9980a9d22820075b2&type=3#flag-primary');
+}
+
+.icon-button--tour.is-active {
     background-image: url('project://database/Assets/Icons/flag-primary.png?fileID=2800000&guid=62adec27ecf1a4c9980a9d22820075b2&type=3#flag-primary');
 }
 
 .input {
-    -unity-background-image-tint-color: rgba(194, 223, 255, 255);
+    -unity-background-image-tint-color: rgb(194, 223, 255);
+}
+
+.card-list {
+    margin-top: 32px;
+    height: 100%;
+}
+
+.card-list-item {
+    flex-direction: row;
+    height: 100px;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 8px;
+}
+
+.card-list-item:hover {
+    background-color: rgb(221, 221, 221);
 }

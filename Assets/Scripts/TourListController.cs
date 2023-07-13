@@ -2,48 +2,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class LocationListController
+public class TourListController
 {
     // UXML template for list entries
     VisualTreeAsset ListEntryTemplate;
 
     // UI element references
-    ListView LocationList;
-    Label LocationNameLabel;
-    Label LocationTourLabel;
+    ListView TourList;
+    Label TourNameLabel;
+    Label TourProgressLabel;
     VisualElement CharPortrait;
-    List<Location> AllLocations;
+    List<Tour> AllTours;
 
-    public void InitializeLocationList(VisualElement root, VisualTreeAsset listElementTemplate, List<Location> locations)
+    public void InitializeTourList(VisualElement root, VisualTreeAsset listElementTemplate, List<Tour> tours)
     {
-        AllLocations =  locations;
+        AllTours =  tours;
 
         // Store a reference to the template for the list entries
         ListEntryTemplate = listElementTemplate;
 
-        // Store a reference to the Location list element
-        LocationList = root.Q<ListView>("LocationList");
+        // Store a reference to the Tour list element
+        TourList = root.Q<ListView>("TourList");
 
         // Store references to the selected character info elements
-        LocationNameLabel = root.Q<Label>("LocationName");
-        LocationTourLabel = root.Q<Label>("LocationTours");
+        TourNameLabel = root.Q<Label>("TourName");
+        TourProgressLabel = root.Q<Label>("TourTours");
 
-        FillLocationList();
+        FillTourList();
 
         // Register to get a callback when an item is selected
-        //LocationList.onSelectionChange += OnLocationSelected;
+        //TourList.onSelectionChange += OnTourSelected;
     }
 
-    void FillLocationList()
+    void FillTourList()
     {
         // Set up a make item function for a list entry
-        LocationList.makeItem = () =>
+        TourList.makeItem = () =>
         {
             // Instantiate the UXML template for the entry
             var newListEntry = ListEntryTemplate.Instantiate();
 
             // Instantiate a controller for the data
-            var newListEntryLogic = new LocationListEntryController();
+            var newListEntryLogic = new TourListEntryController();
 
             // Assign the controller script to the visual element
             newListEntry.userData = newListEntryLogic;
@@ -56,15 +56,15 @@ public class LocationListController
         };
 
         // Set up bind function for a specific list entry
-        LocationList.bindItem = (item, index) =>
+        TourList.bindItem = (item, index) =>
         {
-            (item.userData as LocationListEntryController).SetLocationData(AllLocations[index]);
+            (item.userData as TourListEntryController).SetTourData(AllTours[index]);
         };
 
         // Set a fixed item height
-        LocationList.fixedItemHeight = 110;
+        TourList.fixedItemHeight = 110;
 
         // Set the actual item's source list/array
-        LocationList.itemsSource = AllLocations;
+        TourList.itemsSource = AllTours;
     }
 }
