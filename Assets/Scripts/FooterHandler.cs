@@ -23,6 +23,7 @@ public class FooterHandler : MonoBehaviour
         var account_Button = rootElement.Q<Button>("AccountButton");
         var info_Button = rootElement.Q<Button>("InfoButton");
         home_Button.clicked += () => OnFooterButtonClicked("start", home_Button);
+        home_Button.AddToClassList("is-active");
         location_Button.clicked += () => OnFooterButtonClicked("location", location_Button);
         tour_Button.clicked += () => OnFooterButtonClicked("tour", tour_Button);
         account_Button.clicked += () => OnFooterButtonClicked("account", account_Button);

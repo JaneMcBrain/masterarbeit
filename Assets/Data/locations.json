@@ -26,6 +26,7 @@
       "name": "Bode Museum",
       "image": "",
       "info": "Lorem Ipsum",
+      "tours": [],
       "adress": {
         "street": "",
         "zip": "",
@@ -89,6 +90,7 @@
       "name": "Pergamont Museum",
       "image": "",
       "info": "",
+      "tours": [],
       "adress": {
         "street": "",
         "zip": "",
@@ -101,6 +103,7 @@
       "name": "Museum für Kommunikation",
       "image": "",
       "info": "",
+      "tours": [],
       "adress": {
         "street": "Leipziger Straße 16",
         "zip": "10117",
@@ -113,6 +116,7 @@
       "name": "Museum Ludwig",
       "image": "",
       "info": "",
+      "tours": [],
       "adress": {
         "street": "Heinrich-Böll-Platz",
         "zip": "50667",
@@ -125,6 +129,7 @@
       "name": "Hamburger Kunsthalle",
       "image": "",
       "info": "Großes Kunstmuseum in 3 Gebäuden",
+      "tours": [],
       "adress": {
         "street": "Glockengießerwall 5",
         "zip": "20095",
@@ -137,6 +142,7 @@
       "name": "Museum der Bildenen Künste Leipzig",
       "image": "",
       "info": "",
+      "tours": [],
       "adress": {
         "street": "Katharinenstraße 10",
         "zip": "04109",

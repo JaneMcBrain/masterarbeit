@@ -687,7 +687,6 @@ GameObject:
   m_Component:
   - component: {fileID: 409561790}
   - component: {fileID: 409561791}
-  - component: {fileID: 409561792}
   m_Layer: 5
   m_Name: StartContent
   m_TagString: Untagged
@@ -727,21 +726,6 @@ MonoBehaviour:
   sourceAsset: {fileID: 9197481963319205126, guid: 01fa527610dd1429691af6fb28af23a3,
     type: 3}
   m_SortingOrder: 0
---- !u!114 &409561792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 409561789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db81a376810b8450ca85d6fbf4cf2ef2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  start_uiDocument: {fileID: 409561791}
-  LocationPanel: {fileID: 1200671334}
-  TourPanel: {fileID: 1074622568}
 --- !u!1 &750300955
 GameObject:
   m_ObjectHideFlags: 0

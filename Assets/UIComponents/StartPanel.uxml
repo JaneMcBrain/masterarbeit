@@ -4,11 +4,11 @@
     <ui:ScrollView class="container">
         <ui:Label text="Willkommen, User!" display-tooltip-when-elided="true" class="h1" />
         <ui:Label text="Bereiche" display-tooltip-when-elided="true" class="h1 h2" />
-        <ui:Button display-tooltip-when-elided="true" enable-rich-text="true" class="button" style="margin-bottom: 24px;">
+        <ui:Button display-tooltip-when-elided="true" enable-rich-text="true" name="LocationButton" class="button" style="margin-bottom: 24px;">
             <ui:Label text="ORTE ENTDECKEN" display-tooltip-when-elided="true" style="-unity-text-align: middle-left;" />
             <ui:VisualElement class="button__icon" style="background-image: url(&apos;project://database/Assets/Icons/locations.png?fileID=2800000&amp;guid=3f8f2dab7e1cc49088becd35a5d2746a&amp;type=3#locations&apos;);" />
         </ui:Button>
-        <ui:Button display-tooltip-when-elided="true" enable-rich-text="true" class="button" style="margin-bottom: 40px;">
+        <ui:Button display-tooltip-when-elided="true" enable-rich-text="true" name="TourButton" class="button" style="margin-bottom: 40px;">
             <ui:Label text="TOUREN ENTDECKEN" display-tooltip-when-elided="true" style="-unity-text-align: middle-left;" />
             <ui:VisualElement class="button__icon" style="background-image: url(&apos;project://database/Assets/Icons/flag.png?fileID=2800000&amp;guid=fef09fa05a89142a099b269476e4db56&amp;type=3#flag&apos;);" />
         </ui:Button>
