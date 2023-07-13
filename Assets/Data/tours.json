@@ -7,7 +7,7 @@
       "name": "Das Leben von Adolf Menzel",
       "image": "",
       "info": "",
-      "progress": ""
+      "progress": "23"
     },
     {
       "id": "tour2",
@@ -16,7 +16,7 @@
       "topcis": ["menzel1"],
       "image": "",
       "info": "",
-      "progress": ""
+      "progress": "0"
     },
     {
       "id": "tour3",
@@ -25,7 +25,7 @@
       "topcis": ["menzel1", "realismus1"],
       "image": "",
       "info": "",
-      "progress": ""
+      "progress": "0"
     },
     {
       "id": "tour4",
@@ -34,7 +34,7 @@
       "topcis": ["menzel1", "realismus2"],
       "image": "",
       "info": "",
-      "progress": ""
+      "progress": "67"
     },
     {
       "id": "tour5",
@@ -42,7 +42,7 @@
       "name": "Zukunft entdecken",
       "image": "",
       "info": "",
-      "progress": ""
+      "progress": "0"
     }
   ]
 }

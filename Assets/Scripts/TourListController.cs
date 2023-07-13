@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class TourListController
 {
@@ -64,7 +65,25 @@ public class TourListController
         // Set a fixed item height
         TourList.fixedItemHeight = 110;
 
+        // Register to get a callback when an item is selected
+        TourList.onSelectionChange += OnTourSelected;
+
         // Set the actual item's source list/array
         TourList.itemsSource = AllTours;
+    }
+
+     void OnTourSelected(IEnumerable<object> selectedItems)
+    {
+        // Get the currently selected item directly from the ListView
+        var selectedTour = TourList.selectedItem as Tour;
+
+        // Handle none-selection (Escape to deselect everything)
+        if (selectedTour == null)
+        {
+            return;
+        }
+
+        // Fill in character details
+        SceneManager.LoadScene("InteractionNavi");
     }
 }
