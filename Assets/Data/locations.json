@@ -1,0 +1,148 @@
+{
+  "locations":
+  [
+    {
+      "id": "location1",
+      "name": "Humboldt Forum",
+      "image": "",
+      "info": "",
+      "tours": [
+        {
+        "id": "tour5",
+        "name": "Zukunft entdecken",
+        "image": "",
+        "info": ""
+        }
+      ],
+      "adress": {
+        "street": "Schloßplatz 1",
+        "zip": "10178",
+        "city": "Berlin",
+        "country": "Deutschland"
+      }
+    },
+    {
+      "id": "location2",
+      "name": "Bode Museum",
+      "image": "",
+      "info": "Lorem Ipsum",
+      "adress": {
+        "street": "",
+        "zip": "",
+        "city": "Berlin",
+        "country": "Deutschland"
+      }
+    },
+    {
+      "id": "location3",
+      "name": "Alte Nationalgalerie",
+      "image": "",
+      "info": "",
+      "topics": [
+        {"id": "menzel1", "label": "Adolf Menzel", "image": ""},
+        {"id": "realismus1", "label": "Realismus in Berlin", "image": ""},
+        {"id": "realismus2", "label": "Realismus entdecken", "image": ""},
+        {"id": "frauen1", "label": "Frauen im 1900 Jahrhundert", "image": ""}
+      ],
+      "tours": [
+        {
+          "id": "tour1",
+          "topcis": ["menzel1", "realismus1", "realismus2"],
+          "name": "Das Leben von Adolf Menzel",
+          "image": "",
+          "info": ""
+        },
+        {
+          "id": "tour2",
+          "locationId:": "location3",
+          "name": "Malerische Entwicklungen",
+          "topcis": ["menzel1"],
+          "image": "",
+          "info": ""
+        },
+        {
+          "id": "tour3",
+          "locationId:": "location3",
+          "name": "Wichtige Werke des Realismus",
+          "topcis": ["menzel1", "realismus1"],
+          "image": "",
+          "info": ""
+        },
+        {
+          "id": "tour4",
+          "locationId:": "location3",
+          "name": "Menzel und Friedich II",
+          "topcis": ["menzel1", "realismus2"],
+          "image": "",
+          "info": ""
+        }
+      ],
+      "adress": {
+        "street": "",
+        "zip": "",
+        "city": "Berlin",
+        "country": "Deutschland"
+      }
+    },
+    {
+      "id": "location4",
+      "name": "Pergamont Museum",
+      "image": "",
+      "info": "",
+      "adress": {
+        "street": "",
+        "zip": "",
+        "city": "Berlin",
+        "country": "Deutschland"
+      }
+    },
+    {
+      "id": "location5",
+      "name": "Museum für Kommunikation",
+      "image": "",
+      "info": "",
+      "adress": {
+        "street": "Leipziger Straße 16",
+        "zip": "10117",
+        "city": "Berlin",
+        "country": "Deutschland"
+      }
+    },
+    {
+      "id": "location6",
+      "name": "Museum Ludwig",
+      "image": "",
+      "info": "",
+      "adress": {
+        "street": "Heinrich-Böll-Platz",
+        "zip": "50667",
+        "city": "Köln",
+        "country": "Deutschland"
+      }
+    },
+    {
+      "id": "location7",
+      "name": "Hamburger Kunsthalle",
+      "image": "",
+      "info": "Großes Kunstmuseum in 3 Gebäuden",
+      "adress": {
+        "street": "Glockengießerwall 5",
+        "zip": "20095",
+        "city": "Hamburg",
+        "country": "Deutschland"
+      }
+    },
+    {
+      "id": "location8",
+      "name": "Museum der Bildenen Künste Leipzig",
+      "image": "",
+      "info": "",
+      "adress": {
+        "street": "Katharinenstraße 10",
+        "zip": "04109",
+        "city": "Leipzig",
+        "country": "Deutschland"
+      }
+    }
+  ]
+}

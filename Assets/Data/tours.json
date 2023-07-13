@@ -1,0 +1,43 @@
+{
+  "tours": [
+    {
+      "id": "tour1",
+      "locationId:": "location3",
+      "topcis": ["menzel1", "realismus1", "realismus2"],
+      "name": "Das Leben von Adolf Menzel",
+      "image": "",
+      "info": ""
+    },
+    {
+      "id": "tour2",
+      "locationId:": "location3",
+      "name": "Malerische Entwicklungen",
+      "topcis": ["menzel1"],
+      "image": "",
+      "info": ""
+    },
+    {
+      "id": "tour3",
+      "locationId:": "location3",
+      "name": "Wichtige Werke des Realismus",
+      "topcis": ["menzel1", "realismus1"],
+      "image": "",
+      "info": ""
+    },
+    {
+      "id": "tour4",
+      "locationId:": "location3",
+      "name": "Menzel und Friedich II",
+      "topcis": ["menzel1", "realismus2"],
+      "image": "",
+      "info": ""
+    },
+    {
+      "id": "tour5",
+      "locationId:": "location1",
+      "name": "Zukunft entdecken",
+      "image": "",
+      "info": ""
+    }
+  ]
+}
