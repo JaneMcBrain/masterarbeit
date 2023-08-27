@@ -38,8 +38,7 @@ public class LocationReader : MonoBehaviour
     void OnEnable()
     {
         Locations locationsInJson = JsonUtility.FromJson<Locations>(jsonFile.text);
-        print("Start Locations");
-        print(locationsInJson);
+
         // The UXML is already instantiated by the UIDocument component
         var uiDocument = GetComponent<UIDocument>();
 
