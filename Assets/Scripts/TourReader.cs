@@ -16,7 +16,7 @@ public class TourReader : MonoBehaviour
     [SerializeField]
     VisualTreeAsset ListEntryTemplate;
  
-    void Start()
+    void OnEnable()
     {
         Tours toursInJson = JsonUtility.FromJson<Tours>(jsonFile.text);
 
