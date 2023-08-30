@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/Styles/Fonts.uss?fileID=7433441132597879392&amp;guid=46027659cbf7543619a8b0e4a04acfba&amp;type=3#Fonts" />
     <Style src="project://database/Assets/Styles/Components.uss?fileID=7433441132597879392&amp;guid=9832dfd09299b47d2901075e28f92a99&amp;type=3#Components" />
     <ui:VisualElement class="card-list-item">
-        <ui:VisualElement style="margin-right: 0; width: 80px; height: 60px; margin-left: 0; margin-top: 0; margin-bottom: 0; background-image: url(&apos;project://database/Assets/Icons/flag-primary.png?fileID=2800000&amp;guid=62adec27ecf1a4c9980a9d22820075b2&amp;type=3#flag-primary&apos;); -unity-background-scale-mode: stretch-to-fill; align-items: auto; justify-content: flex-start;" />
+        <ui:VisualElement name="TourImage" style="margin-right: 0; width: 80px; height: 60px; margin-left: 0; margin-top: 0; margin-bottom: 0; background-image: url(&apos;project://database/Assets/Icons/flag-primary.png?fileID=2800000&amp;guid=62adec27ecf1a4c9980a9d22820075b2&amp;type=3#flag-primary&apos;); -unity-background-scale-mode: stretch-to-fill; align-items: auto; justify-content: flex-start;" />
         <ui:VisualElement name="TextBox" style="width: 100%; padding-left: 20px; padding-right: 0; padding-top: 0; padding-bottom: 0;">
             <ui:Label text="Label" display-tooltip-when-elided="true" name="TourName" class="h4" style="margin-bottom: 10px;" />
             <ui:Label text="Label" display-tooltip-when-elided="true" name="TourProgress" class="text" style="align-items: auto;" />

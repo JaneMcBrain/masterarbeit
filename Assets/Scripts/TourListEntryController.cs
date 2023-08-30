@@ -1,9 +1,12 @@
 using UnityEngine.UIElements;
+using UnityEditor;
+using UnityEngine;
 
 public class TourListEntryController
 {
     Label NameLabel;
     Label ProgressLabel;
+    VisualElement TourImage;
 
     //This function retrieves a reference to the 
     //character name label inside the UI element.
@@ -12,6 +15,7 @@ public class TourListEntryController
     {
         NameLabel = visualElement.Q<Label>("TourName");
         ProgressLabel = visualElement.Q<Label>("TourProgress");
+        TourImage = visualElement.Q<VisualElement>("TourImage");
     }
 
     //This function receives the character whose name this list 
@@ -23,5 +27,6 @@ public class TourListEntryController
     {
         NameLabel.text = tour.name;
         ProgressLabel.text = tour.progress + "%";
+        TourImage.style.backgroundImage = new StyleBackground(Resources.Load<Sprite>("Sprites/Test"));
     }
 }
