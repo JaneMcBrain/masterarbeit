@@ -1,17 +1,20 @@
 using UnityEngine.UIElements;
+using UnityEngine;
 
 public class LocationListEntryController
 {
-    Label NameLabel;
-    Label TourLabel;
+    Label LocationName;
+    Label LocationTour;
+    VisualElement LocationImage;
 
     //This function retrieves a reference to the 
     //character name label inside the UI element.
 
     public void SetVisualElement(VisualElement visualElement)
     {
-        NameLabel = visualElement.Q<Label>("LocationName");
-        TourLabel = visualElement.Q<Label>("LocationTours");
+        LocationName = visualElement.Q<Label>("LocationName");
+        LocationTour = visualElement.Q<Label>("LocationTours");
+        LocationImage = visualElement.Q<VisualElement>("LocationImage");
     }
 
     //This function receives the character whose name this list 
@@ -21,7 +24,8 @@ public class LocationListEntryController
 
     public void SetLocationData(Location location)
     {
-        NameLabel.text = location.name;
-        TourLabel.text = "Touren: " + location.tours.Length.ToString();
+        LocationName.text = location.name;
+        LocationTour.text = "Touren: " + location.tours.Length.ToString();
+        LocationImage.style.backgroundImage = new StyleBackground(Resources.Load<Sprite>("Sprites/Test"));
     }
 }

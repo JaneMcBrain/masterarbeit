@@ -63,7 +63,7 @@ public class TourListController
         };
 
         // Set a fixed item height
-        TourList.fixedItemHeight = 110;
+        TourList.fixedItemHeight = 150;
 
         // Register to get a callback when an item is selected
         TourList.onSelectionChange += OnTourSelected;

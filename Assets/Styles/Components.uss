@@ -145,7 +145,7 @@
 
 .card-list-item {
     flex-direction: row;
-    height: 100px;
+    height: 140px;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-start;

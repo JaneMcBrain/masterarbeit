@@ -62,7 +62,7 @@ public class LocationListController
         };
 
         // Set a fixed item height
-        LocationList.fixedItemHeight = 110;
+        LocationList.fixedItemHeight = 150;
 
         // Set the actual item's source list/array
         LocationList.itemsSource = AllLocations;
