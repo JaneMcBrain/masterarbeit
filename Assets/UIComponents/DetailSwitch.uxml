@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Styles/Components.uss?fileID=7433441132597879392&amp;guid=9832dfd09299b47d2901075e28f92a99&amp;type=3#Components" />
+    <ui:VisualElement>
+        <ui:GroupBox name="ButtonGroup" class="detail-switch">
+            <ui:Button text="Touren" display-tooltip-when-elided="true" name="SwitchTourButton" class="button is-active" style="margin-right: 16px;" />
+            <ui:Button text="Infos" display-tooltip-when-elided="true" name="SwitchInfoButton" class="button" />
+        </ui:GroupBox>
+    </ui:VisualElement>
+    <ui:VisualElement name="DetailBox" style="width: 100%; height: 100%;" />
+</ui:UXML>

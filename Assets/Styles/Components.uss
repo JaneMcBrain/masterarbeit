@@ -12,29 +12,36 @@
     height: 100%;
 }
 
+.detail-container {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+    padding-bottom: 10%;
+    left: auto;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    background-color: rgb(233, 233, 233);
+    position: relative;
+    height: 100%;
+}
+
 .button {
     font-size: 32px;
     color: rgb(55, 55, 55);
     -unity-background-image-tint-color: rgb(217, 217, 217);
     background-color: rgb(255, 255, 255);
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-left-color: rgb(255, 247, 247);
-    border-right-color: rgb(255, 247, 247);
-    border-top-color: rgb(255, 247, 247);
-    border-bottom-color: rgb(255, 247, 247);
-    border-left-width: 10px;
-    border-right-width: 10px;
-    border-top-width: 10px;
-    border-bottom-width: 10px;
+    padding: 30px;
     -unity-font-style: bold;
-    padding-left: 20px;
-    padding-right: 20px;
     -unity-background-scale-mode: scale-to-fit;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     flex-basis: auto;
+}
+
+.button.is-active {
+    background-color: rgb(29, 175, 255);
 }
 
 .button__icon {
@@ -49,22 +56,26 @@
     padding-bottom: 20px;
 }
 
+.icon-button-std {
+    width: 64px;
+    height: 64px;
+}
+
 .icon-button {
-    height: 100%;
-    width: 20%;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    margin-bottom: 0;
     border-left-width: 0;
     border-right-width: 0;
     border-top-width: 0;
     border-bottom-width: 0;
-    background-color: rgba(188, 188, 188, 0);
+}
+
+.footer-icon {
+    height: 100%;
+    width: 20%;
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
+    background-color: rgba(188, 188, 188, 0);
 }
 
 .icon-button__icon {
@@ -134,6 +145,26 @@
     background-image: url('project://database/Assets/Icons/flag-primary.png?fileID=2800000&guid=62adec27ecf1a4c9980a9d22820075b2&type=3#flag-primary');
 }
 
+.icon-button__icon--back {
+    background-image: url('project://database/Assets/Icons/arrow-left.png?fileID=2800000&guid=6f542ade5efec46a2b1a328878b14513&type=3#arrow-left');
+}
+
+.icon-button__icon--back:hover {
+    background-image: url('project://database/Assets/Icons/arrow-left-primary.png?fileID=2800000&guid=c2e037f91b8d24162a91f85ac9c15e86&type=3#arrow-left-primary');
+}
+
+.icon-button__icon--bookmark {
+    background-image: url('project://database/Assets/Icons/bookmark.png?fileID=2800000&guid=37ddf00125de64389a653910b7c6ab9f&type=3#bookmark');
+}
+
+.icon-button__icon--bookmark:hover {
+    background-image: url('project://database/Assets/Icons/bookmark-primary.png?fileID=2800000&guid=ef5d3cf0feadb47a69c5c89c992f348f&type=3#bookmark-primary');
+}
+
+.icon-button__icon--bookmark.is-active {
+    background-image: url('project://database/Assets/Icons/bookmark-primary.png?fileID=2800000&guid=ef5d3cf0feadb47a69c5c89c992f348f&type=3#bookmark-primary');
+}
+
 .input {
     -unity-background-image-tint-color: rgb(194, 223, 255);
 }
@@ -161,6 +192,25 @@
     background-color: rgb(221, 221, 221);
 }
 
-.h1 {
-    font-size: 100%;
+.detail-header {
+    height: 30%;
+    width: 100%;
+    top: 0;
+    min-height: 30%;
+    background-color: rgb(70, 140, 254);
+}
+
+.detail-header__button {
+    background-color: rgb(256, 256, 256);
+}
+
+.detail-switch {
+    flex-direction: row;
+}
+
+.circle {
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
 }
