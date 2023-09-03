@@ -27,6 +27,10 @@ public class TourListEntryController
     {
         NameLabel.text = tour.name;
         ProgressLabel.text = tour.progress + "%";
-        TourImage.style.backgroundImage = new StyleBackground(Resources.Load<Sprite>("Sprites/Test"));
+        string imagePath = tour.image;
+        if (imagePath.Length > 0)
+        {
+            TourImage.style.backgroundImage = new StyleBackground(Resources.Load<Sprite>(imagePath));
+        }
     }
 }

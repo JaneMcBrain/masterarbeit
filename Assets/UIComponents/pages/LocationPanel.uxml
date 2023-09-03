@@ -4,7 +4,7 @@
     <Style src="project://database/Assets/Components.uss?fileID=7433441132597879392&amp;guid=9832dfd09299b47d2901075e28f92a99&amp;type=3#Components" />
     <ui:ScrollView class="container">
         <ui:Label text="Orte in Berlin" display-tooltip-when-elided="true" name="Label" class="h1" />
-        <ui:Instance template="SearchInput" name="SearchInput" style="height: 240px;" />
+        <ui:Instance template="SearchInput" name="SearchInput" />
         <ui:ListView focusable="true" name="LocationList" fixed-item-height="100" class="card-list" />
     </ui:ScrollView>
 </ui:UXML>

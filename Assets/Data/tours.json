@@ -5,7 +5,7 @@
       "locationId:": "location3",
       "topcis": ["menzel1", "realismus1", "realismus2"],
       "name": "Das Leben von Adolf Menzel",
-      "image": "",
+      "image": "Sprites/Tours/adolph",
       "info": "",
       "progress": "23"
     },
@@ -14,7 +14,7 @@
       "locationId:": "location3",
       "name": "Malerische Entwicklungen",
       "topcis": ["menzel1"],
-      "image": "",
+      "image": "Sprites/Tours/menzel_entwicklung",
       "info": "",
       "progress": "0"
     },
@@ -23,7 +23,7 @@
       "locationId:": "location3",
       "name": "Wichtige Werke des Realismus",
       "topcis": ["menzel1", "realismus1"],
-      "image": "",
+      "image": "Sprites/Tours/realismus",
       "info": "",
       "progress": "0"
     },
@@ -32,7 +32,7 @@
       "locationId:": "location3",
       "name": "Menzel und Friedich II",
       "topcis": ["menzel1", "realismus2"],
-      "image": "",
+      "image": "Sprites/Tours/floetenkonzert",
       "info": "",
       "progress": "67"
     },
@@ -40,7 +40,7 @@
       "id": "tour5",
       "locationId:": "location1",
       "name": "Zukunft entdecken",
-      "image": "",
+      "image": "Sprites/Tours/future",
       "info": "",
       "progress": "0"
     }
