@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/Styles/Fonts.uss?fileID=7433441132597879392&amp;guid=46027659cbf7543619a8b0e4a04acfba&amp;type=3#Fonts" />
     <Style src="project://database/Assets/Styles/Components.uss?fileID=7433441132597879392&amp;guid=9832dfd09299b47d2901075e28f92a99&amp;type=3#Components" />
     <ui:VisualElement class="card-list-item" style="padding-left: 15px; padding-right: 15px; padding-top: 15px; padding-bottom: 15px;">
-        <ui:VisualElement name="LocationImage" style="margin-right: 0; width: 35%; height: 100%; margin-left: 0; margin-top: 0; margin-bottom: 0; background-image: url(&apos;project://database/Assets/Icons/locations-primary.png?fileID=2800000&amp;guid=d5f5f478b7f0a472c99bb09e6b25633e&amp;type=3#locations-primary&apos;); -unity-background-scale-mode: scale-to-fit; align-items: auto; justify-content: flex-start;" />
+        <ui:VisualElement name="LocationImage" style="margin-right: 0; width: 35%; height: 100%; margin-left: 0; margin-top: 0; margin-bottom: 0; background-image: resource(&apos;Sprites/default_location&apos;); -unity-background-scale-mode: scale-and-crop; align-items: auto; justify-content: flex-start;" />
         <ui:VisualElement name="TextBox" style="width: 100%; padding-left: 20px; padding-right: 0; padding-top: 0; padding-bottom: 0;">
             <ui:Label text="Label" display-tooltip-when-elided="true" name="LocationName" class="h4" style="margin-bottom: 10px; white-space: normal;" />
             <ui:Label text="Label" display-tooltip-when-elided="true" name="LocationTours" class="text" style="white-space: normal;" />

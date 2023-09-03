@@ -4,7 +4,7 @@
     {
       "id": "location1",
       "name": "Humboldt Forum",
-      "image": "",
+      "image": "Sprites/Locations/humbold_forum",
       "info": "",
       "tours": [
         {
@@ -24,7 +24,7 @@
     {
       "id": "location2",
       "name": "Bode Museum",
-      "image": "",
+      "image": "Sprites/Locations/bode",
       "info": "Lorem Ipsum",
       "tours": [],
       "adress": {
@@ -37,7 +37,7 @@
     {
       "id": "location3",
       "name": "Alte Nationalgalerie",
-      "image": "",
+      "image": "Sprites/Locations/nationalgalerie",
       "info": "",
       "topics": [
         {"id": "menzel1", "label": "Adolf Menzel", "image": ""},
@@ -88,7 +88,7 @@
     {
       "id": "location4",
       "name": "Pergamont Museum",
-      "image": "",
+      "image": "Sprites/Locations/pergamont",
       "info": "",
       "tours": [],
       "adress": {
@@ -101,7 +101,7 @@
     {
       "id": "location5",
       "name": "Museum für Kommunikation",
-      "image": "",
+      "image": "Sprites/Locations/kommunikations_museum",
       "info": "",
       "tours": [],
       "adress": {

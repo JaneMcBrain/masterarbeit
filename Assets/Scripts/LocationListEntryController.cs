@@ -1,5 +1,6 @@
 using UnityEngine.UIElements;
 using UnityEngine;
+using System;
 
 public class LocationListEntryController
 {
@@ -17,15 +18,13 @@ public class LocationListEntryController
         LocationImage = visualElement.Q<VisualElement>("LocationImage");
     }
 
-    //This function receives the character whose name this list 
-    //element displays. Since the elements listed 
-    //in a `ListView` are pooled and reused, it's necessary to 
-    //have a `Set` function to change which character's data to display.
-
     public void SetLocationData(Location location)
     {
         LocationName.text = location.name;
         LocationTour.text = "Touren: " + location.tours.Length.ToString();
-        LocationImage.style.backgroundImage = new StyleBackground(Resources.Load<Sprite>("Sprites/Test"));
+        string imagePath = location.image;
+        if(imagePath.Length > 0) {
+            LocationImage.style.backgroundImage = new StyleBackground(Resources.Load<Sprite>(imagePath));
+        }
     }
 }
