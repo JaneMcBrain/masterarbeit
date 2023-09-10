@@ -31,10 +31,11 @@ public class Tour
 public class LocationReader : MonoBehaviour
 {
     public TextAsset jsonFile;
+    public GameObject LocationDetailPanel;
 
     [SerializeField]
     VisualTreeAsset ListEntryTemplate;
- 
+
     void OnEnable()
     {
         Locations locationsInJson = JsonUtility.FromJson<Locations>(jsonFile.text);
@@ -44,6 +45,11 @@ public class LocationReader : MonoBehaviour
 
         // Initialize the character list controller
         var locationListController = new LocationListController();
-        locationListController.InitializeLocationList(uiDocument.rootVisualElement, ListEntryTemplate, locationsInJson.locations);
+        locationListController.InitializeLocationList(
+            uiDocument,
+            ListEntryTemplate,
+            locationsInJson.locations,
+            LocationDetailPanel
+        );
     }
 }

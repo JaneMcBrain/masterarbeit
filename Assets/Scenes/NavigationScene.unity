@@ -282,6 +282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1029350298}
   - component: {fileID: 1029350297}
+  - component: {fileID: 1029350299}
   m_Layer: 5
   m_Name: LocationDetail
   m_TagString: Untagged
@@ -321,6 +322,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1029350299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029350296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd83ab5c82d440d0af50c197bc91480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LocationPanel: {fileID: 1200671334}
 --- !u!1 &1074622568
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,6 +463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jsonFile: {fileID: 4900000, guid: b7462cfe5fbd0423486b796d93ba5a56, type: 3}
+  LocationDetailPanel: {fileID: 1029350296}
   ListEntryTemplate: {fileID: 9197481963319205126, guid: 831c9b3fe3e2e429db11aec762966562,
     type: 3}
 --- !u!1 &1441858408

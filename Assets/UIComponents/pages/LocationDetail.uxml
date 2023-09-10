@@ -13,7 +13,7 @@
         </ui:VisualElement>
         <ui:ScrollView class="detail-container">
             <ui:VisualElement name="LocationContent">
-                <ui:Label text="Label" display-tooltip-when-elided="true" name="LocationName" class="h1" style="-unity-text-align: upper-left;" />
+                <ui:Label text="Label" display-tooltip-when-elided="true" name="LocationNameLabel" class="h1" style="-unity-text-align: upper-left;" />
                 <ui:Instance template="DetailButtonSwitch" name="DetailButtonSwitch" />
             </ui:VisualElement>
         </ui:ScrollView>

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using System;
 
 public class LocationListController
 {
@@ -11,27 +12,28 @@ public class LocationListController
     ListView LocationList;
     Label LocationNameLabel;
     Label LocationTourLabel;
-    VisualElement CharPortrait;
+    VisualElement LocationImage;
     List<Location> AllLocations;
+    GameObject LocationListPanel;
+    GameObject LocationDetailPanel;
 
-    public void InitializeLocationList(VisualElement root, VisualTreeAsset listElementTemplate, List<Location> locations)
+
+    public void InitializeLocationList(UIDocument uiDocument, VisualTreeAsset listElementTemplate, List<Location> locations, GameObject detailPage)
     {
         AllLocations =  locations;
-
-        // Store a reference to the template for the list entries
+        var root = uiDocument.rootVisualElement;
+        // Save the elements inside the class
         ListEntryTemplate = listElementTemplate;
+        LocationDetailPanel = detailPage;
+        LocationListPanel = uiDocument.gameObject;
 
-        // Store a reference to the Location list element
+        // Get the UXML Elements
         LocationList = root.Q<ListView>("LocationList");
-
-        // Store references to the selected character info elements
-        LocationNameLabel = root.Q<Label>("LocationName");
-        LocationTourLabel = root.Q<Label>("LocationTours");
 
         FillLocationList();
 
         // Register to get a callback when an item is selected
-        //LocationList.onSelectionChange += OnLocationSelected;
+        LocationList.onSelectionChange += OnLocationSelected;
     }
 
     void FillLocationList()
@@ -66,5 +68,25 @@ public class LocationListController
 
         // Set the actual item's source list/array
         LocationList.itemsSource = AllLocations;
+    }
+
+    void OnLocationSelected(IEnumerable<object> selectedItems)
+    {
+        // Get the currently selected item directly from the ListView
+        var selectedLocation = LocationList.selectedItem as Location;
+        
+        // Hide List and show detail panel
+        LocationListPanel.SetActive(false);
+        LocationDetailPanel.SetActive(true);
+
+        //Overwrite the content of DetailView
+        var detailUi = LocationDetailPanel.GetComponent<UIDocument>().rootVisualElement;
+        detailUi.Q<Label>("LocationNameLabel").text = selectedLocation.name;
+        string imagePath = selectedLocation.image;
+        if (imagePath.Length == 0)
+        {
+            imagePath = "Sprites/Locations/default_location";
+        }
+        detailUi.Q<VisualElement>("DetailHeader").style.backgroundImage = new StyleBackground(Resources.Load<Sprite>(imagePath));
     }
 }
