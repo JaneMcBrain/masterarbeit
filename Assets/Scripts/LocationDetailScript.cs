@@ -7,17 +7,11 @@ public class LocationDetailScript : MonoBehaviour
 {
     public GameObject LocationPanel;
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         var rootElement = GetComponent<UIDocument>().rootVisualElement;
         var back_Button = rootElement.Q<Button>("BackButton");
         back_Button.clicked += () => OnBackButtonClicked();
-    }
-
-    // Update is called once per frame
-    void OnEnable()
-    {
-        
     }
 
     void OnBackButtonClicked(){
