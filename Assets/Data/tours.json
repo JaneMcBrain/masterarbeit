@@ -40,6 +40,7 @@
       "id": "tour5",
       "location": "location1",
       "name": "Zukunft entdecken",
+      "topics": ["future"],
       "image": "Sprites/Tours/future",
       "info": "",
       "progress": "0"

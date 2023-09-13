@@ -25,8 +25,6 @@ public class TourListEntryController
 
     public void SetTourData(Tour tour)
     {
-        Debug.Log(tour.location);
-        Debug.Log(tour.name);
         NameLabel.text = tour.name;
         ProgressLabel.text = tour.progress + "%";
         string imagePath = tour.image;

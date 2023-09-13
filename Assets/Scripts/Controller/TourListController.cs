@@ -15,7 +15,7 @@ public class TourListController
     VisualElement CharPortrait;
     List<Tour> AllTours;
 
-    public void InitializeTourList(VisualElement root, VisualTreeAsset listElementTemplate, List<Tour> tours)
+    public void InitializeTourList(VisualElement root, VisualTreeAsset listElementTemplate, List<Tour> tours, string listName)
     {
         AllTours =  tours;
 
@@ -23,7 +23,7 @@ public class TourListController
         ListEntryTemplate = listElementTemplate;
 
         // Store a reference to the Tour list element
-        TourList = root.Q<ListView>("TourList");
+        TourList = root.Q<ListView>(listName);
 
         // Store references to the selected character info elements
         TourNameLabel = root.Q<Label>("TourName");

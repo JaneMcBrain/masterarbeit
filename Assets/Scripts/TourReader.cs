@@ -14,7 +14,7 @@ public class Tour
 {
     public string id;
     public string location;
-    public string[] topcis;
+    public string[] topics;
     public string name;
     public string image;
     public string info;
@@ -37,6 +37,6 @@ public class TourReader : MonoBehaviour
 
         // Initialize the character list controller
         var tourListController = new TourListController();
-        tourListController.InitializeTourList(uiDocument.rootVisualElement, ListEntryTemplate, toursInJson.tours);
+        tourListController.InitializeTourList(uiDocument.rootVisualElement, ListEntryTemplate, toursInJson.tours, "TourList");
     }
 }

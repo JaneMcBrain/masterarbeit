@@ -1,4 +1,4 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaTopic="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:Template name="DetailButtonSwitch" src="project://database/Assets/UIComponents/DetailSwitch.uxml?fileID=9197481963319205126&amp;guid=0d291f4316130481db9d032824d86e7d&amp;type=3#DetailSwitch" />
     <Style src="project://database/Assets/Styles/Components.uss?fileID=7433441132597879392&amp;guid=9832dfd09299b47d2901075e28f92a99&amp;type=3#Components" />
     <Style src="project://database/Assets/Styles/Fonts.uss?fileID=7433441132597879392&amp;guid=46027659cbf7543619a8b0e4a04acfba&amp;type=3#Fonts" />
@@ -12,8 +12,8 @@
             </ui:Button>
         </ui:VisualElement>
         <ui:ScrollView class="detail-container">
-            <ui:VisualElement name="LocationContent">
-                <ui:Label text="Label" display-tooltip-when-elided="true" name="LocationNameLabel" class="h1" style="-unity-text-align: upper-left;" />
+            <ui:VisualElement name="TopicContent">
+                <ui:Label text="Label" display-tooltip-when-elided="true" name="TopicNameLabel" class="h1" style="-unity-text-align: upper-left;" />
                 <ui:Instance template="DetailButtonSwitch" name="DetailButtonSwitch" />
             </ui:VisualElement>
         </ui:ScrollView>

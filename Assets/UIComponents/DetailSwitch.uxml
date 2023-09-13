@@ -12,10 +12,12 @@
         <ui:ListView focusable="true" name="DetailList" fixed-item-height="100" class="card-list" style="display: flex;" />
     </ui:VisualElement>
     <ui:VisualElement name="DetailInfo" class="detail-switch__content">
-        <ui:Label text="Beschreibugng" display-tooltip-when-elided="true" name="HeadlineInfo" class="h2" />
+        <ui:Label text="Beschreibung" display-tooltip-when-elided="true" name="HeadlineInfo" class="h2" />
         <ui:Label text="Label" display-tooltip-when-elided="true" name="InfoText" class="text" style="flex-wrap: wrap; white-space: normal;" />
-        <ui:Label text="Adresse" display-tooltip-when-elided="true" enable-rich-text="false" name="HeadlineAdress" class="h2" />
-        <ui:Label text="Straße" display-tooltip-when-elided="true" name="StreetLabel" class="text" />
-        <ui:Label text="Zip Code" display-tooltip-when-elided="true" name="ZipLabel" class="text" />
+        <ui:VisualElement name="DetailAdress" style="display: none">
+            <ui:Label text="Adresse" display-tooltip-when-elided="true" enable-rich-text="false" name="HeadlineAdress" class="h2" />
+            <ui:Label text="Straße" display-tooltip-when-elided="true" name="StreetLabel" class="text" />
+            <ui:Label text="Zip Code" display-tooltip-when-elided="true" name="ZipLabel" class="text" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

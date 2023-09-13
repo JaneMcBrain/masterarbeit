@@ -21,13 +21,7 @@
       "name": "Bode Museum",
       "image": "Sprites/Locations/bode",
       "info": "Das Bode-Museum im Berliner Ortsteil Mitte gehört zum Bauensemble der Museumsinsel und damit zum Weltkulturerbe der UNESCO. Im Auftrag Kaiser Wilhelms II. von 1898 bis 1904 von Ernst von Ihne im Stil des Neobarock als Kaiser-Friedrich-Museum erbaut, beheimatet es die Skulpturensammlung und das Museum für Byzantinische Kunst sowie das Münzkabinett.[1] Auf dem Vorplatz befand sich das von Rudolf Maison geschaffene Reiterstandbild Friedrichs III., das in der DDR-Zeit zerstört wurde. Im Jahr 2019 verzeichnete das Bode-Museum rund 260.000 Besucher.[2]",
-      "tours": [],
-      "adress": {
-        "street": "",
-        "zip": "",
-        "city": "Berlin",
-        "country": "Deutschland"
-      }
+      "tours": []
     },
     {
       "id": "location3",

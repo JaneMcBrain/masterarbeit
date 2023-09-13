@@ -25,8 +25,6 @@ public class TopicListEntryController
 
     public void SetTopicData(Topic topic)
     {
-        Debug.Log(topic.location);
-        Debug.Log(topic.name);
         NameLabel.text = topic.name;
         ProgressLabel.text = topic.progress + "%";
         string imagePath = topic.image;

@@ -123,6 +123,69 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &239504848
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 239504850}
+  - component: {fileID: 239504849}
+  - component: {fileID: 239504851}
+  m_Layer: 5
+  m_Name: TopicDetail
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &239504849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239504848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 66ad14cfa1a36492abcb73f5d15ad670, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: e53992b2d7ad2484981341e659a511d9,
+    type: 3}
+  m_SortingOrder: 1
+--- !u!4 &239504850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239504848}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &239504851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239504848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bcdc2dc3270f44ec8975c2c1ff55c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LocationDetailPanel: {fileID: 1029350296}
 --- !u!1 &409561789
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +383,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1029350299
 MonoBehaviour:
@@ -464,10 +527,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jsonLocationFile: {fileID: 4900000, guid: b7462cfe5fbd0423486b796d93ba5a56, type: 3}
   jsonTopicFile: {fileID: 4900000, guid: d2cdb23b7cddb47a093df0145f98aeaa, type: 3}
+  jsonTourFile: {fileID: 4900000, guid: 022ba9db3d7114af98aba46204337b8f, type: 3}
   LocationDetailPanel: {fileID: 1029350296}
+  TopicDetailPanel: {fileID: 239504848}
   ListEntryTemplate: {fileID: 9197481963319205126, guid: 831c9b3fe3e2e429db11aec762966562,
     type: 3}
   TopicEntryTemplate: {fileID: 9197481963319205126, guid: 8f6ec9d8198134507b2e8ecb82ef052f,
+    type: 3}
+  TourEntryTemplate: {fileID: 9197481963319205126, guid: 35761c3bd5583416e8c07547e8e2e806,
     type: 3}
 --- !u!1 &1441858408
 GameObject:
@@ -552,7 +619,7 @@ MonoBehaviour:
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: ebd6eb328d7294160844bdcace5bab35,
     type: 3}
-  m_SortingOrder: 1
+  m_SortingOrder: 2
 --- !u!4 &1456920742
 Transform:
   m_ObjectHideFlags: 0

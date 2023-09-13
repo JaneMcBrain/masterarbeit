@@ -8,6 +8,7 @@ public class LocationListController
     // UXML template for list entries
     VisualTreeAsset LocationEntryTemplate;
     VisualTreeAsset TopicEntryTemplate;
+    VisualTreeAsset TourEntryTemplate;
 
     // UI element references
     ListView LocationList;
@@ -15,18 +16,23 @@ public class LocationListController
     VisualElement LocationImage;
     List<Location> AllLocations;
     List<Topic> AllTopics;
+    List<Tour> AllTours;
     GameObject LocationListPanel;
     GameObject LocationDetailPanel;
+    GameObject TopicDetailPanel;
 
-    public void InitializeLocationList(UIDocument uiDocument, VisualTreeAsset listElementTemplate, VisualTreeAsset topicElementTemplate, List<Location> locations, GameObject detailPage, List<Topic> topics)
+    public void InitializeLocationList(UIDocument uiDocument, VisualTreeAsset listElementTemplate, VisualTreeAsset topicElementTemplate, VisualTreeAsset tourElementTemplate, List<Location> locations, GameObject detailPage, List<Topic> topics, GameObject topicDetailPage, List<Tour> tours)
     {
         AllLocations =  locations;
         AllTopics = topics;
+        AllTours = tours;
         var root = uiDocument.rootVisualElement;
         // Save the elements inside the class
         LocationEntryTemplate = listElementTemplate;
         TopicEntryTemplate = topicElementTemplate;
+        TourEntryTemplate = tourElementTemplate;
         LocationDetailPanel = detailPage;
+        TopicDetailPanel = topicDetailPage;
         LocationListPanel = uiDocument.gameObject;
 
         // Get the UXML Elements
@@ -91,8 +97,15 @@ public class LocationListController
         }
         detailUi.Q<VisualElement>("DetailHeader").style.backgroundImage = new StyleBackground(Resources.Load<Sprite>(imagePath));
         detailUi.Q<Label>("InfoText").text = selectedLocation.info;
-        detailUi.Q<Label>("StreetLabel").text = selectedLocation.adress.street;
-        detailUi.Q<Label>("ZipLabel").text = selectedLocation.adress.zip + " " + selectedLocation.adress.city;
+        var topicText = "Themen";
+        detailUi.Q<Label>("HeadlineTour").text = topicText;
+        detailUi.Q<Button>("SwitchTourButton").text = topicText;
+        //check if adress is available
+        if(selectedLocation.adress != null){
+            detailUi.Q<VisualElement>("DetailAdress").AddToClassList("show");
+            detailUi.Q<Label>("StreetLabel").text = selectedLocation.adress.street;
+            detailUi.Q<Label>("ZipLabel").text = selectedLocation.adress.zip + " " + selectedLocation.adress.city;
+        }
 
         //Filter Topics via Location ID
         List<Topic> locationTopics = new List<Topic>();
@@ -108,7 +121,11 @@ public class LocationListController
         topicListController.InitializeTopicList(
             detailUi,
             TopicEntryTemplate,
-            AllTopics
+            locationTopics,
+            LocationDetailPanel,
+            TopicDetailPanel,
+            AllTours,
+            TourEntryTemplate
         );
 
     }

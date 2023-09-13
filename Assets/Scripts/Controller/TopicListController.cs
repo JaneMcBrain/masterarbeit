@@ -2,11 +2,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
+using System;
 
 public class TopicListController
 {
     // UXML template for list entries
     VisualTreeAsset ListEntryTemplate;
+    VisualTreeAsset TourEntryTemplate;
 
     // UI element references
     ListView TopicList;
@@ -14,13 +16,20 @@ public class TopicListController
     Label TopicProgressLabel;
     VisualElement CharPortrait;
     List<Topic> AllTopics;
+    List<Tour> AllTours;
+    GameObject LocationDetailPanel;
+    GameObject TopicDetailPanel;
 
-    public void InitializeTopicList(VisualElement root, VisualTreeAsset listElementTemplate, List<Topic> topics)
+    public void InitializeTopicList(VisualElement root, VisualTreeAsset listElementTemplate, List<Topic> topics, GameObject locationDetailPanel, GameObject topicDetailPanel, List<Tour> tours, VisualTreeAsset tourElementTemplate)
     {
         AllTopics =  topics;
+        AllTours = tours;
 
         // Store a reference to the template for the list entries
         ListEntryTemplate = listElementTemplate;
+        TourEntryTemplate = tourElementTemplate;
+        TopicDetailPanel = topicDetailPanel;
+        LocationDetailPanel = locationDetailPanel;
 
         // Store a reference to the Topic list element
         TopicList = root.Q<ListView>("DetailList");
@@ -72,18 +81,43 @@ public class TopicListController
         TopicList.itemsSource = AllTopics;
     }
 
-     void OnTopicSelected(IEnumerable<object> selectedItems)
+    void OnTopicSelected(IEnumerable<object> selectedItems)
     {
         // Get the currently selected item directly from the ListView
         var selectedTopic = TopicList.selectedItem as Topic;
 
-        // Handle none-selection (Escape to deselect everything)
-        if (selectedTopic == null)
+        // Hide List and show detail panel
+        TopicDetailPanel.SetActive(true);
+
+        //Overwrite the content of DetailView
+        var detailUi = TopicDetailPanel.GetComponent<UIDocument>().rootVisualElement;
+        detailUi.Q<Label>("TopicNameLabel").text = selectedTopic.name;
+        string imagePath = selectedTopic.image;
+        if (imagePath.Length == 0)
         {
-            return;
+            imagePath = "Sprites/Topics/default_tour";
+        }
+        Debug.Log(imagePath);
+        detailUi.Q<VisualElement>("DetailHeader").style.backgroundImage = new StyleBackground(Resources.Load<Sprite>(imagePath));
+        detailUi.Q<Label>("InfoText").text = selectedTopic.info;
+
+        //Filter Tours via Topic ID
+        List<Tour> topicTours = new List<Tour>();
+        foreach (var tour in AllTours)
+        {
+            string availableTopic = Array.Find(tour.topics, t => t == selectedTopic.id);
+            if (availableTopic != null)
+            {
+                topicTours.Add(tour);
+            }
         }
 
-        // Fill in character details
-        SceneManager.LoadScene("InteractionNavi");
+        var tourListController = new TourListController();
+        tourListController.InitializeTourList(
+            detailUi,
+            TourEntryTemplate,
+            topicTours,
+            "DetailList"
+        );
     }
 }
