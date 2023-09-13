@@ -1,8 +1,8 @@
 .container {
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 10%;
-    padding-bottom: 10%;
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-top: 8%;
+    padding-bottom: 8%;
     left: auto;
     top: auto;
     right: auto;
@@ -13,10 +13,10 @@
 }
 
 .detail-container {
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 8%;
+    padding-right: 8%;
     padding-top: 5%;
-    padding-bottom: 10%;
+    padding-bottom: 8%;
     left: auto;
     top: auto;
     right: auto;
@@ -57,8 +57,15 @@
 }
 
 .icon-button-std {
-    width: 64px;
-    height: 64px;
+    width: 100px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-button-std__icon {
+    width: 80%;
+    height: 80%;
 }
 
 .icon-button {
@@ -70,11 +77,11 @@
 
 .footer-icon {
     height: 100%;
-    width: 20%;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    width: 17%;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
     background-color: rgba(188, 188, 188, 0);
 }
 
@@ -86,7 +93,6 @@
 
 .icon-button__icon--info {
     background-image: url('project://database/Assets/Icons/info.png?fileID=2800000&guid=6786ab31598084715a9c71f92cd36e88&type=3#info');
-    -unity-background-scale-mode: scale-to-fit;
 }
 
 .icon-button__icon--info:hover {
@@ -163,6 +169,10 @@
 
 .icon-button__icon--bookmark.is-active {
     background-image: url('project://database/Assets/Icons/bookmark-primary.png?fileID=2800000&guid=ef5d3cf0feadb47a69c5c89c992f348f&type=3#bookmark-primary');
+}
+
+.icon-button__icon--bookmark.is-active {
+    background-color: rgb(194, 223, 255);
 }
 
 .input {
@@ -252,6 +262,6 @@
     border-bottom-right-radius: 50%;
 }
 
-.show{
+.show {
     display: flex;
 }

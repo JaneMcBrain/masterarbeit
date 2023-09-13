@@ -34,19 +34,16 @@ public class FooterHandler : MonoBehaviour
 
     private void OnFooterButtonClicked(string type, Button btn)
     {
-        setPanelActive(type);
-        btn.AddToClassList("is-active");
-    }
-
-    private void setPanelActive(string panel){
         VisualElement result = footer_uiDocument.rootVisualElement.Q(className: "is-active");
-        if(result != null){
+        if (result != null)
+        {
             result.RemoveFromClassList("is-active");
         }
-        StartPanel.SetActive(panel == "start");
-        LocationPanel.SetActive(panel == "location");
-        TourPanel.SetActive(panel == "tour");
-        AccountPanel.SetActive(panel == "account");
-        InfoPanel.SetActive(panel == "info");
+        StartPanel.SetActive(type == "start");
+        LocationPanel.SetActive(type == "location");
+        TourPanel.SetActive(type == "tour");
+        AccountPanel.SetActive(type == "account");
+        InfoPanel.SetActive(type == "info");
+        btn.AddToClassList("is-active");
     }
 }

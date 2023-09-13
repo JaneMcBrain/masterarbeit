@@ -2,9 +2,9 @@
     <Style src="project://database/Assets/Styles/Components.uss?fileID=7433441132597879392&amp;guid=9832dfd09299b47d2901075e28f92a99&amp;type=3#Components" />
     <Style src="project://database/Assets/Styles/Fonts.uss?fileID=7433441132597879392&amp;guid=46027659cbf7543619a8b0e4a04acfba&amp;type=3#Fonts" />
     <ui:VisualElement>
-        <ui:GroupBox name="ButtonGroup" class="detail-switch">
-            <ui:Button text="Touren" display-tooltip-when-elided="true" name="SwitchTourButton" class="button is-active" style="margin-right: 16px;" />
-            <ui:Button text="Infos" display-tooltip-when-elided="true" name="SwitchInfoButton" class="button" />
+        <ui:GroupBox name="ButtonGroup" class="detail-switch" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;">
+            <ui:Button text="Touren" display-tooltip-when-elided="true" name="SwitchTourButton" class="button is-active" style="margin-right: 16px; margin-top: 0; margin-bottom: 0; margin-left: 0;" />
+            <ui:Button text="Infos" display-tooltip-when-elided="true" name="SwitchInfoButton" class="button" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;" />
         </ui:GroupBox>
     </ui:VisualElement>
     <ui:VisualElement name="DetailTours" class="detail-switch__content is-active">
@@ -14,7 +14,7 @@
     <ui:VisualElement name="DetailInfo" class="detail-switch__content">
         <ui:Label text="Beschreibung" display-tooltip-when-elided="true" name="HeadlineInfo" class="h2" />
         <ui:Label text="Label" display-tooltip-when-elided="true" name="InfoText" class="text" style="flex-wrap: wrap; white-space: normal;" />
-        <ui:VisualElement name="DetailAdress" style="display: none">
+        <ui:VisualElement name="DetailAdress" style="display: none;">
             <ui:Label text="Adresse" display-tooltip-when-elided="true" enable-rich-text="false" name="HeadlineAdress" class="h2" />
             <ui:Label text="Straße" display-tooltip-when-elided="true" name="StreetLabel" class="text" />
             <ui:Label text="Zip Code" display-tooltip-when-elided="true" name="ZipLabel" class="text" />
