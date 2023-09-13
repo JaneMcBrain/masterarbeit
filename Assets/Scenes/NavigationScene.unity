@@ -462,9 +462,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f396e53f3a3478793cd5778f386aec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonFile: {fileID: 4900000, guid: b7462cfe5fbd0423486b796d93ba5a56, type: 3}
+  jsonLocationFile: {fileID: 4900000, guid: b7462cfe5fbd0423486b796d93ba5a56, type: 3}
+  jsonTopicFile: {fileID: 4900000, guid: d2cdb23b7cddb47a093df0145f98aeaa, type: 3}
   LocationDetailPanel: {fileID: 1029350296}
   ListEntryTemplate: {fileID: 9197481963319205126, guid: 831c9b3fe3e2e429db11aec762966562,
+    type: 3}
+  TopicEntryTemplate: {fileID: 9197481963319205126, guid: 8f6ec9d8198134507b2e8ecb82ef052f,
     type: 3}
 --- !u!1 &1441858408
 GameObject:

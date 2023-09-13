@@ -5,14 +5,9 @@
       "id": "location1",
       "name": "Humboldt Forum",
       "image": "Sprites/Locations/humbold_forum",
-      "info": "",
+      "info": "Das Humboldt-Forum (Eigenschreibweise Humboldt Forum)[1] im Berliner Schloss ist ein Universalmuseum im Berliner Ortsteil Mitte. Neben dem Ethnologischen Museum und dem Museum für Asiatische Kunst der Staatlichen Museen zu Berlin beheimatet es auch die Berlin-Ausstellung des Stadtmuseums Berlin und das Humboldt-Labor der Humboldt-Universität zu Berlin. Außerdem finden in der von der Stiftung Humboldt Forum im Berliner Schloss getragenen Einrichtung begleitende Veranstaltungen, Ausstellungen und Führungen statt. Wegen der COVID-19-Pandemie wurde es am 16. Dezember 2020 zuerst nur digital, am 20. Juli 2021 dann auch allgemein eröffnet. Im Jahr 2022 verzeichnete das Humboldt Forum 1,5 Millionen Besucher.",
       "tours": [
-        {
-        "id": "tour5",
-        "name": "Zukunft entdecken",
-        "image": "",
-        "info": ""
-        }
+        "tour5"
       ],
       "adress": {
         "street": "Schloßplatz 1",
@@ -25,7 +20,7 @@
       "id": "location2",
       "name": "Bode Museum",
       "image": "Sprites/Locations/bode",
-      "info": "Lorem Ipsum",
+      "info": "Das Bode-Museum im Berliner Ortsteil Mitte gehört zum Bauensemble der Museumsinsel und damit zum Weltkulturerbe der UNESCO. Im Auftrag Kaiser Wilhelms II. von 1898 bis 1904 von Ernst von Ihne im Stil des Neobarock als Kaiser-Friedrich-Museum erbaut, beheimatet es die Skulpturensammlung und das Museum für Byzantinische Kunst sowie das Münzkabinett.[1] Auf dem Vorplatz befand sich das von Rudolf Maison geschaffene Reiterstandbild Friedrichs III., das in der DDR-Zeit zerstört wurde. Im Jahr 2019 verzeichnete das Bode-Museum rund 260.000 Besucher.[2]",
       "tours": [],
       "adress": {
         "street": "",
@@ -38,46 +33,14 @@
       "id": "location3",
       "name": "Alte Nationalgalerie",
       "image": "Sprites/Locations/nationalgalerie",
-      "info": "",
+      "info": "Die Alte Nationalgalerie im Berliner Ortsteil Mitte gehört zum Bauensemble der Museumsinsel und damit zum Weltkulturerbe der UNESCO. Im Auftrag König Friedrich Wilhelms IV. ab 1862 von Friedrich August Stüler geplant, wurde sie bis 1876 von Johann Heinrich Strack im Stil des Klassizismus und der Neorenaissance ausgeführt. Aktuell beheimatet sie Gemälde und Skulpturen des 19. Jahrhunderts aus der Sammlung der Nationalgalerie.[1] Auf der Freitreppe befindet sich das von Alexander Calandrelli geschaffene Reiterstandbild Friedrich Wilhelms IV. Im Jahr 2019 verzeichnete die Alte Nationalgalerie 376.000 Besucher.",
       "topics": [
         {"id": "menzel1", "label": "Adolf Menzel", "image": ""},
         {"id": "realismus1", "label": "Realismus in Berlin", "image": ""},
         {"id": "realismus2", "label": "Realismus entdecken", "image": ""},
         {"id": "frauen1", "label": "Frauen im 1900 Jahrhundert", "image": ""}
       ],
-      "tours": [
-        {
-          "id": "tour1",
-          "topcis": ["menzel1", "realismus1", "realismus2"],
-          "name": "Das Leben von Adolf Menzel",
-          "image": "",
-          "info": ""
-        },
-        {
-          "id": "tour2",
-          "locationId:": "location3",
-          "name": "Malerische Entwicklungen",
-          "topcis": ["menzel1"],
-          "image": "",
-          "info": ""
-        },
-        {
-          "id": "tour3",
-          "locationId:": "location3",
-          "name": "Wichtige Werke des Realismus",
-          "topcis": ["menzel1", "realismus1"],
-          "image": "",
-          "info": ""
-        },
-        {
-          "id": "tour4",
-          "locationId:": "location3",
-          "name": "Menzel und Friedich II",
-          "topcis": ["menzel1", "realismus2"],
-          "image": "",
-          "info": ""
-        }
-      ],
+      "tours": ["tour1", "tour2", "tour3", "tour4"],
       "adress": {
         "street": "",
         "zip": "",
@@ -89,7 +52,7 @@
       "id": "location4",
       "name": "Pergamont Museum",
       "image": "Sprites/Locations/pergamont",
-      "info": "",
+      "info": "Das Pergamonmuseum im Berliner Ortsteil Mitte gehört zum Bauensemble der Museumsinsel und damit zum Weltkulturerbe der UNESCO. Im Auftrag Kaiser Wilhelms II. von 1907 bis 1909 von Alfred Messel im Stil des Neoklassizismus geplant, wurde es 1910 bis 1930 von Ludwig Hoffmann in vereinfachter Form ausgeführt. Zurzeit beheimatet es die Antikensammlung mit dem berühmten Pergamonaltar, das Vorderasiatische Museum und das Museum für Islamische Kunst.[1] Im Rahmen des Masterplans Museumsinsel wird das Pergamonmuseum bis 2023 saniert und ist dabei teilweise geschlossen. Ab Oktober 2023 wird das Museum „wegen umfassender Sanierungsarbeiten“ für etwa vier Jahre komplett geschlossen.",
       "tours": [],
       "adress": {
         "street": "",
@@ -102,7 +65,7 @@
       "id": "location5",
       "name": "Museum für Kommunikation",
       "image": "Sprites/Locations/kommunikations_museum",
-      "info": "",
+      "info": "Das Museum für Kommunikation Berlin ist einer von mehreren Standorten der Museumsstiftung Post und Telekommunikation, einer bundesunmittelbaren Stiftung öffentlichen Rechts. Es befindet sich im Berliner Ortsteil Mitte im Gebäude des früheren Reichspostmuseums an der Leipziger Straße/Ecke Mauerstraße. Seit 1977 steht das Gebäude unter Denkmalschutz.",
       "tours": [],
       "adress": {
         "street": "Leipziger Straße 16",
@@ -115,7 +78,7 @@
       "id": "location6",
       "name": "Museum Ludwig",
       "image": "",
-      "info": "",
+      "info": "Das Museum Ludwig ist ein Museum der Stadt Köln für die Kunst des 20. und 21. Jahrhunderts und zählt heute zu den bedeutendsten Kunstmuseen Europas. Das unmittelbar südöstlich des Kölner Doms und des Hauptbahnhofs auf der Domplatte gelegene Museum beherbergt neben der größten Pop-Art-Sammlung Europas die drittgrößte Picasso-Sammlung der Welt, eine der wichtigsten Sammlungen zum deutschen Expressionismus, Schlüsselwerke der russischen Avantgarde und eine Sammlung zur Geschichte der Fotografie[1] mit ca. 70.000 Werken.[2] Das Museum verfügt über eine Ausstellungsfläche von rund 8.000 m². Im selben Gebäude befinden sich zudem die Kölner Philharmonie, die Kunst- und Museumsbibliothek der Stadt Köln und das Filmforum NRW.",
       "tours": [],
       "adress": {
         "street": "Heinrich-Böll-Platz",
@@ -128,7 +91,7 @@
       "id": "location7",
       "name": "Hamburger Kunsthalle",
       "image": "",
-      "info": "Großes Kunstmuseum in 3 Gebäuden",
+      "info": "Die Hamburger Kunsthalle beheimatet im Zentrum von Hamburg auf mehr als 13.000 Quadratmeter Ausstellungs- und Veranstaltungsfläche eine der wichtigsten öffentlichen Kunstsammlungen Deutschlands. Die Sammlung erstreckt sich über acht Jahrhunderte vom Mittelalter bis zur Gegenwart. Traditionell liegt ein Schwerpunkt auf der Kunst des 19. Jahrhunderts. Daneben gibt es eigene Abteilungen für die Alten Meister und die Klassische Moderne. Der modernen und zeitgenössischen Kunst ist ein separater Gebäudekomplex gewidmet. Das Kupferstichkabinett[1] der Kunsthalle umfasst über 130.000 Blätter und die Bibliothek[2] enthält mehr als 175.000 Bände, darunter ca. 3000 illustrierte Bücher und Künstlerbücher. Zahlreiche Exemplare aus den Beständen können in den Studien- bzw. Lesesälen vor Ort eingesehen werden. Große Teile der Sammlung sind digitalisiert und im Internet zugänglich. Die „Sammlung online“[3] umfasst knapp 70.000 Werke, darunter mehr als 57.000 Zeichnungen und Druckgraphiken aus dem Kupferstichkabinett und der Bibliothek sowie alle aktuell in der Kunsthalle ausgestellten Gemälde, Skulpturen, Fotografien und Grafiken.",
       "tours": [],
       "adress": {
         "street": "Glockengießerwall 5",
@@ -141,7 +104,7 @@
       "id": "location8",
       "name": "Museum der Bildenen Künste Leipzig",
       "image": "",
-      "info": "",
+      "info": "Das Museum der bildenden Künste Leipzig (abgekürzt MdbK; umgangssprachlich Bildermuseum[2][3]) in Leipzig ist ein deutsches Kunstmuseum. Es wurde 1848 als Initiative der Bürgerschaft zunächst in der Leipziger Bürgerschule als erstes Interim eingerichtet. Von 1858 bis 1943 war das Bildermuseum in einem eigenen Sammlungsgebäude am Augustusplatz untergebracht. Nach einer weiteren Interimszeit von 1945 bis 2003 befinden sich die Museumsbestände seit 2004 im Museumsneubau in der Katharinenstraße. Mit über 10.000 m2 Ausstellungsfläche zählt es zu den größten Ausstellungshäusern Deutschlands. Träger des Museums ist die Stadt Leipzig.",
       "tours": [],
       "adress": {
         "street": "Katharinenstraße 10",

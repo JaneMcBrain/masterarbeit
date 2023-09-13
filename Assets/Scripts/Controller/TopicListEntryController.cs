@@ -2,20 +2,20 @@ using UnityEngine.UIElements;
 using UnityEditor;
 using UnityEngine;
 
-public class TourListEntryController
+public class TopicListEntryController
 {
     Label NameLabel;
     Label ProgressLabel;
-    VisualElement TourImage;
+    VisualElement TopicImage;
 
     //This function retrieves a reference to the 
     //character name label inside the UI element.
 
     public void SetVisualElement(VisualElement visualElement)
     {
-        NameLabel = visualElement.Q<Label>("TourName");
-        ProgressLabel = visualElement.Q<Label>("TourProgress");
-        TourImage = visualElement.Q<VisualElement>("TourImage");
+        NameLabel = visualElement.Q<Label>("TopicName");
+        ProgressLabel = visualElement.Q<Label>("TopicProgress");
+        TopicImage = visualElement.Q<VisualElement>("TopicImage");
     }
 
     //This function receives the character whose name this list 
@@ -23,14 +23,16 @@ public class TourListEntryController
     //in a `ListView` are pooled and reused, it's necessary to 
     //have a `Set` function to change which character's data to display.
 
-    public void SetTourData(Tour tour)
+    public void SetTopicData(Topic topic)
     {
-        NameLabel.text = tour.name;
-        ProgressLabel.text = tour.progress + "%";
-        string imagePath = tour.image;
+        Debug.Log(topic.location);
+        Debug.Log(topic.name);
+        NameLabel.text = topic.name;
+        ProgressLabel.text = topic.progress + "%";
+        string imagePath = topic.image;
         if (imagePath.Length > 0)
         {
-            TourImage.style.backgroundImage = new StyleBackground(Resources.Load<Sprite>(imagePath));
+            TopicImage.style.backgroundImage = new StyleBackground(Resources.Load<Sprite>(imagePath));
         }
     }
 }

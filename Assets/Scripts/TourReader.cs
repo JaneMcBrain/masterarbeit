@@ -9,6 +9,18 @@ public class Tours
     public List<Tour> tours;
 }
 
+[System.Serializable]
+public class Tour
+{
+    public string id;
+    public string location;
+    public string[] topcis;
+    public string name;
+    public string image;
+    public string info;
+    public string progress;
+}
+
 public class TourReader : MonoBehaviour
 {
     public TextAsset jsonFile;

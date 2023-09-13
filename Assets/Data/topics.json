@@ -1,47 +1,43 @@
 {
-  "tours": [
+  "topics": [
     {
-      "id": "tour1",
+      "id": "menzel1",
       "location": "location3",
-      "topics": ["menzel1", "realismus1", "realismus2"],
-      "name": "Das Leben von Adolf Menzel",
+      "name": "Adolf Menzel - ein Portrait",
       "image": "Sprites/Tours/adolph",
       "info": "",
-      "progress": "23"
+      "progress": "0"
     },
     {
-      "id": "tour2",
+      "id": "realismus1",
       "location": "location3",
       "name": "Malerische Entwicklungen",
-      "topics": ["menzel1"],
       "image": "Sprites/Tours/menzel_entwicklung",
       "info": "Lorem",
       "progress": "0"
     },
     {
-      "id": "tour3",
+      "id": "realismus2",
       "location": "location3",
       "name": "Wichtige Werke des Realismus",
-      "topics": ["menzel1", "realismus1"],
       "image": "Sprites/Tours/realismus",
       "info": "Lorem",
       "progress": "0"
     },
     {
-      "id": "tour4",
+      "id": "women",
       "location": "location3",
-      "name": "Menzel und Friedich II",
-      "topics": ["menzel1", "realismus2"],
-      "image": "Sprites/Tours/floetenkonzert",
+      "name": "Frauen in der Kunst",
+      "image": "",
       "info": "Lipsum",
-      "progress": "67"
+      "progress": "0"
     },
     {
-      "id": "tour5",
+      "id": "future",
       "location": "location1",
-      "name": "Zukunft entdecken",
+      "name": "Zukunftsvisionen",
       "image": "Sprites/Tours/future",
-      "info": "",
+      "info": "Lipsum",
       "progress": "0"
     }
   ]

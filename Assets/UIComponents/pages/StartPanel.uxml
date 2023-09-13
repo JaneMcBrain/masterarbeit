@@ -3,7 +3,7 @@
     <Style src="project://database/Assets/Styles/Fonts.uss?fileID=7433441132597879392&amp;guid=46027659cbf7543619a8b0e4a04acfba&amp;type=3#Fonts" />
     <ui:ScrollView class="container">
         <ui:Label text="Willkommen, User!" display-tooltip-when-elided="true" class="h1" />
-        <ui:Label text="Bereiche" display-tooltip-when-elided="true" class="h1 h2" />
+        <ui:Label text="Bereiche" display-tooltip-when-elided="true" class="h2" />
         <ui:Button display-tooltip-when-elided="true" enable-rich-text="true" name="LocationButton" class="button" style="margin-bottom: 24px;">
             <ui:Label text="ORTE ENTDECKEN" display-tooltip-when-elided="true" style="-unity-text-align: middle-left;" />
             <ui:VisualElement class="button__icon" style="background-image: url(&apos;project://database/Assets/Icons/locations.png?fileID=2800000&amp;guid=3f8f2dab7e1cc49088becd35a5d2746a&amp;type=3#locations&apos;); -unity-background-scale-mode: scale-to-fit;" />

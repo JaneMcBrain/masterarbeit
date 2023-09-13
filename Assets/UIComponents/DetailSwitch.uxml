@@ -1,10 +1,21 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Styles/Components.uss?fileID=7433441132597879392&amp;guid=9832dfd09299b47d2901075e28f92a99&amp;type=3#Components" />
+    <Style src="project://database/Assets/Styles/Fonts.uss?fileID=7433441132597879392&amp;guid=46027659cbf7543619a8b0e4a04acfba&amp;type=3#Fonts" />
     <ui:VisualElement>
         <ui:GroupBox name="ButtonGroup" class="detail-switch">
             <ui:Button text="Touren" display-tooltip-when-elided="true" name="SwitchTourButton" class="button is-active" style="margin-right: 16px;" />
             <ui:Button text="Infos" display-tooltip-when-elided="true" name="SwitchInfoButton" class="button" />
         </ui:GroupBox>
     </ui:VisualElement>
-    <ui:VisualElement name="DetailBox" style="width: 100%; height: 100%;" />
+    <ui:VisualElement name="DetailTours" class="detail-switch__content is-active">
+        <ui:Label text="Touren" display-tooltip-when-elided="true" name="HeadlineTour" class="h2" />
+        <ui:ListView focusable="true" name="DetailList" fixed-item-height="100" class="card-list" style="display: flex;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="DetailInfo" class="detail-switch__content">
+        <ui:Label text="Beschreibugng" display-tooltip-when-elided="true" name="HeadlineInfo" class="h2" />
+        <ui:Label text="Label" display-tooltip-when-elided="true" name="InfoText" class="text" style="flex-wrap: wrap; white-space: normal;" />
+        <ui:Label text="Adresse" display-tooltip-when-elided="true" enable-rich-text="false" name="HeadlineAdress" class="h2" />
+        <ui:Label text="Straße" display-tooltip-when-elided="true" name="StreetLabel" class="text" />
+        <ui:Label text="Zip Code" display-tooltip-when-elided="true" name="ZipLabel" class="text" />
+    </ui:VisualElement>
 </ui:UXML>

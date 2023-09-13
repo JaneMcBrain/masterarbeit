@@ -2,10 +2,10 @@
     <Style src="project://database/Assets/Styles/Fonts.uss?fileID=7433441132597879392&amp;guid=46027659cbf7543619a8b0e4a04acfba&amp;type=3#Fonts" />
     <Style src="project://database/Assets/Styles/Components.uss?fileID=7433441132597879392&amp;guid=9832dfd09299b47d2901075e28f92a99&amp;type=3#Components" />
     <ui:VisualElement class="card-list-item">
-        <ui:VisualElement name="TourImage" class="card-list-item__image card-list-item__image--location" />
+        <ui:VisualElement name="TopicImage" class="card-list-item__image card-list-item__image--location"/>
         <ui:VisualElement name="TextBox" class="card-list-item__text">
-            <ui:Label text="Label" display-tooltip-when-elided="true" name="TourName" class="h4" style="margin-bottom: 10px;" />
-            <ui:Label text="Label" display-tooltip-when-elided="true" name="TourProgress" class="text" />
+            <ui:Label text="Label" display-tooltip-when-elided="true" name="TopicName" class="h4" style="margin-bottom: 10px;" />
+            <ui:Label text="Label" display-tooltip-when-elided="true" name="TopicProgress" class="text" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

@@ -6,24 +6,26 @@ using System;
 public class LocationListController
 {
     // UXML template for list entries
-    VisualTreeAsset ListEntryTemplate;
+    VisualTreeAsset LocationEntryTemplate;
+    VisualTreeAsset TopicEntryTemplate;
 
     // UI element references
     ListView LocationList;
     Label LocationNameLabel;
-    Label LocationTourLabel;
     VisualElement LocationImage;
     List<Location> AllLocations;
+    List<Topic> AllTopics;
     GameObject LocationListPanel;
     GameObject LocationDetailPanel;
 
-
-    public void InitializeLocationList(UIDocument uiDocument, VisualTreeAsset listElementTemplate, List<Location> locations, GameObject detailPage)
+    public void InitializeLocationList(UIDocument uiDocument, VisualTreeAsset listElementTemplate, VisualTreeAsset topicElementTemplate, List<Location> locations, GameObject detailPage, List<Topic> topics)
     {
         AllLocations =  locations;
+        AllTopics = topics;
         var root = uiDocument.rootVisualElement;
         // Save the elements inside the class
-        ListEntryTemplate = listElementTemplate;
+        LocationEntryTemplate = listElementTemplate;
+        TopicEntryTemplate = topicElementTemplate;
         LocationDetailPanel = detailPage;
         LocationListPanel = uiDocument.gameObject;
 
@@ -42,7 +44,7 @@ public class LocationListController
         LocationList.makeItem = () =>
         {
             // Instantiate the UXML template for the entry
-            var newListEntry = ListEntryTemplate.Instantiate();
+            var newListEntry = LocationEntryTemplate.Instantiate();
 
             // Instantiate a controller for the data
             var newListEntryLogic = new LocationListEntryController();
@@ -88,5 +90,26 @@ public class LocationListController
             imagePath = "Sprites/Locations/default_location";
         }
         detailUi.Q<VisualElement>("DetailHeader").style.backgroundImage = new StyleBackground(Resources.Load<Sprite>(imagePath));
+        detailUi.Q<Label>("InfoText").text = selectedLocation.info;
+        detailUi.Q<Label>("StreetLabel").text = selectedLocation.adress.street;
+        detailUi.Q<Label>("ZipLabel").text = selectedLocation.adress.zip + " " + selectedLocation.adress.city;
+
+        //Filter Topics via Location ID
+        List<Topic> locationTopics = new List<Topic>();
+        foreach (var topic in AllTopics)
+        {
+            if (topic.location == selectedLocation.id)
+            {
+                locationTopics.Add(topic);
+            }
+        }
+
+        var topicListController = new TopicListController();
+        topicListController.InitializeTopicList(
+            detailUi,
+            TopicEntryTemplate,
+            AllTopics
+        );
+
     }
 }
