@@ -262,6 +262,10 @@
     border-bottom-right-radius: 50%;
 }
 
+.detail-adress{
+    display: none;
+}
+
 .show {
     display: flex;
 }

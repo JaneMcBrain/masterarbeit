@@ -14,7 +14,7 @@
     <ui:VisualElement name="DetailInfo" class="detail-switch__content">
         <ui:Label text="Beschreibung" display-tooltip-when-elided="true" name="HeadlineInfo" class="h2" />
         <ui:Label text="Label" display-tooltip-when-elided="true" name="InfoText" class="text" style="flex-wrap: wrap; white-space: normal;" />
-        <ui:VisualElement name="DetailAdress" style="display: none;">
+        <ui:VisualElement name="DetailAdress" class="detail-adress">
             <ui:Label text="Adresse" display-tooltip-when-elided="true" enable-rich-text="false" name="HeadlineAdress" class="h2" />
             <ui:Label text="Straße" display-tooltip-when-elided="true" name="StreetLabel" class="text" />
             <ui:Label text="Zip Code" display-tooltip-when-elided="true" name="ZipLabel" class="text" />
