@@ -1612,7 +1612,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _trackedImageManager: {fileID: 0}
-  _prefabToSpawn: {fileID: 5217220916116369918, guid: d38c0884363c62c41a5e2cbe59e90015,
+  ArObjects:
+  - {fileID: 8551207803429365444, guid: 1c7d467d944664776ae13bcc50374a58, type: 3}
+  - {fileID: 7622723571886652043, guid: a0104894e0ba0490486d6918f88a7986, type: 3}
+  - {fileID: 6109093877557457640, guid: 8862ddafaf8294f7c86a64c6cf4692c0, type: 3}
+  CorrectImage: {fileID: 5676414450090055686, guid: a9ce9e0e9240c4e2081a9b4470780fcc,
+    type: 3}
+  WrongImage: {fileID: 7369332860444814923, guid: 49e115394751f4f3391bcc318629351f,
+    type: 3}
+  _prefabToSpawn: {fileID: 447022402011426670, guid: 7445cf6f009374c75ada93e951cb1fe2,
     type: 3}
 --- !u!1 &1810740301
 GameObject:

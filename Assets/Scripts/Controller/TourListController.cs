@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
+using SaveLoadSystem;
 
 public class TourListController
 {
@@ -10,8 +11,6 @@ public class TourListController
 
     // UI element references
     ListView TourList;
-    Label TourNameLabel;
-    Label TourProgressLabel;
     VisualElement CharPortrait;
     List<Tour> AllTours;
 
@@ -25,14 +24,7 @@ public class TourListController
         // Store a reference to the Tour list element
         TourList = root.Q<ListView>(listName);
 
-        // Store references to the selected character info elements
-        TourNameLabel = root.Q<Label>("TourName");
-        TourProgressLabel = root.Q<Label>("TourTours");
-
         FillTourList();
-
-        // Register to get a callback when an item is selected
-        //TourList.onSelectionChange += OnTourSelected;
     }
 
     void FillTourList()
@@ -83,7 +75,9 @@ public class TourListController
             return;
         }
 
-        // Fill in character details
+        SaveGameManager.LoadState();
+        SaveGameManager.CurrentSaveData.currentTour = selectedTour.id;
+        SaveGameManager.SaveState();
         SceneManager.LoadScene("InteractionNavi");
     }
 }

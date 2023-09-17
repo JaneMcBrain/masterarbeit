@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Styles/Components.uss?fileID=7433441132597879392&amp;guid=9832dfd09299b47d2901075e28f92a99&amp;type=3#Components" />
+    <ui:Button display-tooltip-when-elided="true" name="BackButton" class="icon-button-std icon-button circle">
+        <ui:VisualElement class="icon-button-std__icon icon-button__icon icon-button__icon--back" />
+    </ui:Button>
+</ui:UXML>

@@ -7,7 +7,24 @@
       "name": "Das Leben von Adolf Menzel",
       "image": "Sprites/Tours/adolph",
       "info": "",
-      "progress": "23"
+      "progress": "23",
+      "exercises": [
+        {
+          "id": "tour1_exercise1",
+          "name": "Bilder zerschneiden",
+          "text": "Das erste Gemälde diente einst als Zielscheibe in einem Schützenverein.\nFinde ein Gemälde mit zwei Vögeln."
+        },
+        {
+          "id": "tour1_exercise2",
+          "name": "Kunststil ändern",
+          "text": "Finde den Sohn von Johann Sebastian Back, welcher an einem Cembalo sitzend nicht so viel von den musikalischen Künsten seines Arbeitgebers hält."
+        },
+        {
+          "id": "tour1_exercise3",
+          "name": "Objekte im Bild ersetzen",
+          "text": "Finde die Parade auf dem Opernplatz in Berlin."
+        }
+      ]
     },
     {
       "id": "tour2",
