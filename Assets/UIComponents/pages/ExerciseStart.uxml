@@ -3,7 +3,7 @@
     <Style src="project://database/Assets/Styles/Components.uss?fileID=7433441132597879392&amp;guid=9832dfd09299b47d2901075e28f92a99&amp;type=3#Components" />
     <Style src="project://database/Assets/Styles/Fonts.uss?fileID=7433441132597879392&amp;guid=46027659cbf7543619a8b0e4a04acfba&amp;type=3#Fonts" />
     <ui:VisualElement style="flex-wrap: wrap; align-items: flex-start; justify-content: flex-start; background-color: rgb(233, 233, 233); height: 100%;">
-        <ui:VisualElement class="container" style="flex-direction: column; flex-wrap: wrap; height: 100%; justify-content: center; align-items: center;">
+        <ui:VisualElement class="container app-bg" style="flex-direction: column; flex-wrap: wrap; height: 100%; justify-content: center; align-items: center;">
             <ui:Label name="ExerciseText" text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren," display-tooltip-when-elided="true" class="h1" style="-unity-text-align: upper-center; -unity-paragraph-spacing: 20px; word-spacing: 20px;" />
             <ui:Button name="ExerciseStartButton" text="Start" display-tooltip-when-elided="true" class="button" style="width: 300px;" />
         </ui:VisualElement>

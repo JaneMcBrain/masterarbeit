@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="BackButton" src="project://database/Assets/UIComponents/BackButton.uxml?fileID=9197481963319205126&amp;guid=8115715deeb9b4533a7edd23683b9794&amp;type=3#BackButton" />
+    <Style src="project://database/Assets/Styles/Components.uss?fileID=7433441132597879392&amp;guid=9832dfd09299b47d2901075e28f92a99&amp;type=3#Components" />
+    <Style src="project://database/Assets/Styles/Fonts.uss?fileID=7433441132597879392&amp;guid=46027659cbf7543619a8b0e4a04acfba&amp;type=3#Fonts" />
+    <ui:VisualElement class="container">
+        <ui:Instance template="BackButton" name="BackButton" />
+        <ui:VisualElement name="ScanFooter" style="position: absolute; left: 0; right: 0; bottom: 0; background-color: rgb(255, 255, 255); border-top-left-radius: 30px; border-top-right-radius: 30px; padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 50px;">
+            <ui:VisualElement name="FooterInfoToggle" style="flex-direction: row; align-items: center; justify-content: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;">
+                <ui:VisualElement style="width: 48px; height: 48px; background-image: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=3316425174430470091&amp;guid=16cba54ae354f49d0988f2b61cb8b1c5&amp;type=3#arrow-up@2x&apos;); -unity-background-image-tint-color: rgb(132, 132, 132); -unity-background-scale-mode: stretch-to-fill;" />
+                <ui:Label text="INFO" display-tooltip-when-elided="true" class="text" style="color: rgb(132, 132, 132);" />
+            </ui:VisualElement>
+            <ui:Label text="Scanne die Umgebung mit deiner Kamera und finde das richtige Gemälde von Adolf Menzel. Klicke &quot;Back&quot;, um die Aufgabe erneut zu lesen." display-tooltip-when-elided="true" name="FooterInfoText" class="text hidden" style="margin-top: 32px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using UnityEngine.SceneManagement;
+using SaveLoadSystem;
 
 public class DetectImageTracker : MonoBehaviour
 {
@@ -26,7 +27,8 @@ public class DetectImageTracker : MonoBehaviour
     private void OnDisable() => _trackedImageManager.trackedImagesChanged -= OnTrackedImagesChanged;
 
     private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs)
-    {
+    {   var searchedImage = SaveGameManager.CurrentSaveData.currentExercise.image;
+        //this is to add the artwork on top
         foreach (ARTrackedImage trackedImage in eventArgs.added){
             var artworkName = trackedImage.referenceImage.name;
             foreach (var currentObject in ArObjects)
@@ -40,25 +42,38 @@ public class DetectImageTracker : MonoBehaviour
         }
 
         foreach(var trackedImage in eventArgs.updated){
-            //here we need to track the current object that we are searching
-            //name must fit to image
-            if(trackedImage.trackingState == TrackingState.Tracking && trackedImage.referenceImage.name == "voegel")
+            var trackImageName = trackedImage.referenceImage.name;
+            //check if trackedImages is tracked && is the correct artwork
+            if (trackedImage.trackingState == TrackingState.Tracking && trackImageName == searchedImage)
             {
+                //if artwork is correct
                 var newArObj = Instantiate(CorrectImage, trackedImage.transform);
-                if(!_instantiatedFeedback.ContainsKey("right")){
-                    _instantiatedFeedback["right"] = newArObj;
-                    newArObj.SetActive(true);
+                var keyRight = "right_" + trackImageName;
+                if (!_instantiatedFeedback.ContainsKey(keyRight)){
+                    _instantiatedFeedback[keyRight] = newArObj;
+                    _instantiatedFeedback[keyRight].SetActive(true);
                 }
             }
-            _instantiatedArtworks[trackedImage.referenceImage.name].SetActive(trackedImage.trackingState == TrackingState.Tracking);
+            if (trackedImage.trackingState == TrackingState.Tracking && trackImageName != searchedImage)
+            {
+                var newArObj = Instantiate(WrongImage, trackedImage.transform);
+                var keyWrong = "wrong_" + trackImageName;
+                if (!_instantiatedFeedback.ContainsKey(keyWrong))
+                {
+                    _instantiatedFeedback[keyWrong] = newArObj;
+                    _instantiatedFeedback[keyWrong].SetActive(true);
+                }
+            }
+            //Adds Artwork as well
+            //_instantiatedArtworks[trackedImage.referenceImage.name].SetActive(trackedImage.trackingState == TrackingState.Tracking);
         }
-
+        //reset everything on remove
         foreach (var trackedImage in eventArgs.removed)
         {
             Destroy(_instantiatedArtworks[trackedImage.referenceImage.name]);
-            Destroy(_instantiatedFeedback["right"]);
+            Destroy(_instantiatedFeedback["right_" + trackedImage.referenceImage.name]);
             _instantiatedArtworks.Remove(trackedImage.referenceImage.name);
-            _instantiatedFeedback.Remove("right");
+            _instantiatedFeedback.Remove("right_" + trackedImage.referenceImage.name);
         }
     }
 

@@ -14,6 +14,11 @@ public class ExerciseTextStart : MonoBehaviour
         //get the active Exercise from GameManager
         exerciseTextUi.Q<Label>("ExerciseText").text = SaveGameManager.CurrentSaveData.currentExercise.text;
         exerciseTextUi.Q<Button>("ExerciseStartButton").clicked += () => SceneManager.LoadScene("ScanScene");
-        exerciseTextUi.Q<Button>("BackButton").clicked += () => gameObject.SetActive(false);
+        exerciseTextUi.Q<Button>("BackButton").clicked += () => onBackClick();
+    }
+
+    void onBackClick(){
+        SaveGameManager.CurrentSaveData.currentExercise = null;
+        gameObject.SetActive(false);
     }
 }

@@ -7,9 +7,12 @@
     top: auto;
     right: auto;
     bottom: auto;
-    background-color: rgb(233, 233, 233);
     position: relative;
     height: 100%;
+}
+
+.app-bg {
+    background-color: rgb(233, 233, 233);
 }
 
 .detail-container {
@@ -83,11 +86,12 @@
 .footer-icon {
     height: 100%;
     width: 17%;
-    padding-left: 1.5%;
-    padding-right: 1.5%;
-    padding-top: 1.5%;
-    padding-bottom: 1.5%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
     background-color: rgba(188, 188, 188, 0);
+    max-height: 84%;
 }
 
 .icon-button__icon {
@@ -269,4 +273,8 @@
 
 .show {
     display: flex;
+}
+
+.hidden {
+    display: none;
 }

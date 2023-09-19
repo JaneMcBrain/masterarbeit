@@ -4,4 +4,6 @@ public class Exercise
   public string id;
   public string name;
   public string text;
+  public string image;
+  public bool active;
 }
