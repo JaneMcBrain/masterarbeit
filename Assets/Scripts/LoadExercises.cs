@@ -15,12 +15,12 @@ public class LoadExercises : MonoBehaviour
     void OnEnable()
     {
 
-        if(SaveGameManager.CurrentSaveData.currentExercise != null){
+        if(SaveGameManager.CurrentActivityData.currentExercise != null){
             ExerciseTextView.SetActive(true);
         }
         Tours toursInJson = JsonUtility.FromJson<Tours>(jsonFile.text);
         //get selected Tour
-        var tourId = SaveGameManager.CurrentSaveData.currentTour;
+        var tourId = SaveGameManager.CurrentActivityData.currentTour;
         //Filter Tours via Topic ID
         List<Exercise> tourExercises = new List<Exercise>();
         Tour selectedTour = toursInJson.tours.Find(t => t.id.Contains(tourId) );

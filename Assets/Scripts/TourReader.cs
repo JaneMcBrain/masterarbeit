@@ -12,11 +12,7 @@ public class TourReader : MonoBehaviour
     void OnEnable()
     {
         Tours toursInJson = JsonUtility.FromJson<Tours>(jsonFile.text);
-
-        // The UXML is already instantiated by the UIDocument component
         var uiDocument = GetComponent<UIDocument>();
-
-        // Initialize the character list controller
         var tourListController = new TourListController();
         tourListController.InitializeTourList(uiDocument.rootVisualElement, ListEntryTemplate, toursInJson.tours, "TourList");
     }

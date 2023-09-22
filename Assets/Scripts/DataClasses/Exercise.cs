@@ -5,5 +5,4 @@ public class Exercise
   public string name;
   public string text;
   public string image;
-  public bool active;
 }

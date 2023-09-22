@@ -26,8 +26,8 @@ public class DetectImageTracker : MonoBehaviour
 
     private void OnDisable() => _trackedImageManager.trackedImagesChanged -= OnTrackedImagesChanged;
 
-    private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs)
-    {   var searchedImage = SaveGameManager.CurrentSaveData.currentExercise.image;
+    private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs){
+        var searchedImage = SaveGameManager.CurrentActivityData.currentExercise.image;
         //this is to add the artwork on top
         foreach (ARTrackedImage trackedImage in eventArgs.added){
             var artworkName = trackedImage.referenceImage.name;

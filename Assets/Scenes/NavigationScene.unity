@@ -546,6 +546,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1441858410}
   - component: {fileID: 1441858409}
+  - component: {fileID: 1441858411}
   m_Layer: 5
   m_Name: AccountContent
   m_TagString: Untagged
@@ -585,6 +586,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1441858411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441858408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f368375a286149c0ad6827a5312e432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jsonFile: {fileID: 4900000, guid: 022ba9db3d7114af98aba46204337b8f, type: 3}
+  ListEntryTemplate: {fileID: 9197481963319205126, guid: 35761c3bd5583416e8c07547e8e2e806,
+    type: 3}
 --- !u!1 &1456920740
 GameObject:
   m_ObjectHideFlags: 0

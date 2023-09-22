@@ -76,7 +76,7 @@ public class TourListController
         }
 
         SaveGameManager.LoadState();
-        SaveGameManager.CurrentSaveData.currentTour = selectedTour.id;
+        SaveGameManager.CurrentActivityData.currentTour = selectedTour.id;
         SaveGameManager.SaveState();
         SceneManager.LoadScene("InteractionNavi");
     }

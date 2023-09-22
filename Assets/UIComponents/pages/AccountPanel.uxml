@@ -1,7 +1,15 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/Components.uss?fileID=7433441132597879392&amp;guid=9832dfd09299b47d2901075e28f92a99&amp;type=3#Components" />
-    <Style src="project://database/Assets/Fonts.uss?fileID=7433441132597879392&amp;guid=46027659cbf7543619a8b0e4a04acfba&amp;type=3#Fonts" />
+    <Style src="project://database/Assets/Styles/Components.uss?fileID=7433441132597879392&amp;guid=9832dfd09299b47d2901075e28f92a99&amp;type=3#Components" />
+    <Style src="project://database/Assets/Styles/Fonts.uss?fileID=7433441132597879392&amp;guid=46027659cbf7543619a8b0e4a04acfba&amp;type=3#Fonts" />
     <ui:ScrollView class="container app-bg">
         <ui:Label text="Account Details" display-tooltip-when-elided="true" class="h1" />
+        <ui:VisualElement name="Activities">
+            <ui:Label text="Deine Aktivitäten" display-tooltip-when-elided="true" class="h2" />
+            <ui:ListView focusable="true" name="ActivityList" fixed-item-height="150" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Bookmarks">
+            <ui:Label text="Deine Bookmarks" display-tooltip-when-elided="true" class="h2" />
+            <ui:ListView focusable="true" name="BookmarkList" fixed-item-height="150" />
+        </ui:VisualElement>
     </ui:ScrollView>
 </ui:UXML>

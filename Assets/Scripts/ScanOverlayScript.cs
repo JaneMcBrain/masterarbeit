@@ -10,7 +10,6 @@ public class ScanOverlayScript : MonoBehaviour
     void Start()
     {
         var overlayUI = gameObject.GetComponent<UIDocument>().rootVisualElement;
-        //overlayUI.Q<VisualElement>("ScanFooter").clicked += () => ToggleInfo(overlayUI);
         overlayUI.Q<VisualElement>("ScanFooter").AddManipulator(new Clickable(evt => ToggleInfo(overlayUI)));
         overlayUI.Q<Button>("BackButton").clicked += () => SceneManager.LoadScene("InteractionNavi");
     }
