@@ -13,37 +13,84 @@
           "id": "tour1_exercise1",
           "name": "Bilder zerschneiden",
           "text": "Das erste Gemälde diente einst als Zielscheibe in einem Schützenverein.\nFinde ein Gemälde mit zwei Vögeln.",
-          "image": "voegel"
+          "image": "voegel",
+          "imageTitle": "Falke auf eine Taube stoßend, um 1844",
+          "imageArtist": "Adolph Friedrich Erdmann von Menzel",
+          "type": "Cutting"
         },
         {
           "id": "tour1_exercise2",
           "name": "Kunststil ändern",
           "text": "Finde den Sohn von Johann Sebastian Back, welcher an einem Cembalo sitzend nicht so viel von den musikalischen Künsten seines Arbeitgebers hält.",
-          "image": "floetenkonzert"
+          "image": "floetenkonzert",
+          "imageTitle": "Flötenkonzert Friedrichs des Großen in Sanssouci",
+          "imageArtist": "Adolph Friedrich Erdmann von Menzel",
+          "type": "ChangeStyle"
         },
         {
           "id": "tour1_exercise3",
           "name": "Objekte im Bild ersetzen",
           "text": "Finde die Parade auf dem Opernplatz in Berlin.",
-          "image": "parade"
+          "image": "parade",
+          "imageTitle": "Parade auf dem Opernplatz",
+          "imageArtist": "Franz Krüger",
+          "type": "ObjectChange"
         }
       ]
     },
     {
       "id": "tour2",
       "location": "location3",
-      "name": "Malerische Entwicklungen",
-      "topics": ["menzel1"],
-      "image": "Sprites/Tours/menzel_entwicklung",
+      "name": "Wichtige Werke des Realismus",
+      "topics": ["menzel1", "realismus1"],
+      "image": "Sprites/Tours/realismus",
       "info": "Lorem",
-      "progress": "0"
+      "progress": "0",
+      "exercises": [
+        {
+          "id": "tour2_exercise1",
+          "name": "Objekte im Bild ersetzen - 1",
+          "text": "Das erste Gemälde diente einst als Zielscheibe in einem Schützenverein.\nFinde ein Gemälde mit zwei Vögeln.",
+          "image": "voegel",
+          "imageTitle": "Falke auf eine Taube stoßend, um 1844",
+          "imageArtist": "Adolph Friedrich Erdmann von Menzel",
+          "type": "ObjectChange"
+        },
+        {
+          "id": "tour2_exercise2",
+          "name": "Objekte im Bild ersetzen - 2",
+          "text": "Finde den Sohn von Johann Sebastian Back, welcher an einem Cembalo sitzend nicht so viel von den musikalischen Künsten seines Arbeitgebers hält.",
+          "image": "floetenkonzert",
+          "imageTitle": "Flötenkonzert Friedrichs des Großen in Sanssouci",
+          "imageArtist": "Adolph Friedrich Erdmann von Menzel",
+          "type": "ObjectChange"
+        },
+        {
+          "id": "tour2_exercise3",
+          "name": "Objekte im Bild ersetzen - 3",
+          "text": "Finde die Parade auf dem Opernplatz in Berlin.",
+          "image": "parade",
+          "imageTitle": "Parade auf dem Opernplatz",
+          "imageArtist": "Franz Krüger",
+          "type": "ObjectChange"
+        },
+        {
+          "id": "tour2_exercise4",
+          "name": "Objekte im Bild ersetzen - 4",
+          "text": "Gemütlich sitzen sie beisammen - der Adel beim Kaffee Klatsch!",
+          "image": "tafelrunde",
+          "imageTitle": "König Friedrichs II. Tafelrunde in Sanssouci",
+          "imageArtist": "Adolph Friedrich Erdmann von Menzel",
+          "type": "ObjectChange"
+        }
+      ]
     },
     {
       "id": "tour3",
       "location": "location3",
-      "name": "Wichtige Werke des Realismus",
-      "topics": ["menzel1", "realismus1"],
-      "image": "Sprites/Tours/realismus",
+      "name": "Malerische Entwicklungen",
+      "topics": ["menzel1"],
+      "image": "Sprites/Tours/menzel_entwicklung",
       "info": "Lorem",
       "progress": "0"
     },

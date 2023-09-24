@@ -5,4 +5,7 @@ public class Exercise
   public string name;
   public string text;
   public string image;
+  public string imageTitle;
+  public string imageArtist;
+  public string type;
 }

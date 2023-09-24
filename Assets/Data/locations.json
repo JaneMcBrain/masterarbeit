@@ -34,12 +34,6 @@
       "name": "Alte Nationalgalerie",
       "image": "Sprites/Locations/nationalgalerie",
       "info": "Die Alte Nationalgalerie im Berliner Ortsteil Mitte gehört zum Bauensemble der Museumsinsel und damit zum Weltkulturerbe der UNESCO. Im Auftrag König Friedrich Wilhelms IV. ab 1862 von Friedrich August Stüler geplant, wurde sie bis 1876 von Johann Heinrich Strack im Stil des Klassizismus und der Neorenaissance ausgeführt. Aktuell beheimatet sie Gemälde und Skulpturen des 19. Jahrhunderts aus der Sammlung der Nationalgalerie.[1] Auf der Freitreppe befindet sich das von Alexander Calandrelli geschaffene Reiterstandbild Friedrich Wilhelms IV. Im Jahr 2019 verzeichnete die Alte Nationalgalerie 376.000 Besucher.",
-      "topics": [
-        {"id": "menzel1", "label": "Adolf Menzel", "image": ""},
-        {"id": "realismus1", "label": "Realismus in Berlin", "image": ""},
-        {"id": "realismus2", "label": "Realismus entdecken", "image": ""},
-        {"id": "frauen1", "label": "Frauen im 1900 Jahrhundert", "image": ""}
-      ],
       "tours": ["tour1", "tour2", "tour3", "tour4"],
       "adress": {
         "street": "Bodestraße 1-3",

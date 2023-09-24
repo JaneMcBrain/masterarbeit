@@ -14,13 +14,17 @@ public class LoadExercises : MonoBehaviour
 
     void OnEnable()
     {
-
-        if(SaveGameManager.CurrentActivityData.currentExercise != null){
+        //get current exercise
+        var currentEx = SaveGameManager.CurrentActivityData.currentExercise;
+        //get selected Tour
+        var tourId = SaveGameManager.CurrentActivityData.currentTour;
+        //avoid jumping into ExerciseText Panel, when we have a different tour id
+        if (currentEx != null && currentEx.tourId == tourId)
+        {
             ExerciseTextView.SetActive(true);
         }
         Tours toursInJson = JsonUtility.FromJson<Tours>(jsonFile.text);
-        //get selected Tour
-        var tourId = SaveGameManager.CurrentActivityData.currentTour;
+        
         //Filter Tours via Topic ID
         List<Exercise> tourExercises = new List<Exercise>();
         Tour selectedTour = toursInJson.tours.Find(t => t.id.Contains(tourId) );

@@ -18,10 +18,8 @@ public class AccountPanelScript : MonoBehaviour
         SaveGameManager.LoadState();
         var startedExercises = SaveGameManager.CurrentActivityData.activeExercises;
         List<Tour> startedTours = new List<Tour>();
-        Debug.Log(startedExercises.Count);
         foreach (var tour in toursInJson.tours)
         {
-            Debug.Log(tour.id);
             if (startedExercises.Find(x => x.tourId == tour.id) != null)
             {
                 startedTours.Add(tour);
@@ -29,6 +27,7 @@ public class AccountPanelScript : MonoBehaviour
         }
         var uiDocument = GetComponent<UIDocument>();
         var tourListController = new TourListController();
+        uiDocument.rootVisualElement.Q<Label>("JsonText").text = JsonUtility.ToJson(SaveGameManager.CurrentActivityData.currentExercise, true);
         tourListController.InitializeTourList(uiDocument.rootVisualElement, ListEntryTemplate, startedTours, "ActivityList");
     }
 }

@@ -3,13 +3,28 @@
     <Style src="project://database/Assets/Styles/Components.uss?fileID=7433441132597879392&amp;guid=9832dfd09299b47d2901075e28f92a99&amp;type=3#Components" />
     <Style src="project://database/Assets/Styles/Fonts.uss?fileID=7433441132597879392&amp;guid=46027659cbf7543619a8b0e4a04acfba&amp;type=3#Fonts" />
     <ui:VisualElement class="container">
-        <ui:Instance template="BackButton" name="BackButton" />
-        <ui:VisualElement name="ScanFooter" style="position: absolute; left: 0; right: 0; bottom: 0; background-color: rgb(255, 255, 255); border-top-left-radius: 30px; border-top-right-radius: 30px; padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 50px;">
-            <ui:VisualElement name="FooterInfoToggle" style="flex-direction: row; align-items: center; justify-content: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;">
-                <ui:VisualElement style="width: 48px; height: 48px; background-image: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=3316425174430470091&amp;guid=16cba54ae354f49d0988f2b61cb8b1c5&amp;type=3#arrow-up@2x&apos;); -unity-background-image-tint-color: rgb(132, 132, 132); -unity-background-scale-mode: stretch-to-fill;" />
-                <ui:Label text="INFO" display-tooltip-when-elided="true" class="text" style="color: rgb(132, 132, 132);" />
+        <ui:Instance template="BackButton" name="BackButton" style="margin-bottom: 32px;" />
+        <ui:VisualElement name="ImageInfo" class="ar-info-box hidden">
+            <ui:Label text="Name des Bildes" display-tooltip-when-elided="true" name="ImageTitle" class="h1" style="-unity-text-align: upper-left;" />
+            <ui:Label text="Name des Künstlers" display-tooltip-when-elided="true" name="ImageArtist" class="large-text text-large" style="-unity-text-align: upper-right;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="ScanFooter" style="position: absolute; left: 0; right: 0; bottom: 0; background-color: rgb(255, 255, 255); border-top-left-radius: 30px; border-top-right-radius: 30px; padding-left: 8%; padding-right: 8%; padding-top: 4%; padding-bottom: 50px;">
+            <ui:VisualElement name="FooterHelpToggle" style="flex-direction: row; align-items: center; justify-content: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;">
+                <ui:VisualElement name="HelpIcon" style="width: 48px; height: 48px; background-image: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=3316425174430470091&amp;guid=16cba54ae354f49d0988f2b61cb8b1c5&amp;type=3#arrow-up@2x&apos;); -unity-background-image-tint-color: rgb(132, 132, 132); -unity-background-scale-mode: stretch-to-fill;" />
+                <ui:Label text="HILFE" display-tooltip-when-elided="true" name="HelpButtonText" class="text-large" style="color: rgb(132, 132, 132);" />
             </ui:VisualElement>
-            <ui:Label text="Scanne die Umgebung mit deiner Kamera und finde das richtige Gemälde von Adolf Menzel. Klicke &quot;Back&quot;, um die Aufgabe erneut zu lesen." display-tooltip-when-elided="true" name="FooterInfoText" class="text hidden" style="margin-top: 32px;" />
+            <ui:Label text="Scanne die Umgebung mit deiner Kamera und finde das richtige Gemälde von Adolf Menzel. Klicke &quot;Back&quot;, um die Aufgabe erneut zu lesen." display-tooltip-when-elided="true" name="FooterHelpText" class="hidden text-large" style="margin-top: 32px; white-space: normal;" />
+            <ui:VisualElement name="FooterInfoToggle" class="hidden" style="flex-direction: row; align-items: center; justify-content: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;">
+                <ui:VisualElement name="InfoIcon" style="width: 48px; height: 48px; background-image: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=-1304905567622442630&amp;guid=16cba54ae354f49d0988f2b61cb8b1c5&amp;type=3#arrow-down@2x&apos;); -unity-background-image-tint-color: rgb(132, 132, 132); -unity-background-scale-mode: stretch-to-fill;" />
+                <ui:Label text="INFO" display-tooltip-when-elided="true" name="HelpButtonText" class="text-large" style="color: rgb(132, 132, 132);" />
+            </ui:VisualElement>
+            <ui:VisualElement name="InteractionTextBox" class="hidden">
+                <ui:Label text="Jetzt kommt die Aufgabe" display-tooltip-when-elided="true" name="InteractionText" class="text text-large" style="margin-bottom: 32px;" />
+                <ui:VisualElement style="flex-direction: row; justify-content: space-around;">
+                    <ui:Button text="Start" display-tooltip-when-elided="true" name="InteractionStart" class="button" style="min-width: 30%;" />
+                    <ui:Button text="Nächstes Bild" display-tooltip-when-elided="true" name="NextImage" class="button" style="min-width: 30%;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

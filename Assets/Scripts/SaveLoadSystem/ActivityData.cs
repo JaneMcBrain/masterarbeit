@@ -5,7 +5,7 @@ namespace SaveLoadSystem{
   public class ActivityData
   {
     public string currentTour; //currently active tour
-    public Exercise currentExercise; //currently active exercise
+    public ActiveExercise currentExercise; //currently active exercise
     public List<ActiveExercise> activeExercises = new List<ActiveExercise>(); //exercises that are not finished yet
   }
 

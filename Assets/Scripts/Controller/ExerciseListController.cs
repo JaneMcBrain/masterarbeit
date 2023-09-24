@@ -53,14 +53,15 @@ public class ExerciseListController
             return;
         }
         //Save current Exercise via GameManager
-        SaveGameManager.CurrentActivityData.currentExercise = selectedExercise;
+        var currentTour = SaveGameManager.CurrentActivityData.currentTour;
+        var currentEx = new ActiveExercise() { tourId = currentTour, exercise = selectedExercise };
+        SaveGameManager.CurrentActivityData.currentExercise = currentEx;
         var startedExercises = SaveGameManager.CurrentActivityData.activeExercises;
         //Add current Exercise to activeExercises, if not yet saved
-        var currentTour = SaveGameManager.CurrentActivityData.currentTour;
         //find activeExercise
         var activeExercise = startedExercises.Find(x => x.tourId == SaveGameManager.CurrentActivityData.currentTour);
         if (activeExercise == null){
-            SaveGameManager.CurrentActivityData.activeExercises.Add(new ActiveExercise() { tourId = currentTour, exercise = selectedExercise });
+            SaveGameManager.CurrentActivityData.activeExercises.Add(currentEx);
         } else if(activeExercise.exercise != selectedExercise)
         {
             //Overwrite existing activeExercise with certain tourId

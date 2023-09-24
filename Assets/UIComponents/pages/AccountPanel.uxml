@@ -3,13 +3,14 @@
     <Style src="project://database/Assets/Styles/Fonts.uss?fileID=7433441132597879392&amp;guid=46027659cbf7543619a8b0e4a04acfba&amp;type=3#Fonts" />
     <ui:ScrollView class="container app-bg">
         <ui:Label text="Account Details" display-tooltip-when-elided="true" class="h1" />
-        <ui:VisualElement name="Activities">
+        <ui:VisualElement name="Aktivitäten">
             <ui:Label text="Deine Aktivitäten" display-tooltip-when-elided="true" class="h2" />
             <ui:ListView focusable="true" name="ActivityList" fixed-item-height="150" />
         </ui:VisualElement>
         <ui:VisualElement name="Bookmarks">
             <ui:Label text="Deine Bookmarks" display-tooltip-when-elided="true" class="h2" />
             <ui:ListView focusable="true" name="BookmarkList" fixed-item-height="150" />
+            <ui:Label text="" display-tooltip-when-elided="true" name="JsonText" class="text" />
         </ui:VisualElement>
     </ui:ScrollView>
 </ui:UXML>

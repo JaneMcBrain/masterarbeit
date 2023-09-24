@@ -10,7 +10,7 @@ public class ScanOverlayScript : MonoBehaviour
     void Start()
     {
         var overlayUI = gameObject.GetComponent<UIDocument>().rootVisualElement;
-        overlayUI.Q<VisualElement>("ScanFooter").AddManipulator(new Clickable(evt => ToggleInfo(overlayUI)));
+        overlayUI.Q<VisualElement>("FooterHelpToggle").AddManipulator(new Clickable(evt => ToggleInfo(overlayUI)));
         overlayUI.Q<Button>("BackButton").clicked += () => SceneManager.LoadScene("InteractionNavi");
     }
 
@@ -20,7 +20,7 @@ public class ScanOverlayScript : MonoBehaviour
         {
             infoText.RemoveFromClassList("hidden");
         } else {
-            root.Q<Label>("FooterInfoText").AddToClassList("hidden");
+            root.Q<Label>("FooterHelpText").AddToClassList("hidden");
         }
     }
 }

@@ -619,5 +619,4 @@ MonoBehaviour:
     type: 3}
   WrongImage: {fileID: 7369332860444814923, guid: 49e115394751f4f3391bcc318629351f,
     type: 3}
-  _prefabToSpawn: {fileID: 447022402011426670, guid: 7445cf6f009374c75ada93e951cb1fe2,
-    type: 3}
+  UI: {fileID: 24845151}

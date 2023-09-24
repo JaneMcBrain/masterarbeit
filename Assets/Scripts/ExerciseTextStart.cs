@@ -12,13 +12,14 @@ public class ExerciseTextStart : MonoBehaviour
     {
         var exerciseTextUi = gameObject.GetComponent<UIDocument>().rootVisualElement;
         //get the active Exercise from GameManager
-        exerciseTextUi.Q<Label>("ExerciseText").text = SaveGameManager.CurrentActivityData.currentExercise.text;
+        exerciseTextUi.Q<Label>("ExerciseText").text = SaveGameManager.CurrentActivityData.currentExercise.exercise.text;
         exerciseTextUi.Q<Button>("ExerciseStartButton").clicked += () => SceneManager.LoadScene("ScanScene");
         exerciseTextUi.Q<Button>("BackButton").clicked += () => onBackClick();
     }
 
     void onBackClick(){
         SaveGameManager.CurrentActivityData.currentExercise = null;
+        SaveGameManager.SaveState();
         gameObject.SetActive(false);
     }
 }
