@@ -11,7 +11,6 @@ namespace SaveLoadSystem
       if (!Directory.Exists(dir)){
         Directory.CreateDirectory(dir);
       }
-      
       string json = JsonUtility.ToJson(CurrentActivityData, true);
       File.WriteAllText(dir + FileName, json);
       GUIUtility.systemCopyBuffer = dir;

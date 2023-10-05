@@ -10,10 +10,10 @@ using SaveLoadSystem;
 public class DetectImageTracker : MonoBehaviour
 {
     [SerializeField]
+    XRReferenceImageLibrary xrReferenceLibrary;
     private ARTrackedImageManager _trackedImageManager;
 
     [SerializeField]
-    public GameObject[] ArObjects;
     public GameObject CorrectImage;
     public GameObject WrongImage;
     public GameObject UI;
@@ -23,12 +23,20 @@ public class DetectImageTracker : MonoBehaviour
 
     private readonly Dictionary<string, string> interactionText = new Dictionary<string, string>()
     {
-        {"ObjectChange", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Elemente im Bild austauschen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
+        {"ObjectChangeFace", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Gesichter im Bild austauschen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
+        {"ObjectChangeSticker", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Elemente im Bild austauschen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
+        {"ObjectChangePlane", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Elemente im Bild austauschen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
         {"Cutting", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Elemente im Bild auschneiden. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
         {"ChangeStyle", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du den Stil des Bildes verändern. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."}
     };
 
-    void Awake() => _trackedImageManager = GetComponent<ARTrackedImageManager>();
+    void Start(){
+        _trackedImageManager = GetComponent<ARTrackedImageManager>();
+        _trackedImageManager.referenceLibrary = _trackedImageManager.CreateRuntimeLibrary(xrReferenceLibrary);
+        _trackedImageManager.maxNumberOfMovingImages = 3;
+        _trackedImageManager.enabled = true;
+        _trackedImageManager.trackedImagesChanged += OnTrackedImagesChanged;
+    }
 
     private void OnEnable() => _trackedImageManager.trackedImagesChanged += OnTrackedImagesChanged;
 
@@ -37,18 +45,6 @@ public class DetectImageTracker : MonoBehaviour
     private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs){
         SaveGameManager.LoadState();
         var searchedImage = SaveGameManager.CurrentActivityData.currentExercise.exercise.image;
-        //this is to add the artwork on top
-        foreach (ARTrackedImage trackedImage in eventArgs.added){
-            var artworkName = trackedImage.referenceImage.name;
-            foreach (var currentObject in ArObjects)
-            {
-                if(string.Compare(currentObject.name, artworkName, StringComparison.OrdinalIgnoreCase) == 0 
-                    && !_instantiatedArtworks.ContainsKey(artworkName)){
-                    var newArObj = Instantiate(currentObject, trackedImage.transform);
-                    _instantiatedArtworks[artworkName] = newArObj;
-                }
-            }
-        }
 
         foreach(var trackedImage in eventArgs.updated){
             var trackImageName = trackedImage.referenceImage.name;
@@ -59,6 +55,7 @@ public class DetectImageTracker : MonoBehaviour
                 var keyRight = "right_" + trackImageName;
                 if (!_instantiatedFeedback.ContainsKey(keyRight)){
                     var newArObj = Instantiate(CorrectImage, trackedImage.transform);
+                    newArObj.transform.localScale = new Vector3(trackedImage.referenceImage.size.x, trackedImage.transform.localScale.y, trackedImage.referenceImage.size.y);
                     _instantiatedFeedback[keyRight] = newArObj;
                     _instantiatedFeedback[keyRight].SetActive(true);
                     //Add image content to UI
@@ -75,8 +72,6 @@ public class DetectImageTracker : MonoBehaviour
                     _instantiatedFeedback[keyWrong].SetActive(true);
                 }
             }
-            //Adds Artwork as well
-            //_instantiatedArtworks[trackedImage.referenceImage.name].SetActive(trackedImage.trackingState == TrackingState.Tracking);
         }
         //reset everything on remove
         foreach (var trackedImage in eventArgs.removed)

@@ -13,5 +13,6 @@
             <ui:VisualElement class="button__icon" style="background-image: url(&apos;project://database/Assets/Icons/flag.png?fileID=2800000&amp;guid=fef09fa05a89142a099b269476e4db56&amp;type=3#flag&apos;); -unity-background-scale-mode: scale-to-fit;" />
         </ui:Button>
         <ui:Label text="Aktivitäten" display-tooltip-when-elided="true" name="Label" class="h2" />
+        <ui:ListView focusable="true" name="ActivityList" fixed-item-height="150" />
     </ui:ScrollView>
 </ui:UXML>

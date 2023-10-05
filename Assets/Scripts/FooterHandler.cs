@@ -34,7 +34,7 @@ public class FooterHandler : MonoBehaviour
 
     private void OnFooterButtonClicked(string type, Button btn)
     {
-        VisualElement result = footer_uiDocument.rootVisualElement.Q(className: "is-active");
+        VisualElement result = footer_uiDocument.rootVisualElement.Q<VisualElement>(className: "is-active");
         if (result != null)
         {
             result.RemoveFromClassList("is-active");
@@ -44,6 +44,6 @@ public class FooterHandler : MonoBehaviour
         TourPanel.SetActive(type == "tour");
         AccountPanel.SetActive(type == "account");
         InfoPanel.SetActive(type == "info");
-        btn.AddToClassList("is-active");
+        btn.Q<VisualElement>("Icon").AddToClassList("is-active");
     }
 }

@@ -67,21 +67,21 @@
         },
         {
           "id": "tour2_exercise2",
-          "name": "Objekte im Bild ersetzen - 2",
+          "name": "Objektaustauch - Face Track Flötenkonzert",
           "text": "Finde den Sohn von Johann Sebastian Back, welcher an einem Cembalo sitzend nicht so viel von den musikalischen Künsten seines Arbeitgebers hält.",
           "image": "floetenkonzert",
           "imageTitle": "Flötenkonzert Friedrichs des Großen in Sanssouci",
           "imageArtist": "Adolph Friedrich Erdmann von Menzel",
-          "type": "ObjectChange"
+          "type": "ObjectChangePlane"
         },
         {
           "id": "tour2_exercise3",
-          "name": "Objekte im Bild ersetzen - 3",
+          "name": "Objektaustauch - Plane Detection Opernplatz",
           "text": "Finde die Parade auf dem Opernplatz in Berlin.",
           "image": "parade",
           "imageTitle": "Parade auf dem Opernplatz",
           "imageArtist": "Franz Krüger",
-          "type": "ObjectChange"
+          "type": "ObjectChangePlane"
         },
         {
           "id": "tour2_exercise4",

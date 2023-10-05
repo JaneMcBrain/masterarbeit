@@ -45,7 +45,7 @@ public class ExerciseListController
         ExerciseList.itemsSource = AllExercises;
     }
 
-     void OnExerciseSelected(IEnumerable<object> selectedItems)
+    void OnExerciseSelected(IEnumerable<object> selectedItems)
     {
         var selectedExercise = ExerciseList.selectedItem as Exercise;
         if (selectedExercise == null)
@@ -57,8 +57,6 @@ public class ExerciseListController
         var currentEx = new ActiveExercise() { tourId = currentTour, exercise = selectedExercise };
         SaveGameManager.CurrentActivityData.currentExercise = currentEx;
         var startedExercises = SaveGameManager.CurrentActivityData.activeExercises;
-        //Add current Exercise to activeExercises, if not yet saved
-        //find activeExercise
         var activeExercise = startedExercises.Find(x => x.tourId == SaveGameManager.CurrentActivityData.currentTour);
         if (activeExercise == null){
             SaveGameManager.CurrentActivityData.activeExercises.Add(currentEx);
