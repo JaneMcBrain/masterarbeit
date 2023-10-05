@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Interactions/CuttingScene.unity
     guid: 708a3b7d2193545c687e83d6f0256727
   - enabled: 1
-    path: Assets/Scenes/Interactions/ObjectChangeScene.unity
+    path: Assets/Scenes/Interactions/ObjectChangeFaceScene.unity
     guid: 2db2a6c67c3f7473fb0bb672af762915
   - enabled: 1
     path: Assets/Scenes/InteractionNavi.unity

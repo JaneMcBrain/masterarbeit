@@ -58,12 +58,12 @@
       "exercises": [
         {
           "id": "tour2_exercise1",
-          "name": "Objekte im Bild ersetzen - 1",
+          "name": "Objektaustauch - Face Track Vögel",
           "text": "Das erste Gemälde diente einst als Zielscheibe in einem Schützenverein.\nFinde ein Gemälde mit zwei Vögeln.",
           "image": "voegel",
           "imageTitle": "Falke auf eine Taube stoßend, um 1844",
           "imageArtist": "Adolph Friedrich Erdmann von Menzel",
-          "type": "ObjectChange"
+          "type": "ObjectChangeFace"
         },
         {
           "id": "tour2_exercise2",
@@ -85,12 +85,12 @@
         },
         {
           "id": "tour2_exercise4",
-          "name": "Objekte im Bild ersetzen - 4",
+          "name": "Objektaustauch - Face Track Tafelrunde",
           "text": "Gemütlich sitzen sie beisammen - der Adel beim Kaffee Klatsch!",
           "image": "tafelrunde",
           "imageTitle": "König Friedrichs II. Tafelrunde in Sanssouci",
           "imageArtist": "Adolph Friedrich Erdmann von Menzel",
-          "type": "ObjectChange"
+          "type": "ObjectChangeFace"
         }
       ]
     },
