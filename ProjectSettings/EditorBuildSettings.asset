@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InteractionNavi.unity
     guid: 41b627e653cac4acfa86df074e84177b
+  - enabled: 1
+    path: Assets/Scenes/Interactions/ObjectChangeStickerScene.unity
+    guid: 0cd5524e034aa45a4a3026a6f0a9986b
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 744b813df90924c169af73489b8325de,
       type: 2}

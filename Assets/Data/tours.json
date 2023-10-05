@@ -11,7 +11,7 @@
       "exercises": [
         {
           "id": "tour1_exercise1",
-          "name": "Bilder zerschneiden",
+          "name": "Bild zerschneiden",
           "text": "Das erste Gemälde diente einst als Zielscheibe in einem Schützenverein.\nFinde ein Gemälde mit zwei Vögeln.",
           "image": "voegel",
           "imageTitle": "Falke auf eine Taube stoßend, um 1844",
@@ -20,21 +20,30 @@
         },
         {
           "id": "tour1_exercise2",
-          "name": "Kunststil ändern",
+          "name": "Objektaustauch - Image Track",
           "text": "Finde den Sohn von Johann Sebastian Back, welcher an einem Cembalo sitzend nicht so viel von den musikalischen Künsten seines Arbeitgebers hält.",
           "image": "floetenkonzert",
           "imageTitle": "Flötenkonzert Friedrichs des Großen in Sanssouci",
           "imageArtist": "Adolph Friedrich Erdmann von Menzel",
-          "type": "ChangeStyle"
+          "type": "ObjectChangeSticker"
         },
         {
           "id": "tour1_exercise3",
-          "name": "Objekte im Bild ersetzen",
+          "name": "Objektaustauch - Image Track",
           "text": "Finde die Parade auf dem Opernplatz in Berlin.",
           "image": "parade",
           "imageTitle": "Parade auf dem Opernplatz",
           "imageArtist": "Franz Krüger",
-          "type": "ObjectChange"
+          "type": "ObjectChangeSticker"
+        },
+        {
+          "id": "tour1_exercise4",
+          "name": "Objektaustauch - Image Track",
+          "text": "Gemütlich sitzen sie beisammen - der Adel beim Kaffee Klatsch!",
+          "image": "tafelrunde",
+          "imageTitle": "König Friedrichs II. Tafelrunde in Sanssouci",
+          "imageArtist": "Adolph Friedrich Erdmann von Menzel",
+          "type": "ObjectChangeSticker"
         }
       ]
     },
