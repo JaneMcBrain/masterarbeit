@@ -4,7 +4,7 @@
 This project was developed using Unity version 2021.3.25f1.
 
 ## Description
-This Unity project was created as part of a research project spanning two semesters and serves as the foundation for my master's thesis. The developed application offers various museum tours that incorporate interaction techniques with paintings in augmented reality (AR). It utilizes various plugins and tools to integrate AR functionality and user interfaces (UI).
+This Unity project was created as part of a research project spanning two semesters and serves as the foundation for my master's thesis at HTW Berlin. The developed application offers various museum tours that incorporate interaction techniques with paintings in augmented reality (AR). It utilizes various plugins and tools to integrate AR functionality and user interfaces (UI).
 
 ## Plugins
 The project uses the following Unity plugins:
