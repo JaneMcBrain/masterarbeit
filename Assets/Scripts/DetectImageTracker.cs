@@ -25,6 +25,7 @@ public class DetectImageTracker : MonoBehaviour
     {
         {"ObjectChangeFace", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Gesichter im Bild austauschen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
         {"ObjectChangeSticker", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Elemente im Bild austauschen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
+        {"ImagePointChange", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Elemente im Bild austauschen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
         {"ObjectChangePlane", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Elemente im Bild austauschen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
         {"Cutting", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Elemente im Bild auschneiden. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
         {"ChangeStyle", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du den Stil des Bildes verändern. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."}
@@ -33,7 +34,6 @@ public class DetectImageTracker : MonoBehaviour
     void Start(){
         _trackedImageManager = GetComponent<ARTrackedImageManager>();
         _trackedImageManager.referenceLibrary = _trackedImageManager.CreateRuntimeLibrary(xrReferenceLibrary);
-        _trackedImageManager.maxNumberOfMovingImages = 3;
         _trackedImageManager.enabled = true;
         _trackedImageManager.trackedImagesChanged += OnTrackedImagesChanged;
     }

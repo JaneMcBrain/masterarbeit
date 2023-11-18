@@ -1,60 +1,24 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.UIElements;
-using SaveLoadSystem;
 using UnityEngine.XR.ARKit;
-using UnityEngine.XR.ARSubsystems;
 
-public class ChangeObjectScript : MonoBehaviour
+public class ChangeObjectScriptFace : MonoBehaviour
 {
     // Start is called before the first frame update
     private ARFaceManager faceManager;
-    private ARKitCameraSubsystem camera;
     public List<Material> faceMaterials = new List<Material>();
+
+    public GameObject UI;
     private int faceMaterialIndex;
     private VisualElement uiDocument;
-    void Start()
+
+    private int numberOfDetectedFaces;
+
+    void OnEnable()
     {
-
-        var arCamera = FindObjectOfType<ARCameraManager>();
-        faceManager = GetComponent<ARFaceManager>();
-        camera = GetComponent<ARKitCameraSubsystem>();
-        var cam = GetComponent<ARCameraManager>();
-        var ft = GetComponent<ARKitFaceSubsystem>();
-        var session = GetComponent<ARKitSessionSubsystem>();
-        var track = GetComponent<TrackingMode>();
-        var subsystem = GetComponent<ARKitSessionSubsystem>();
-        Debug.Log("Tracking Mode: " + track);
-        Debug.Log("Subsystem currentTrackingMode: " + subsystem.currentTrackingMode);
-        Debug.Log("Subsystem requestedTrackingMode: " + subsystem.requestedTrackingMode);
-        Debug.Log("Subsystem requestedTrackingMode: " + subsystem.trackingState);
-
-        if (arCamera != null)
-        {
-            // Protokollieren Sie die Kameraeinstellungen.
-            Debug.Log("Camera Settings:");
-            Debug.Log("Camera Face Direction: " + arCamera.requestedFacingDirection);
-            Debug.Log("Camera Light Estimation: " + arCamera.requestedLightEstimation);
-            Debug.Log("Camera Light Estimation: " + arCamera);
-        }
-        else
-        {
-            Debug.LogWarning("ARCameraManager not found.");
-        }
-
-        Debug.Log("ARCameraManager");
-        Debug.Log(cam.currentConfiguration);
-        Debug.Log(cam.requestedFacingDirection);
-        Debug.Log("ARKitCameraSubsystem");
-        Debug.Log(camera.currentConfiguration);
-
-        Debug.Log("HALLOOOOOOOOOOOO");
-        Debug.Log(ft.subsystemDescriptor);
-        Debug.Log(session.currentConfiguration);
-
-        uiDocument = GetComponent<UIDocument>().rootVisualElement;
+        uiDocument = UI.GetComponent<UIDocument>().rootVisualElement;
         uiDocument.Q<VisualElement>("ChangeObjectButtons").RemoveFromClassList("hidden");
         var changeBtn1 = uiDocument.Q<Button>("ChangeObject1");
         var changeBtn2 = uiDocument.Q<Button>("ChangeObject2");
@@ -62,6 +26,40 @@ public class ChangeObjectScript : MonoBehaviour
         changeBtn1.clicked += () => onChangeObject(changeBtn1, 0);
         changeBtn2.clicked += () => onChangeObject(changeBtn2, 1);
         changeBtn3.clicked += () => onChangeObject(changeBtn3, 2);
+
+        var arCamera = FindObjectOfType<ARCameraManager>();
+        faceManager = GetComponent<ARFaceManager>();
+        faceManager.facesChanged += OnFacesChanged;
+        var ft = GetComponent<ARKitFaceSubsystem>();
+        var track = GetComponent<TrackingMode>();
+        Debug.Log("Tracking Mode: " + track);
+
+        if (arCamera != null)
+        {
+            // Protokollieren Sie die Kameraeinstellungen.
+            Debug.Log("Camera Settings:");
+            Debug.Log("Camera requestedFacingDirection: " + arCamera.requestedFacingDirection);
+            Debug.Log("Camera currentFacingDirection: " + arCamera.currentFacingDirection);
+            Debug.Log("Camera requestedLightEstimation: " + arCamera.requestedLightEstimation);
+        }
+        else
+        {
+            Debug.LogWarning("ARCameraManager not found.");
+        }
+
+        Debug.Log("Face Manager: " + faceManager.enabled);
+
+        if (faceManager != null)
+        {
+            foreach (ARFace face in faceManager.trackables)
+            {
+                Debug.Log("Face trackableId: " + face.trackableId);
+            }
+        }
+        else
+        {
+            Debug.LogError("ARFaceManager not found on this GameObject.");
+        }
     }
 
     void onChangeObject(VisualElement btn, int index)
@@ -91,5 +89,21 @@ public class ChangeObjectScript : MonoBehaviour
             face.GetComponent<Renderer>().material = faceMaterials[faceMaterialIndex];
         }
 
+    }
+
+    void OnFacesChanged(ARFacesChangedEventArgs eventArgs)
+    {
+        numberOfDetectedFaces = eventArgs.added.Count;
+
+        if (numberOfDetectedFaces > 0)
+        {
+            Debug.Log("Gesicht(er) erkannt: " + numberOfDetectedFaces);
+            // Hier könntest du zusätzliche Aktionen durchführen, z.B. den Filter aktivieren
+        }
+        else
+        {
+            Debug.Log("Kein Gesicht erkannt");
+            // Hier könntest du zusätzliche Aktionen durchführen, z.B. den Filter deaktivieren
+        }
     }
 }

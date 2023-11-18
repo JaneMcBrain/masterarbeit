@@ -4,9 +4,11 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using UnityEngine.UIElements;
+using SaveLoadSystem;
+using System.Security.Cryptography;
 
 
-public class ObjectChangeImageDetect : MonoBehaviour
+public class ImagePointsScript : MonoBehaviour
 {
 
     [SerializeField]
@@ -17,13 +19,26 @@ public class ObjectChangeImageDetect : MonoBehaviour
     public Sprite[] images;
     public GameObject StickerPrefab;
     public GameObject WhiteRect;
+    public GameObject YellowRect;
     public GameObject UI;
     private VisualElement uiDocument;
-    private int objectIndex;
+    private int objectIndex = 0;
     private int currentSticker = 0;
     private VisualElement currentTrackedImage;
 
     private readonly Dictionary<string, GameObject> _instantiatedSticker = new Dictionary<string, GameObject>();
+
+    List<Vector3> positions = new List<Vector3>
+        {
+            new Vector3(0f, 0f, 0f),
+            new Vector3(-0.5f, -0.28f, 0f)
+        };
+    List<Vector3> sizes = new List<Vector3>
+        {
+            new Vector3(0.01f, 0.01f, 0.01f),
+            new Vector3(0.05f, 0.05f, 0.05f)
+        };
+
     void Start()
     {
         //instantiate xrTrackedImageManager runtime
@@ -46,39 +61,41 @@ public class ObjectChangeImageDetect : MonoBehaviour
 
     private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs)
     {
-        //this is to add the artwork on top
-        foreach (ARTrackedImage trackedImage in eventArgs.added){
-            if (trackedImage.trackingState == TrackingState.Tracking){
-                var artworkName = trackedImage.referenceImage.name;
-                //check if image already has sticker
-                if (!_instantiatedSticker.ContainsKey(artworkName))
+        SaveGameManager.LoadState();
+        var searchedImage = SaveGameManager.CurrentActivityData.currentExercise.exercise.image;
+
+        foreach (var trackedImage in eventArgs.updated)
+        {
+            var artworkName = trackedImage.referenceImage.name;
+
+            //check if trackedImages is tracked && is the correct artwork
+            if (trackedImage.trackingState == TrackingState.Tracking && artworkName == searchedImage)
+            {
+
+                for (int i = 0; i < positions.Count; i++)
                 {
-                    Debug.Log(_instantiatedSticker.Count);
-                    if(_instantiatedSticker.Count == 0){
-                        Debug.Log("Instanziiere das extra UI");
-                        uiDocument = UI.GetComponent<UIDocument>().rootVisualElement;
-                        currentTrackedImage = uiDocument.Q<VisualElement>("TrackedImage");
-                        var SelectImagePanel = uiDocument.Q<VisualElement>("TrackedImageSelect");
-                        setTrackedImageToUI(artworkName);
-                        SelectImagePanel.RemoveFromClassList("hidden");
-                        var changeImageBtn = uiDocument.Q<Button>("ChangeImageBtn");
-                        changeImageBtn.clicked += () => onChangeImageClick();
-                    }
-                    // Give the initial image a reasonable default scale
-                    var minLocalScalar = Mathf.Min(trackedImage.size.x, trackedImage.size.y) / 2;
-                    trackedImage.transform.localScale = new Vector3(minLocalScalar, minLocalScalar, minLocalScalar);
-                    var sticker = Instantiate(WhiteRect, trackedImage.transform);
-                    _instantiatedSticker[artworkName] = sticker;
-                    _instantiatedSticker[artworkName].SetActive(true);
+                    var key = $"{artworkName}_{i}";
+                    addWhiteRect(trackedImage.transform.position + positions[i], trackedImage.transform.localScale / (i+2), Quaternion.identity, key, i);
                 }
             }
         }
-        foreach (ARTrackedImage trackedImage in eventArgs.updated)
-        {
-            // Give the initial image a reasonable default scale
-            var minLocalScalar = Mathf.Min(trackedImage.size.x, trackedImage.size.y);
-            trackedImage.transform.localScale = new Vector3(minLocalScalar, minLocalScalar, minLocalScalar);
+    }
+
+    public void addWhiteRect(Vector3 position, Vector3 size, Quaternion rotation, string key, int index)
+    {
+        GameObject sticker;
+        if (objectIndex == index){
+            sticker = Instantiate(WhiteRect, position, rotation);
+        } else {
+            sticker = Instantiate(YellowRect, position, rotation);
         }
+        sticker.transform.localScale = size;
+        _instantiatedSticker[key] = sticker;
+        _instantiatedSticker[key].SetActive(true);
+
+        Debug.Log($"Image: {key} is at " +
+                    $"{sticker.transform.position} and has scale {sticker.transform.localScale}");
+
     }
 
     void setTrackedImageToUI(string objectName)
