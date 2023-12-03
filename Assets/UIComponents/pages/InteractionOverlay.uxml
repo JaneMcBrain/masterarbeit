@@ -8,11 +8,12 @@
         <ui:Instance template="BackButton" name="BackButton" style="margin-bottom: 32px;" />
         <ui:VisualElement name="InteractionFooter" style="position: absolute; left: 0; right: 0; bottom: 0; border-top-left-radius: 20px; border-bottom-left-radius: 0; border-top-right-radius: 20px; border-bottom-right-radius: 0; background-color: rgba(0, 0, 0, 0.26);">
             <ui:VisualElement name="InteractionElements" style="flex-wrap: wrap; padding-left: 8%; padding-right: 8%; padding-top: 4%; padding-bottom: 4%;">
+                <ui:Button text="Switch Position" display-tooltip-when-elided="true" name="TrackedPositionSelect" class="button button-highlight hidden" />
                 <ui:VisualElement name="TrackedImageSelect" class="hidden" style="flex-direction: row; justify-content: center; align-items: center; margin-bottom: 16px;">
-                    <ui:VisualElement name="TrackedImage" style="margin-right: 16px; border-left-width: 5px; border-right-width: 5px; border-top-width: 5px; border-bottom-width: 5px; width: 150px; height: 150px; background-image: resource(&apos;Sprites/Tours/default_tour&apos;); -unity-background-scale-mode: scale-and-crop; border-left-color: rgba(255, 255, 255, 255); border-right-color: rgba(255, 255, 255, 255); border-top-color: rgba(255, 255, 255, 255); border-bottom-color: rgba(255, 255, 255, 255);" />
+                    <ui:VisualElement name="TrackedImage" style="margin-right: 16px; border-left-width: 5px; border-right-width: 5px; border-top-width: 5px; border-bottom-width: 5px; width: 150px; height: 150px; background-image: resource(&apos;Sprites/Tours/default_tour&apos;); -unity-background-scale-mode: scale-and-crop; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255);" />
                     <ui:Button text="Nächstes Bild" display-tooltip-when-elided="true" name="ChangeImageBtn" class="button" />
                 </ui:VisualElement>
-                <ui:Instance template="ChangeObjectButtons" name="ChangeObjectButtons" class="hidden"/>
+                <ui:Instance template="ChangeObjectButtons" name="ChangeObjectButtons" class="hidden" />
             </ui:VisualElement>
             <ui:VisualElement name="ScanFooter" style="position: relative; left: auto; right: auto; bottom: auto; background-color: rgb(255, 255, 255); border-top-left-radius: 30px; border-top-right-radius: 30px; padding-left: 8%; padding-right: 8%; padding-top: 4%; padding-bottom: 50px;">
                 <ui:VisualElement name="FooterInfoToggle" style="flex-direction: row; align-items: center; justify-content: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;">

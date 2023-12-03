@@ -283,6 +283,21 @@
     background-color: rgba(248, 248, 248, 0.65);
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-    border-top-right-radius: 20px; border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
     padding: 4%;
+}
+
+.button-highlight {
+    font-size: 32px;
+    color: rgb(55, 55, 55);
+    -unity-background-image-tint-color: rgb(217, 217, 217);
+    background-color: rgb(134, 204, 243);
+    padding: 30px;
+    -unity-font-style: bold;
+    -unity-background-scale-mode: scale-to-fit;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-basis: auto;
 }

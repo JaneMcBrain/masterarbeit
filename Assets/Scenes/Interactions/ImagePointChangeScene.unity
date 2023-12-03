@@ -207,7 +207,7 @@ MonoBehaviour:
     type: 3}
   WhiteRect: {fileID: 4018119043169601511, guid: c60d61cb3e17448aea30de723cc8fa36,
     type: 3}
-  YellowRect: {fileID: 4018119043169601511, guid: 60e9147e8aa824a9391496522c628e82,
+  HighlightRect: {fileID: 4018119043169601511, guid: 60e9147e8aa824a9391496522c628e82,
     type: 3}
   UI: {fileID: 1258846688}
 --- !u!1 &360643900

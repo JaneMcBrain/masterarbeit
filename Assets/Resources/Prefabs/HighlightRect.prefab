@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4018119043169601509}
   - component: {fileID: 2097825356813882940}
   m_Layer: 0
-  m_Name: YellowRect
+  m_Name: HighlightRect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6,
     type: 3}
-  m_Color: {r: 0.9622642, g: 0.94459337, b: 0.013616921, a: 0.47843137}
+  m_Color: {r: 0.18244925, g: 0.64392596, b: 0.9433962, a: 0.47843137}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
