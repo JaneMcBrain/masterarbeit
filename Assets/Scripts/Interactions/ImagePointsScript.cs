@@ -5,7 +5,6 @@ using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using UnityEngine.UIElements;
 using SaveLoadSystem;
-using System.Security.Cryptography;
 
 
 public class ImagePointsScript : MonoBehaviour
@@ -30,13 +29,17 @@ public class ImagePointsScript : MonoBehaviour
 
     List<Vector3> positions = new List<Vector3>
         {
-            new Vector3(0f, 0f, 0f),
-            new Vector3(-0.5f, -0.28f, 0f)
+            new Vector3(0.038f, -0.175f, 0),
+            new Vector3(-0.39f, -0.08f, 0),
+            new Vector3(0.2136f, -0.1777f, 0)
         };
     List<Vector3> sizes = new List<Vector3>
-        {
-            new Vector3(0.01f, 0.01f, 0.01f),
-            new Vector3(0.05f, 0.05f, 0.05f)
+        {   //x = whiteRec x / Image X
+            //y = whiteRec y / Image Y
+            //Vector3(whiteRec x / 2560, whiteRec y / 2012)
+            new Vector3(0.0289f, 0.0368f, 0),
+            new Vector3(0.0345f, 0.0457f, 0),
+            new Vector3(0.0847f, 0.239f, 0)
         };
 
     void Start()
@@ -75,27 +78,41 @@ public class ImagePointsScript : MonoBehaviour
                 for (int i = 0; i < positions.Count; i++)
                 {
                     var key = $"{artworkName}_{i}";
-                    addWhiteRect(trackedImage.transform.position + positions[i], trackedImage.transform.localScale / (i+2), Quaternion.identity, key, i);
+                    if (!_instantiatedSticker.ContainsKey(key)){
+                        addRectPointer(trackedImage, positions[i], sizes[i], key, i);
+                    }
+                    // } else {
+                    //     _instantiatedSticker[key].transform.position = trackedImage.transform.position + positions[i];
+                    //     _instantiatedSticker[key].transform.localScale = trackedImage.transform.localScale + sizes[i];
+                    // }
                 }
             }
         }
     }
 
-    public void addWhiteRect(Vector3 position, Vector3 size, Quaternion rotation, string key, int index)
+    public void addRectPointer(ARTrackedImage image, Vector3 position, Vector3 size, string key, int index)
     {
         GameObject sticker;
-        if (objectIndex == index){
-            sticker = Instantiate(WhiteRect, position, rotation);
+        Transform newTransform = image.transform;
+        Vector3 stickerSize = new Vector3(image.size.x * size.x, image.size.y * size.y, 1f);
+        //image position + position of array + half size of image (unity centers positions)
+        float posX = newTransform.position.x + position.x + (stickerSize.x * 0.5f);
+        float posY = newTransform.position.y + position.y + (stickerSize.y * 0.5f);
+        Vector3 stickerPosition = new Vector3(posX, posY, newTransform.position.z);
+        Debug.Log($"YOLO Image: {key} is at {newTransform.position} and has size {image.size}.");
+
+        if (objectIndex != index){
+            sticker = Instantiate(WhiteRect, newTransform);
         } else {
-            sticker = Instantiate(YellowRect, position, rotation);
+            sticker = Instantiate(YellowRect, newTransform);
         }
-        sticker.transform.localScale = size;
+        sticker.transform.localScale = stickerSize;
+        sticker.transform.position = stickerPosition;
         _instantiatedSticker[key] = sticker;
         _instantiatedSticker[key].SetActive(true);
 
-        Debug.Log($"Image: {key} is at " +
-                    $"{sticker.transform.position} and has scale {sticker.transform.localScale}");
-
+        // Jetzt kannst du mit width und height arbeiten
+        Debug.Log($"YOLO Sticker {_instantiatedSticker[key].transform.position} and has size {_instantiatedSticker[key].transform.localScale}");
     }
 
     void setTrackedImageToUI(string objectName)
