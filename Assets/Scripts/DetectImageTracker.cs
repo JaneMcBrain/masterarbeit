@@ -26,7 +26,7 @@ public class DetectImageTracker : MonoBehaviour
         {"ObjectChangeFace", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Gesichter im Bild austauschen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
         {"ObjectChangeSticker", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Elemente im Bild austauschen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
         {"ImagePointChange", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Elemente im Bild austauschen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
-        {"ObjectChangePlane", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Elemente im Bild austauschen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
+        {"FreePosition", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Elemente im Bild austauschen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
         {"Cutting", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Elemente im Bild auschneiden. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
         {"ChangeStyle", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du den Stil des Bildes verändern. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."}
     };
@@ -54,10 +54,7 @@ public class DetectImageTracker : MonoBehaviour
                 //if artwork is correct
                 var keyRight = "right_" + trackImageName;
                 if (!_instantiatedFeedback.ContainsKey(keyRight)){
-                    var newArObj = Instantiate(CorrectImage, trackedImage.transform);
-                    newArObj.transform.localScale = new Vector3(trackedImage.referenceImage.size.x, trackedImage.transform.localScale.y, trackedImage.referenceImage.size.y);
-                    _instantiatedFeedback[keyRight] = newArObj;
-                    _instantiatedFeedback[keyRight].SetActive(true);
+                    setOverlay(CorrectImage, trackedImage, keyRight);
                     //Add image content to UI
                     loadInteractionUI();
                 }
@@ -67,20 +64,23 @@ public class DetectImageTracker : MonoBehaviour
                 var keyWrong = "wrong_" + trackImageName;
                 if (!_instantiatedFeedback.ContainsKey(keyWrong))
                 {
-                    var newArObj = Instantiate(WrongImage, trackedImage.transform);
-                    _instantiatedFeedback[keyWrong] = newArObj;
-                    _instantiatedFeedback[keyWrong].SetActive(true);
+                    setOverlay(WrongImage, trackedImage, keyWrong);
                 }
             }
         }
         //reset everything on remove
         foreach (var trackedImage in eventArgs.removed)
         {
-            Destroy(_instantiatedArtworks[trackedImage.referenceImage.name]);
             Destroy(_instantiatedFeedback["right_" + trackedImage.referenceImage.name]);
-            _instantiatedArtworks.Remove(trackedImage.referenceImage.name);
             _instantiatedFeedback.Remove("right_" + trackedImage.referenceImage.name);
         }
+    }
+
+    private void setOverlay(GameObject overlay, ARTrackedImage image, string key){
+        var instantiatedOverlay = Instantiate(overlay, image.transform);
+        instantiatedOverlay.transform.localScale = new Vector3(image.referenceImage.size.x, image.transform.localScale.y, image.referenceImage.size.y);
+        _instantiatedFeedback[key] = instantiatedOverlay;
+        _instantiatedFeedback[key].SetActive(true);
     }
 
     private void loadInteractionUI(){

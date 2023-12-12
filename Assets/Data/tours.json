@@ -29,12 +29,12 @@
         },
         {
           "id": "tour1_exercise3",
-          "name": "Objektaustauch - Plane Track",
+          "name": "Objektaustauch - Free Position",
           "text": "Finde die Parade auf dem Opernplatz in Berlin.",
           "image": "parade",
           "imageTitle": "Parade auf dem Opernplatz",
           "imageArtist": "Franz Krüger",
-          "type": "ObjectChangePlane"
+          "type": "FreePosition"
         },
         {
           "id": "tour1_exercise4",
@@ -67,21 +67,21 @@
         },
         {
           "id": "tour2_exercise2",
-          "name": "Objektaustauch - Face Track Flötenkonzert",
+          "name": "Objektaustauch - Free Position Flötenkonzert",
           "text": "Finde den Sohn von Johann Sebastian Back, welcher an einem Cembalo sitzend nicht so viel von den musikalischen Künsten seines Arbeitgebers hält.",
           "image": "floetenkonzert",
           "imageTitle": "Flötenkonzert Friedrichs des Großen in Sanssouci",
           "imageArtist": "Adolph Friedrich Erdmann von Menzel",
-          "type": "ObjectChangePlane"
+          "type": "FreePosition"
         },
         {
           "id": "tour2_exercise3",
-          "name": "Objektaustauch - Plane Detection Opernplatz",
+          "name": "Objektaustauch - Free Position Opernplatz",
           "text": "Finde die Parade auf dem Opernplatz in Berlin.",
           "image": "parade",
           "imageTitle": "Parade auf dem Opernplatz",
           "imageArtist": "Franz Krüger",
-          "type": "ObjectChangePlane"
+          "type": "FreePosition"
         },
         {
           "id": "tour2_exercise4",

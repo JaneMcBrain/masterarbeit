@@ -71,11 +71,9 @@ public class ImagePointsScript : MonoBehaviour
         foreach (var trackedImage in eventArgs.updated)
         {
             var artworkName = trackedImage.referenceImage.name;
-
             //check if trackedImages is tracked && is the correct artwork
             if (trackedImage.trackingState == TrackingState.Tracking && artworkName == searchedImage)
             {
-
                 for (int i = 0; i < positions.Count; i++)
                 {
                     var key = $"{artworkName}_{i}";

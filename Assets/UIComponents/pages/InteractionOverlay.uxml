@@ -6,9 +6,16 @@
     <Style src="project://database/Assets/Styles/Fonts.uss?fileID=7433441132597879392&amp;guid=46027659cbf7543619a8b0e4a04acfba&amp;type=3#Fonts" />
     <ui:VisualElement class="container">
         <ui:Instance template="BackButton" name="BackButton" style="margin-bottom: 32px;" />
-        <ui:VisualElement name="InteractionFooter" style="position: absolute; left: 0; right: 0; bottom: 0; border-top-left-radius: 20px; border-bottom-left-radius: 0; border-top-right-radius: 20px; border-bottom-right-radius: 0; background-color: rgba(0, 0, 0, 0.26);">
+        <ui:VisualElement name="InteractionFooter" style="position: absolute; left: 0; right: 0; bottom: 0; border-top-left-radius: 20px; border-bottom-left-radius: 0; border-top-right-radius: 20px; border-bottom-right-radius: 0; background-color: rgba(0, 0, 0, 0.4);">
             <ui:VisualElement name="InteractionElements" style="flex-wrap: wrap; padding-left: 8%; padding-right: 8%; padding-top: 4%; padding-bottom: 4%;">
-                <ui:Button text="Switch Position" display-tooltip-when-elided="true" name="TrackedPositionSelect" class="button button-highlight hidden" />
+                <ui:VisualElement name="AssetNavigation" class="hidden" style="flex-direction: row; justify-content: space-between; align-items: center; flex-shrink: 0; width: 100%;">
+                    <ui:Button display-tooltip-when-elided="true" name="AssetLeftClick" class="button" style="background-image: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=-4528830608231651361&amp;guid=16cba54ae354f49d0988f2b61cb8b1c5&amp;type=3#arrow-left@2x&apos;); -unity-background-image-tint-color: rgb(132, 132, 132); width: 100px; height: 100px;" />
+                    <ui:VisualElement name="AssetThumbnail">
+                        <ui:VisualElement name="AssetImage" style="margin-right: 16px; margin-left: 16px; width: 100px; height: 100px; -unity-text-align: upper-center; margin-bottom: 8px;" />
+                        <ui:Label text="Label" display-tooltip-when-elided="true" name="AssetName" class="text" style="-unity-text-align: upper-center; color: rgb(255, 255, 255);" />
+                    </ui:VisualElement>
+                    <ui:Button display-tooltip-when-elided="true" name="AssetRightClick" class="button" style="background-image: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=-1087164816274819069&amp;guid=16cba54ae354f49d0988f2b61cb8b1c5&amp;type=3#arrow-right@2x&apos;); -unity-background-image-tint-color: rgb(132, 132, 132); width: 100px; height: 100px;" />
+                </ui:VisualElement>
                 <ui:VisualElement name="TrackedImageSelect" class="hidden" style="flex-direction: row; justify-content: center; align-items: center; margin-bottom: 16px;">
                     <ui:VisualElement name="TrackedImage" style="margin-right: 16px; border-left-width: 5px; border-right-width: 5px; border-top-width: 5px; border-bottom-width: 5px; width: 150px; height: 150px; background-image: resource(&apos;Sprites/Tours/default_tour&apos;); -unity-background-scale-mode: scale-and-crop; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255);" />
                     <ui:Button text="Nächstes Bild" display-tooltip-when-elided="true" name="ChangeImageBtn" class="button" />
