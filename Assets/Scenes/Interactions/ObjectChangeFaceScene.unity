@@ -259,6 +259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   faceMaterials: []
   UI: {fileID: 1258846688}
+  allFacesDataJson: {fileID: 4900000, guid: a5441242fb4f94d21852a97519e2cf80, type: 3}
 --- !u!1 &360643900
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,7 +2,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.UIElements;
-using UnityEngine.XR.ARKit;
+using SaveLoadSystem;
+
+
+[System.Serializable]
+public class AllFacesData
+{
+    public List<FaceImage> allFacesData;
+}
+
+[System.Serializable]
+public class FaceImage
+{
+    public string imagePath;
+    public FaceData faceData;
+}
+
+[System.Serializable]
+public class FaceData
+{
+    public List<RectangleData> faces;
+    public List<LandmarkData> landmarks;
+}
+
+[System.Serializable]
+public class LandmarkData
+{
+    public List<float> x;
+    public List<float> y;
+}
+
+[System.Serializable]
+public class RectangleData
+{
+    public float x;
+    public float y;
+    public float width;
+    public float height;
+}
+
 
 public class ChangeObjectScriptFace : MonoBehaviour
 {
@@ -15,6 +53,7 @@ public class ChangeObjectScriptFace : MonoBehaviour
     private VisualElement uiDocument;
 
     private int numberOfDetectedFaces;
+    public TextAsset allFacesDataJson;
 
     void OnEnable()
     {
@@ -27,38 +66,31 @@ public class ChangeObjectScriptFace : MonoBehaviour
         changeBtn2.clicked += () => onChangeObject(changeBtn2, 1);
         changeBtn3.clicked += () => onChangeObject(changeBtn3, 2);
 
-        var arCamera = FindObjectOfType<ARCameraManager>();
-        faceManager = GetComponent<ARFaceManager>();
-        faceManager.facesChanged += OnFacesChanged;
-        var ft = GetComponent<ARKitFaceSubsystem>();
-        var track = GetComponent<TrackingMode>();
-        Debug.Log("Tracking Mode: " + track);
+    }
 
-        if (arCamera != null)
+    void highlightFaces(){
+        if (allFacesDataJson != null)
         {
-            // Protokollieren Sie die Kameraeinstellungen.
-            Debug.Log("Camera Settings:");
-            Debug.Log("Camera requestedFacingDirection: " + arCamera.requestedFacingDirection);
-            Debug.Log("Camera currentFacingDirection: " + arCamera.currentFacingDirection);
-            Debug.Log("Camera requestedLightEstimation: " + arCamera.requestedLightEstimation);
-        }
-        else
-        {
-            Debug.LogWarning("ARCameraManager not found.");
-        }
+            // Lade JSON-Datei und deserialisiere sie
+            AllFacesData allFacesData = JsonUtility.FromJson<AllFacesData>(allFacesDataJson.text);
 
-        Debug.Log("Face Manager: " + faceManager.enabled);
-
-        if (faceManager != null)
-        {
-            foreach (ARFace face in faceManager.trackables)
+            // Iteriere über alle Gesichtsdaten
+            foreach (FaceImage faceImage in allFacesData.allFacesData)
             {
-                Debug.Log("Face trackableId: " + face.trackableId);
+                string imagePath = faceImage.imagePath;
+                SaveGameManager.LoadState();
+                var searchedImage = SaveGameManager.CurrentActivityData.currentExercise.exercise.image;
+
+                if (imagePath == searchedImage){
+                    // Zugriff auf Gesichtsdaten und Landmarks
+                    FaceData faceData = faceImage.faceData;
+                    // Hier muss über jedes Face iteriert werden und ein Rectangle raufgesetzt werden
+                }
             }
         }
         else
         {
-            Debug.LogError("ARFaceManager not found on this GameObject.");
+            Debug.LogError("All Faces Data JSON not assigned!");
         }
     }
 
@@ -82,28 +114,6 @@ public class ChangeObjectScriptFace : MonoBehaviour
     void SwitchFace()
     {
         Debug.Log("SwitchFace");
-        //every face that is tracked needs an update
-        foreach (ARFace face in faceManager.trackables)
-        {
-            Debug.Log("Face tracked and changed to: " + faceMaterialIndex);
-            face.GetComponent<Renderer>().material = faceMaterials[faceMaterialIndex];
-        }
 
-    }
-
-    void OnFacesChanged(ARFacesChangedEventArgs eventArgs)
-    {
-        numberOfDetectedFaces = eventArgs.added.Count;
-
-        if (numberOfDetectedFaces > 0)
-        {
-            Debug.Log("Gesicht(er) erkannt: " + numberOfDetectedFaces);
-            // Hier könntest du zusätzliche Aktionen durchführen, z.B. den Filter aktivieren
-        }
-        else
-        {
-            Debug.Log("Kein Gesicht erkannt");
-            // Hier könntest du zusätzliche Aktionen durchführen, z.B. den Filter deaktivieren
-        }
     }
 }
