@@ -58,17 +58,17 @@ public class ChangeObjectScriptFace : MonoBehaviour
     public TextAsset jsonFile;
 
     private ImageTrackingManager imageTrackingManager;
-    private Camera cam;
     public GameObject WhiteRect;
     private readonly Dictionary<string, GameObject> instantiatedRects = new Dictionary<string, GameObject>();
 
-    void Start()
-    {
-        cam = Camera.main;
-    }
+    private AllFacesData allFacesData;
+    private string searchedImage;
 
     void OnEnable()
     {
+        SaveGameManager.LoadState();
+        searchedImage = SaveGameManager.CurrentActivityData.currentExercise.exercise.image;
+
         imageTrackingManager = gameObject.AddComponent<ImageTrackingManager>();
         imageTrackingManager.OnImageUpdated += OnImageUpdated;
 
@@ -81,6 +81,16 @@ public class ChangeObjectScriptFace : MonoBehaviour
         changeBtn2.clicked += () => onChangeObject(changeBtn2, 1);
         changeBtn3.clicked += () => onChangeObject(changeBtn3, 2);
 
+        if (jsonFile != null)
+        {
+            // Lade JSON-Datei und deserialisiere sie
+            allFacesData = JsonUtility.FromJson<AllFacesData>(jsonFile.text);
+        }
+        else
+        {
+            Debug.LogError("All Faces Data JSON not assigned!");
+        }
+
     }
 
     void OnImageUpdated(ARTrackedImage trackedImage)
@@ -90,54 +100,42 @@ public class ChangeObjectScriptFace : MonoBehaviour
 
     void highlightFaces(ARTrackedImage trackedImage)
     {
-        if (jsonFile != null)
+        foreach (FaceImage faceImage in allFacesData.images)
         {
-            // Lade JSON-Datei und deserialisiere sie
-            AllFacesData allFacesData = JsonUtility.FromJson<AllFacesData>(jsonFile.text);
-            // Iteriere über alle Bilder
-            foreach (FaceImage faceImage in allFacesData.images)
-            {
-                string imagePath = faceImage.imagePath;
-                Vector2 imageSize = faceImage.size;
-                SaveGameManager.LoadState();
-                var searchedImage = SaveGameManager.CurrentActivityData.currentExercise.exercise.image;
-                if (imagePath == searchedImage){
-                    List<RectangleData> faces = faceImage.faceData.faces;
-                    for (int i = 0; i < faces.Count; i++)
-                    {
-                        RectangleData face = faces[i];
-                        string key = imagePath + "_face_" + i;
-                        Vector2 multiplier = new Vector2(trackedImage.size.x / imageSize.x, trackedImage.size.y / imageSize.y);
-                        Transform imgTransform = trackedImage.transform;
-                        if (!instantiatedRects.ContainsKey(key)){
-                            //Berechnung der Weltgröße je Pixel
-                            GameObject rectangle;
-                            rectangle = Instantiate(WhiteRect, imgTransform);
-                            // Rechteckgröße neu berechnen
-                            float recWidth = multiplier.x * face.width;
-                            float recHeight = multiplier.y * face.height;
-                            rectangle.transform.localScale = new Vector3(recWidth, recHeight, 1f);
-                            // Rechteckposition neu berechnen
-                            // 1. Rechteck am Bild unten links positionen
-                            setObjectPosition(trackedImage, multiplier, face, rectangle);
-                            instantiatedRects[key] = rectangle;
-                        } else {
-                            setObjectPosition(trackedImage, multiplier, face, instantiatedRects[key]);
-                        }
+            string imagePath = faceImage.imagePath;
+            Vector2 imageSize = faceImage.size;
+            if (imagePath == searchedImage){
+                List<RectangleData> faces = faceImage.faceData.faces;
+                Vector2 multiplier = new Vector2(trackedImage.size.x / imageSize.x, trackedImage.size.y / imageSize.y);
+                Transform imgTransform = trackedImage.transform;
+                for (int i = 0; i < faces.Count; i++)
+                {
+                    RectangleData face = faces[i];
+                    string key = imagePath + "_face_" + i;
+                    if (!instantiatedRects.ContainsKey(key)){
+                        //Berechnung der Weltgröße je Pixel
+                        GameObject rectangle;
+                        rectangle = Instantiate(WhiteRect, imgTransform);
+                        // Rechteckgröße neu berechnen
+                        float recWidth = multiplier.x * face.width;
+                        float recHeight = multiplier.y * face.height;
+                        rectangle.transform.localScale = new Vector3(recWidth, recHeight, 1f);
+                        // Rechteckposition neu berechnen
+                        setObjectPosition(trackedImage, multiplier, face, rectangle);
+                        // Rechteck speichern
+                        instantiatedRects[key] = rectangle;
+                    } else {
+                        setObjectPosition(trackedImage, multiplier, face, instantiatedRects[key]);
                     }
                 }
             }
-        }
-        else
-        {
-            Debug.LogError("All Faces Data JSON not assigned!");
         }
     }
 
     void setObjectPosition(ARTrackedImage img, Vector2 multiplier, RectangleData face, GameObject gameO)
     {
-        Vector3 pos = img.transform.position - new Vector3(img.size.x / 2, img.size.y / 2, 0);
-        Vector3 faceCoordinates = new Vector3(face.x * multiplier.x, face.y * multiplier.y, 0);
+        Vector3 pos = img.transform.position - new Vector3(img.size.x / 2, -img.size.y / 2, 0);
+        Vector3 faceCoordinates = new Vector3(face.x * multiplier.x, -(face.y * multiplier.y), 0);
         gameO.transform.position = pos + faceCoordinates;
     }
 

@@ -25,19 +25,18 @@ public class ImagePointsScript : MonoBehaviour
 
     private readonly Dictionary<string, GameObject> _instantiatedSticker = new Dictionary<string, GameObject>();
 
+    Vector2 imageSize = new Vector2(2560, 2012);
     List<Vector3> positions = new List<Vector3>
         {
-            new Vector3(0.038f, -0.175f, 0),
-            new Vector3(-0.39f, -0.08f, 0),
-            new Vector3(0.2136f, -0.1777f, 0)
+            new Vector3(1375, -1467, 0),
+            new Vector3(164, -1229, 0),
+            new Vector3(1830, -1453, 0)
         };
     List<Vector3> sizes = new List<Vector3>
-        {   //x = whiteRec x / Image X
-            //y = whiteRec y / Image Y
-            //Vector3(whiteRec x / 2560, whiteRec y / 2012)
-            new Vector3(0.0289f, 0.0368f, 0),
-            new Vector3(0.0345f, 0.0457f, 0),
-            new Vector3(0.0847f, 0.239f, 0)
+        {
+            new Vector3(112, 112, 0),
+            new Vector3(92, 92, 0),
+            new Vector3(217, 482, 0)
         };
 
     void Start()
@@ -102,18 +101,24 @@ public class ImagePointsScript : MonoBehaviour
     }
 
     void setGameObjectParams(GameObject currentObject, ARTrackedImage image, Vector3 position, Vector3 size)
-    {
-        Transform imgTransform = image.transform;
-        //calculate size
-        Vector3 stickerSize = new Vector3(image.size.x * size.x, image.size.y * size.y, 1f);
-        //calculate position
-        //image position + position of array +/- half size of image (unity centers positions)
-        float posX = imgTransform.position.x + position.x + (stickerSize.x * 0.5f);
-        float posY = imgTransform.position.y + position.y - (stickerSize.y * 0.5f);
-        Vector3 stickerPosition = new Vector3(posX, posY, imgTransform.position.z);
-        //save new values in Game Object
-        currentObject.transform.localScale = stickerSize;
-        currentObject.transform.position = stickerPosition;
+    {   //Größe
+        Vector2 multiplier = new Vector2(image.size.x / imageSize.x, image.size.y / imageSize.y);
+        float recWidth = multiplier.x * size.x;
+        float recHeight = multiplier.y * size.y;
+        currentObject.transform.localScale = new Vector3(recWidth, recHeight, 1f);
+        //Position
+        Vector3 pos = image.transform.position - new Vector3(image.size.x / 2, -image.size.y / 2, 0);
+        Vector3 faceCoordinates = new Vector3(position.x * multiplier.x + recWidth, position.y * multiplier.y - recHeight, 0);
+        currentObject.transform.position = pos + faceCoordinates;
+
+        Debug.Log($"YOLO Berechnung {image.transform.position} - {new Vector3(image.size.x / 2, image.size.y / 2, 0)}");
+        Debug.Log($"YOLO Berechnung {new Vector3(image.size.x, image.size.y, 0)}");
+        Debug.Log($"YOLO faceCoordinates: {faceCoordinates}");
+        Debug.Log($"YOLO Position: {pos}");
+        Debug.Log($"YOLO instantiatedRects Position: {currentObject.transform.position}");
+        Debug.Log($"YOLO multiplier: {multiplier.ToString("F6")}");
+        Debug.Log($"YOLO neue Berechnung: {pos.ToString("F6")} + {faceCoordinates.ToString("F6")}");
+        Debug.Log($"YOLO Image Position: {image.transform.position}");
     }
 
     void onSwitchPosition(){
