@@ -24,10 +24,10 @@ public class DetectImageTracker : MonoBehaviour
     private readonly Dictionary<string, string> interactionText = new Dictionary<string, string>()
     {
         {"ObjectChangeFace", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Gesichter im Bild austauschen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
-        {"ObjectChangeSticker", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Elemente im Bild austauschen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
-        {"ImagePointChange", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Elemente im Bild austauschen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
-        {"FreePosition", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Elemente im Bild austauschen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
-        {"Cutting", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Elemente im Bild auschneiden. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
+        {"ObjectChangeSticker", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Elemente auf das Bild setzen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
+        {"ImagePointChange", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Elemente auf das Bild setzen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
+        {"FreePosition", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Elemente im Bild positionieren. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
+        {"FreePositionArt", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Elemente im Bild positionieren. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
         {"ChangeStyle", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du den Stil des Bildes verändern. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."}
     };
 

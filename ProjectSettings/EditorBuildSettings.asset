@@ -38,6 +38,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Interactions/FreePositionScene.unity
     guid: 9f4f0398689c64498ba3fed294465bf0
+  - enabled: 1
+    path: Assets/Scenes/Interactions/FreePositionArtScene.unity
+    guid: 868e7db6fe2fe464ab2cdb57574c89a7
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 744b813df90924c169af73489b8325de,
       type: 2}

@@ -44,6 +44,15 @@
           "imageTitle": "König Friedrichs II. Tafelrunde in Sanssouci",
           "imageArtist": "Adolph Friedrich Erdmann von Menzel",
           "type": "ObjectChangeFace"
+        },
+        {
+          "id": "tour1_exercise5",
+          "name": "Objektaustauch - Free Position Art",
+          "text": "In dampferfüllter Dämmerung mischen sich flackerndes Glutlicht und bizarre Schatten zu einem dämonischen Schauspiel des Ringens von Mensch und Maschine.",
+          "image": "eisenwalzwerk",
+          "imageTitle": "Eisenwalzwerk (Moderne Cyklopen)",
+          "imageArtist": "Adolph Friedrich Erdmann von Menzel 1872 - 1875",
+          "type": "FreePositionArt"
         }
       ]
     },
