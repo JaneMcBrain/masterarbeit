@@ -4,10 +4,7 @@ using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using SaveLoadSystem;
 using UnityEngine.UIElements;
-using Lean;
 using Lean.Touch;
-using UnityEngine.InputSystem.EnhancedTouch;
-using Unity.VisualScripting;
 
 public class FreePositionScript : MonoBehaviour
 {
@@ -46,7 +43,6 @@ public class FreePositionScript : MonoBehaviour
 
     void setThumbnail()
     {
-        Debug.Log($"Yolo setThumbnail to: {prefabs[currentPrefab].name}");
         //var imagePath = "Sprites/Artwork/" + prefabs[currentPrefab].name;
         assetName.text = prefabs[currentPrefab].name;
         //Texture2D image = prefabs[currentPrefab].GetComponent<Texture2D>();

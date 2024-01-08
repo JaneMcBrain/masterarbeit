@@ -4,9 +4,9 @@
     <Style src="project://database/Assets/Styles/Fonts.uss?fileID=7433441132597879392&amp;guid=46027659cbf7543619a8b0e4a04acfba&amp;type=3#Fonts" />
     <ui:VisualElement class="container">
         <ui:Instance template="BackButton" name="BackButton" style="margin-bottom: 32px;" />
-        <ui:VisualElement name="ImageInfo" class="ar-info-box hidden">
-            <ui:Label text="Name des Bildes" display-tooltip-when-elided="true" name="ImageTitle" class="h1" style="-unity-text-align: upper-left;" />
-            <ui:Label text="Name des Künstlers" display-tooltip-when-elided="true" name="ImageArtist" class="large-text text-large" style="-unity-text-align: upper-right;" />
+        <ui:VisualElement name="ImageInfo" class="ar-info-box hidden" style="flex-wrap: wrap;">
+            <ui:Label text="Name des Bildes" display-tooltip-when-elided="true" name="ImageTitle" class="h1" style="-unity-text-align: upper-left; flex-wrap: wrap;" />
+            <ui:Label text="Name des Künstlers" display-tooltip-when-elided="true" name="ImageArtist" class="large-text text-large" style="-unity-text-align: upper-right; flex-wrap: nowrap; white-space: normal;" />
         </ui:VisualElement>
         <ui:VisualElement name="ScanFooter" style="position: absolute; left: 0; right: 0; bottom: 0; background-color: rgb(255, 255, 255); border-top-left-radius: 30px; border-top-right-radius: 30px; padding-left: 8%; padding-right: 8%; padding-top: 4%; padding-bottom: 50px;">
             <ui:VisualElement name="FooterHelpToggle" style="flex-direction: row; align-items: center; justify-content: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;">

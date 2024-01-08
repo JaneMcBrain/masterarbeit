@@ -4,10 +4,7 @@ using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using SaveLoadSystem;
 using UnityEngine.UIElements;
-using Lean;
 using Lean.Touch;
-using UnityEngine.InputSystem.EnhancedTouch;
-using Unity.VisualScripting;
 
 public class FreePositionArtScript : MonoBehaviour
 {
@@ -54,20 +51,29 @@ public class FreePositionArtScript : MonoBehaviour
         Lean.Touch.LeanTouch.OnFingerTap -= HandleFingerTap;
     }
 
+    private bool FingerIsOnImage(Lean.Touch.LeanFinger finger){
+        return finger.StartScreenPosition.y > 580 && finger.StartScreenPosition.y < 2300;
+    }
+
     void HandleFingerTap(Lean.Touch.LeanFinger finger)
     {
-        Debug.Log($"YOLO Tap on: {finger.StartScreenPosition}");
         var searchedImage = SaveGameManager.CurrentActivityData.currentExercise.exercise.image;
-        if (_instantiatedArtworks.ContainsKey(searchedImage) && finger.StartScreenPosition.y > 360)
+        //check if image correct tracked, finger on the image area
+        if (_instantiatedArtworks.ContainsKey(searchedImage) && FingerIsOnImage(finger))
         {
-            if (currentObject != null)
-            {
-                fixObjectOnScreen();
-                setObjectOnScreen();
-            }
-            else
-            {
-                setObjectOnScreen();
+            //check if currentObject is not null and alredy used
+            if(currentObject != null && currentObject.name != prefabs[currentPrefab].name){
+                return;
+            } else {
+                if (currentObject != null)
+                {
+                    fixObjectOnScreen();
+                    setObjectOnScreen();
+                }
+                else
+                {
+                    setObjectOnScreen();
+                }
             }
         }
     }
@@ -83,6 +89,8 @@ public class FreePositionArtScript : MonoBehaviour
         currentObject = Instantiate(spriteObject, _instantiatedArtworks[searchedImage].transform);
         // GameObject um 90 Grad nach unten kippen
         currentObject.transform.Rotate(Vector3.right, 90f);
+        Vector3 currentScale = transform.localScale;
+        currentObject.transform.localScale = new Vector3(currentScale.x * 0.3f, currentScale.y * 0.3f, currentScale.z);
         currentObject.SetActive(true);
         currentObject.AddComponent<LeanPinchScale>();
         currentObject.AddComponent<LeanDragTranslate>();
@@ -123,7 +131,6 @@ public class FreePositionArtScript : MonoBehaviour
 
     private void onRightBtnClick()
     {
-        Debug.Log("YOLO : Right Click");
         if (currentPrefab + 1 == prefabs.Length)
         {
             currentPrefab = 0;
@@ -136,7 +143,6 @@ public class FreePositionArtScript : MonoBehaviour
     }
     private void onLeftBtnClick()
     {
-        Debug.Log("YOLO : Left Click");
         if (currentPrefab == 0)
         {
             currentPrefab = prefabs.Length - 1;
