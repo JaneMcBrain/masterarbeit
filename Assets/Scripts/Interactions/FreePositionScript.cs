@@ -116,7 +116,6 @@ public class FreePositionScript : MonoBehaviour
 
     private void onRightBtnClick()
     {
-        Debug.Log("YOLO : Right Click");
         if (currentPrefab + 1 == prefabs.Length)
         {
             currentPrefab = 0;
@@ -129,7 +128,6 @@ public class FreePositionScript : MonoBehaviour
     }
     private void onLeftBtnClick()
     {
-        Debug.Log("YOLO : Left Click");
         if (currentPrefab == 0)
         {
             currentPrefab = prefabs.Length - 1;

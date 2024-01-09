@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
@@ -28,15 +27,15 @@ public class ImagePointsScript : MonoBehaviour
     Vector2 imageSize = new Vector2(2560, 2012);
     List<Vector3> positions = new List<Vector3>
         {
-            new Vector3(1375, -1467, 0),
-            new Vector3(164, -1229, 0),
-            new Vector3(1830, -1453, 0)
+            new Vector3(1325, -1417, 0),
+            new Vector3(114, -1139, 0),
+            new Vector3(1780, -1353, 0)
         };
     List<Vector3> sizes = new List<Vector3>
         {
             new Vector3(112, 112, 0),
-            new Vector3(92, 92, 0),
-            new Vector3(217, 482, 0)
+            new Vector3(100, 100, 0),
+            new Vector3(217, 217, 0)
         };
 
     void Start()
@@ -110,15 +109,6 @@ public class ImagePointsScript : MonoBehaviour
         Vector3 pos = image.transform.position - new Vector3(image.size.x / 2, -image.size.y / 2, 0);
         Vector3 faceCoordinates = new Vector3(position.x * multiplier.x + recWidth, position.y * multiplier.y - recHeight, 0);
         currentObject.transform.position = pos + faceCoordinates;
-
-        Debug.Log($"YOLO Berechnung {image.transform.position} - {new Vector3(image.size.x / 2, image.size.y / 2, 0)}");
-        Debug.Log($"YOLO Berechnung {new Vector3(image.size.x, image.size.y, 0)}");
-        Debug.Log($"YOLO faceCoordinates: {faceCoordinates}");
-        Debug.Log($"YOLO Position: {pos}");
-        Debug.Log($"YOLO instantiatedRects Position: {currentObject.transform.position}");
-        Debug.Log($"YOLO multiplier: {multiplier.ToString("F6")}");
-        Debug.Log($"YOLO neue Berechnung: {pos.ToString("F6")} + {faceCoordinates.ToString("F6")}");
-        Debug.Log($"YOLO Image Position: {image.transform.position}");
     }
 
     void onSwitchPosition(){
@@ -148,7 +138,6 @@ public class ImagePointsScript : MonoBehaviour
         objectIndex = index;
         activateButton(btn);
         var objectName = getObjectName();
-        Debug.Log($"YOLO onChangeObject objectName: {objectName}");
         _instantiatedSticker[objectName].GetComponent<SpriteRenderer>().sprite = images[objectIndex];
         _instantiatedSticker[objectName].GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
     }

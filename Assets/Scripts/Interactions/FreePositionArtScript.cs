@@ -13,22 +13,21 @@ public class FreePositionArtScript : MonoBehaviour
 
     [SerializeField]
     XRReferenceImageLibrary xrReferenceLibrary;
-    private ARTrackedImageManager _imageManager;
-    private readonly Dictionary<string, ARTrackedImage> _instantiatedArtworks = new Dictionary<string, ARTrackedImage>();
+    private ARTrackedImageManager imageManager;
+    private readonly Dictionary<string, ARTrackedImage> instantiatedArtworks = new Dictionary<string, ARTrackedImage>();
+    private readonly Dictionary<string, GameObject> instantiatedPrefabs = new Dictionary<string, GameObject>();
 
     public GameObject UI;
     private VisualElement uiDocument;
-    private int currentPrefab = 0;
-    private GameObject currentObject;
+    private int currentPrefabIndex = 0;
     private VisualElement assetImage;
-    private Label assetName;
     void Start()
     {
         //instantiate xrTrackedImageManager runtime
-        _imageManager = GetComponent<ARTrackedImageManager>();
-        _imageManager.referenceLibrary = _imageManager.CreateRuntimeLibrary(xrReferenceLibrary);
-        _imageManager.enabled = true;
-        _imageManager.trackedImagesChanged += OnTrackedImagesChanged;
+        imageManager = GetComponent<ARTrackedImageManager>();
+        imageManager.referenceLibrary = imageManager.CreateRuntimeLibrary(xrReferenceLibrary);
+        imageManager.enabled = true;
+        imageManager.trackedImagesChanged += OnTrackedImagesChanged;
         //UI
         uiDocument = UI.GetComponent<UIDocument>().rootVisualElement;
         uiDocument.Q<VisualElement>("AssetNavigation").RemoveFromClassList("hidden");
@@ -43,7 +42,7 @@ public class FreePositionArtScript : MonoBehaviour
 
     void setThumbnail()
     {
-        assetImage.style.backgroundImage = new StyleBackground(prefabs[currentPrefab]);
+        assetImage.style.backgroundImage = new StyleBackground(prefabs[currentPrefabIndex]);
     }
 
     void OnDisable()
@@ -59,22 +58,10 @@ public class FreePositionArtScript : MonoBehaviour
     {
         var searchedImage = SaveGameManager.CurrentActivityData.currentExercise.exercise.image;
         //check if image correct tracked, finger on the image area
-        if (_instantiatedArtworks.ContainsKey(searchedImage) && FingerIsOnImage(finger))
+        if (instantiatedArtworks.ContainsKey(searchedImage) && FingerIsOnImage(finger))
         {
-            //check if currentObject is not null and alredy used
-            if(currentObject != null && currentObject.name != prefabs[currentPrefab].name){
-                return;
-            } else {
-                if (currentObject != null)
-                {
-                    fixObjectOnScreen();
-                    setObjectOnScreen();
-                }
-                else
-                {
-                    setObjectOnScreen();
-                }
-            }
+
+            setObjectOnScreen();
         }
     }
 
@@ -85,29 +72,43 @@ public class FreePositionArtScript : MonoBehaviour
         GameObject spriteObject = new GameObject("SpriteObject");
         // SpriteRenderer-Komponente hinzufügen
         SpriteRenderer spriteRenderer = spriteObject.AddComponent<SpriteRenderer>();
-        spriteRenderer.sprite = prefabs[currentPrefab];
-        currentObject = Instantiate(spriteObject, _instantiatedArtworks[searchedImage].transform);
-        // GameObject um 90 Grad nach unten kippen
-        currentObject.transform.Rotate(Vector3.right, 90f);
-        Vector3 currentScale = transform.localScale;
-        currentObject.transform.localScale = new Vector3(currentScale.x * 0.3f, currentScale.y * 0.3f, currentScale.z);
-        currentObject.SetActive(true);
-        currentObject.AddComponent<LeanPinchScale>();
-        currentObject.AddComponent<LeanDragTranslate>();
-        currentObject.AddComponent<LeanTwistRotate>();
-        currentObject.AddComponent<LeanTwistRotateAxis>();
+        spriteRenderer.sprite = prefabs[currentPrefabIndex];
+        string objName = "prefab_" + currentPrefabIndex;
+        if (!instantiatedPrefabs.ContainsKey(objName)){
+            instantiatedPrefabs[objName] = Instantiate(spriteObject, instantiatedArtworks[searchedImage].transform);
+            // GameObject um 90 Grad nach unten kippen
+            instantiatedPrefabs[objName].transform.Rotate(Vector3.right, 90f);
+            Vector3 currentScale = instantiatedPrefabs[objName].transform.localScale;
+            Debug.Log($"Old Scale: {currentScale}");
+            instantiatedPrefabs[objName].transform.localScale = new Vector3(currentScale.x * 0.3f, currentScale.y * 0.3f, currentScale.z);
+            Debug.Log($"New Scale: {instantiatedPrefabs[objName].transform.localScale}");
+            instantiatedPrefabs[objName].SetActive(true);
+            AddLeanGestures(objName);
+        } else {
+            AddLeanGestures(objName);
+        }
+    }
+
+    void AddLeanGestures(string objName){
+        instantiatedPrefabs[objName].AddComponent<LeanPinchScale>();
+        instantiatedPrefabs[objName].AddComponent<LeanDragTranslate>();
+        instantiatedPrefabs[objName].AddComponent<LeanTwistRotate>();
+        instantiatedPrefabs[objName].AddComponent<LeanTwistRotateAxis>();
     }
 
     void fixObjectOnScreen()
     {
-        var scale = currentObject.GetComponent<LeanPinchScale>();
-        var translate = currentObject.GetComponent<LeanDragTranslate>();
-        var rotate = currentObject.GetComponent<LeanTwistRotate>();
-        var rotateAxis = currentObject.GetComponent<LeanTwistRotateAxis>();
-        Destroy(scale);
-        Destroy(translate);
-        Destroy(rotate);
-        Destroy(rotateAxis);
+        string objName = "prefab_" + currentPrefabIndex;
+        if (instantiatedPrefabs.ContainsKey(objName)){
+            var scale = instantiatedPrefabs[objName].GetComponent<LeanPinchScale>();
+            var translate = instantiatedPrefabs[objName].GetComponent<LeanDragTranslate>();
+            var rotate = instantiatedPrefabs[objName].GetComponent<LeanTwistRotate>();
+            var rotateAxis = instantiatedPrefabs[objName].GetComponent<LeanTwistRotateAxis>();
+            Destroy(scale);
+            Destroy(translate);
+            Destroy(rotate);
+            Destroy(rotateAxis);
+        }
     }
 
     void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs)
@@ -119,9 +120,9 @@ public class FreePositionArtScript : MonoBehaviour
             var artworkName = trackedImage.referenceImage.name;
             if (trackedImage.trackingState == TrackingState.Tracking && artworkName == searchedImage)
             {
-                if (!_instantiatedArtworks.ContainsKey(artworkName))
+                if (!instantiatedArtworks.ContainsKey(artworkName))
                 {
-                    _instantiatedArtworks[artworkName] = trackedImage;
+                    instantiatedArtworks[artworkName] = trackedImage;
                     Lean.Touch.LeanTouch.OnFingerTap += HandleFingerTap;
                 }
 
@@ -131,25 +132,27 @@ public class FreePositionArtScript : MonoBehaviour
 
     private void onRightBtnClick()
     {
-        if (currentPrefab + 1 == prefabs.Length)
+        fixObjectOnScreen();
+        if (currentPrefabIndex + 1 == prefabs.Length)
         {
-            currentPrefab = 0;
+            currentPrefabIndex = 0;
         }
         else
         {
-            currentPrefab += 1;
+            currentPrefabIndex += 1;
         }
         setThumbnail();
     }
     private void onLeftBtnClick()
     {
-        if (currentPrefab == 0)
+        fixObjectOnScreen();
+        if (currentPrefabIndex == 0)
         {
-            currentPrefab = prefabs.Length - 1;
+            currentPrefabIndex = prefabs.Length - 1;
         }
         else
         {
-            currentPrefab -= 1;
+            currentPrefabIndex -= 1;
         }
         setThumbnail();
     }

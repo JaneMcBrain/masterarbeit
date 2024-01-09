@@ -55,7 +55,6 @@ public class ObjectChangeImageDetect : MonoBehaviour
                 {
                     Debug.Log(_instantiatedSticker.Count);
                     if(_instantiatedSticker.Count == 0){
-                        Debug.Log("Instanziiere das extra UI");
                         uiDocument = UI.GetComponent<UIDocument>().rootVisualElement;
                         currentTrackedImage = uiDocument.Q<VisualElement>("TrackedImage");
                         var SelectImagePanel = uiDocument.Q<VisualElement>("TrackedImageSelect");
