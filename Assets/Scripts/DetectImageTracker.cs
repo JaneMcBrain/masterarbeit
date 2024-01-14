@@ -78,7 +78,7 @@ public class DetectImageTracker : MonoBehaviour
 
     private void setOverlay(GameObject overlay, ARTrackedImage image, string key){
         var instantiatedOverlay = Instantiate(overlay, image.transform);
-        instantiatedOverlay.transform.localScale = new Vector3(image.referenceImage.size.x, image.transform.localScale.y, image.referenceImage.size.y);
+        instantiatedOverlay.transform.localScale = new Vector3(image.referenceImage.size.x, image.referenceImage.size.y, image.transform.localScale.z);
         _instantiatedFeedback[key] = instantiatedOverlay;
         _instantiatedFeedback[key].SetActive(true);
     }

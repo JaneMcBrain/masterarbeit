@@ -611,7 +611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xrReferenceLibrary: {fileID: 11400000, guid: 8f680e298f26e4045a24e1c15ddbad27, type: 2}
-  CorrectImage: {fileID: 5676414450090055686, guid: a9ce9e0e9240c4e2081a9b4470780fcc,
+  CorrectImage: {fileID: 4018119043169601511, guid: b742062253403456fba5373ac7fea26c,
     type: 3}
   WrongImage: {fileID: 7369332860444814923, guid: 49e115394751f4f3391bcc318629351f,
     type: 3}

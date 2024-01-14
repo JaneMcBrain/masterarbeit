@@ -5,6 +5,7 @@ using UnityEngine.XR.ARSubsystems;
 using SaveLoadSystem;
 using UnityEngine.UIElements;
 using Lean.Touch;
+using Unity.VisualScripting;
 
 public class FreePositionArtScript : MonoBehaviour
 {
@@ -68,20 +69,20 @@ public class FreePositionArtScript : MonoBehaviour
     void setObjectOnScreen()
     {
         var searchedImage = SaveGameManager.CurrentActivityData.currentExercise.exercise.image;
-        // GameObject erstellen
-        GameObject spriteObject = new GameObject("SpriteObject");
-        // SpriteRenderer-Komponente hinzufügen
-        SpriteRenderer spriteRenderer = spriteObject.AddComponent<SpriteRenderer>();
-        spriteRenderer.sprite = prefabs[currentPrefabIndex];
         string objName = "prefab_" + currentPrefabIndex;
         if (!instantiatedPrefabs.ContainsKey(objName)){
+            // GameObject erstellen
+            GameObject spriteObject = new GameObject("SpriteObject");
+            // SpriteRenderer-Komponente hinzufügen
+            SpriteRenderer spriteRenderer = spriteObject.AddComponent<SpriteRenderer>();
+            spriteRenderer.sprite = prefabs[currentPrefabIndex];
+            Debug.Log($"Yolo spriteRenderer.size: {spriteRenderer.size}");
+            spriteRenderer.size = new Vector2(spriteRenderer.size.x * 0.5f, spriteRenderer.size.y * 0.5f);
+            Debug.Log($"Yolo new spriteRenderer.size: {spriteRenderer.size}");
+            Debug.Log($"Yolo Image Size: {instantiatedArtworks[searchedImage].transform.localScale}");
             instantiatedPrefabs[objName] = Instantiate(spriteObject, instantiatedArtworks[searchedImage].transform);
             // GameObject um 90 Grad nach unten kippen
             instantiatedPrefabs[objName].transform.Rotate(Vector3.right, 90f);
-            Vector3 currentScale = instantiatedPrefabs[objName].transform.localScale;
-            Debug.Log($"Old Scale: {currentScale}");
-            instantiatedPrefabs[objName].transform.localScale = new Vector3(currentScale.x * 0.3f, currentScale.y * 0.3f, currentScale.z);
-            Debug.Log($"New Scale: {instantiatedPrefabs[objName].transform.localScale}");
             instantiatedPrefabs[objName].SetActive(true);
             AddLeanGestures(objName);
         } else {

@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 357674853}
   - component: {fileID: 357674857}
   - component: {fileID: 357674858}
+  - component: {fileID: 357674859}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: Untagged
@@ -203,12 +204,23 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 583a3d3f690ac481bb524579c1a7ca34, type: 3}
   - {fileID: 21300000, guid: 41b547f37816c4670aefaeb3cd5c3d0d, type: 3}
   - {fileID: 21300000, guid: 203c0809af0e9476c87e3d047fe66f70, type: 3}
-  StickerPrefab: {fileID: 4588914149325099557, guid: 27691f7036d15471abb3892c04af0752,
-    type: 3}
   WhiteRect: {fileID: 4018119043169601511, guid: c60d61cb3e17448aea30de723cc8fa36,
     type: 3}
   HighlightRect: {fileID: 4018119043169601511, guid: 60e9147e8aa824a9391496522c628e82,
     type: 3}
+  UI: {fileID: 1258846688}
+--- !u!114 &357674859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357674852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a244a2e53e04dff843a1a43fb9d741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   UI: {fileID: 1258846688}
 --- !u!1 &360643900
 GameObject:

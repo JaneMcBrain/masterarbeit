@@ -24,18 +24,20 @@ public class ImagePointsScript : MonoBehaviour
 
     private readonly Dictionary<string, GameObject> _instantiatedSticker = new Dictionary<string, GameObject>();
 
-    Vector2 imageSize = new Vector2(2560, 2012);
+    Vector2 imagePixelSize = new Vector2(2560, 2012);
     List<Vector3> positions = new List<Vector3>
         {
-            new Vector3(1325, -1417, 0),
-            new Vector3(114, -1139, 0),
-            new Vector3(1780, -1353, 0)
+            new Vector2(1375, -1467),
+            new Vector2(164, -1229),
+            new Vector2(2307, -1358),
+            new Vector2(1981, -1146)
         };
     List<Vector3> sizes = new List<Vector3>
         {
-            new Vector3(112, 112, 0),
-            new Vector3(100, 100, 0),
-            new Vector3(217, 217, 0)
+            new Vector2(112, 112),
+            new Vector2(92, 92),
+            new Vector2(86, 86),
+            new Vector2(74, 74)
         };
 
     void Start()
@@ -80,6 +82,7 @@ public class ImagePointsScript : MonoBehaviour
                     } else {
                         setGameObjectParams(_instantiatedSticker[key], trackedImage, positions[i], sizes[i]);
                     }
+
                 }
             }
         }
@@ -99,16 +102,22 @@ public class ImagePointsScript : MonoBehaviour
         _instantiatedSticker[key].SetActive(true);
     }
 
-    void setGameObjectParams(GameObject currentObject, ARTrackedImage image, Vector3 position, Vector3 size)
-    {   //Größe
-        Vector2 multiplier = new Vector2(image.size.x / imageSize.x, image.size.y / imageSize.y);
+    void setGameObjectParams(GameObject currentObject, ARTrackedImage image, Vector2 position, Vector2 size)
+    {   float imageZPos = image.transform.position.z;
+        float imageZScale = image.transform.localScale.z;
+        //Größe
+        // Unity world size / pixel = multiplier für Pixelumrechnung in Unity scala
+        Vector2 multiplier = new Vector2(image.size.x / imagePixelSize.x, image.size.y / imagePixelSize.y);
         float recWidth = multiplier.x * size.x;
         float recHeight = multiplier.y * size.y;
-        currentObject.transform.localScale = new Vector3(recWidth, recHeight, 1f);
+        // hier z neu berechnen?
+        currentObject.transform.localScale = new Vector3(recWidth, recHeight, imageZScale);
         //Position
-        Vector3 pos = image.transform.position - new Vector3(image.size.x / 2, -image.size.y / 2, 0);
-        Vector3 faceCoordinates = new Vector3(position.x * multiplier.x + recWidth, position.y * multiplier.y - recHeight, 0);
-        currentObject.transform.position = pos + faceCoordinates;
+        // Verschieben der Image-Position nach oben links, als Ausgangspunkt 0
+        Vector3 posZero = image.transform.position - new Vector3(image.size.x / 2, -image.size.y / 2, 0);
+        //Umrechnung der Gesichtskoordinaten von Pixel zu Unity scale minus/plus der halben Rectangle Größe 
+        Vector3 faceCoordinates = new Vector3(position.x * multiplier.x + (recWidth/2), position.y * multiplier.y - (recHeight/2), 0);
+        currentObject.transform.position = posZero + faceCoordinates;
     }
 
     void onSwitchPosition(){
