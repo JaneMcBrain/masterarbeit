@@ -8,37 +8,31 @@ using SaveLoadSystem;
 
 public class ImagePointsScript : MonoBehaviour
 {
-
     [SerializeField]
     XRReferenceImageLibrary xrReferenceLibrary;
     private ARTrackedImageManager _imageManager;
 
     [SerializeField]
-    public Sprite[] images;
+    public Sprite[] prefabs;
     public GameObject WhiteRect;
     public GameObject HighlightRect;
     public GameObject UI;
     private VisualElement uiDocument;
-    private int objectIndex = 0;
     private int currentSticker = 0;
-
     private readonly Dictionary<string, GameObject> _instantiatedSticker = new Dictionary<string, GameObject>();
 
-    Vector2 imagePixelSize = new Vector2(2560, 2012);
-    List<Vector3> positions = new List<Vector3>
-        {
-            new Vector2(1375, -1467),
-            new Vector2(164, -1229),
-            new Vector2(2307, -1358),
-            new Vector2(1981, -1146)
-        };
-    List<Vector3> sizes = new List<Vector3>
-        {
-            new Vector2(112, 112),
-            new Vector2(92, 92),
-            new Vector2(86, 86),
-            new Vector2(74, 74)
-        };
+    [SerializeField]
+    public Vector2 imagePixelSize;
+
+    [SerializeField]
+    List<Vector2> positions;
+
+    [SerializeField]
+    List<Vector2> sizes;
+
+    private int currentPrefabIndex = 0;
+    private VisualElement assetImage;
+    private Label assetName;
 
     void Start()
     {
@@ -49,16 +43,30 @@ public class ImagePointsScript : MonoBehaviour
         _imageManager.trackedImagesChanged += OnTrackedImagesChanged;
 
         uiDocument = UI.GetComponent<UIDocument>().rootVisualElement;
-        uiDocument.Q<VisualElement>("ChangeObjectButtons").RemoveFromClassList("hidden");
-        var switchBtn = uiDocument.Q<Button>("TrackedPositionSelect");
-        switchBtn.RemoveFromClassList("hidden");
-        var changeBtn1 = uiDocument.Q<Button>("ChangeObject1");
-        var changeBtn2 = uiDocument.Q<Button>("ChangeObject2"); 
-        var changeBtn3 = uiDocument.Q<Button>("ChangeObject3");
+        //show UI elements
+        uiDocument.Q<VisualElement>("AssetNavigation").RemoveFromClassList("hidden");
+        uiDocument.Q<VisualElement>("PositionNavigation").RemoveFromClassList("hidden");
+        //get Buttons
+        var btnLeft = uiDocument.Q<Button>("AssetLeftClick");
+        var btnRight = uiDocument.Q<Button>("AssetRightClick");
+        var switchBtn = uiDocument.Q<Button>("PositionSelect");
+        var applyBtn = uiDocument.Q<Button>("ApplyButton");
+        //add onClick event handler
         switchBtn.clicked += () => onSwitchPosition();
-        changeBtn1.clicked += () => onChangeObject(changeBtn1, 0);
-        changeBtn2.clicked += () => onChangeObject(changeBtn2, 1);
-        changeBtn3.clicked += () => onChangeObject(changeBtn3, 2);
+        applyBtn.clicked += () => setSticker();
+        btnLeft.clicked += () => onLeftBtnClick();
+        btnRight.clicked += () => onRightBtnClick();
+
+        assetImage = uiDocument.Q<VisualElement>("AssetImage");
+        assetName = uiDocument.Q<Label>("AssetName");
+        setThumbnail();
+    }
+
+    void setThumbnail()
+    {
+
+        assetName.text = prefabs[currentPrefabIndex].name;
+        assetImage.style.backgroundImage = new StyleBackground(prefabs[currentPrefabIndex]);
     }
 
     private void OnDisable() => _imageManager.trackedImagesChanged -= OnTrackedImagesChanged;
@@ -92,7 +100,7 @@ public class ImagePointsScript : MonoBehaviour
     {
         GameObject sticker;
         Transform newTransform = image.transform;
-        if (objectIndex != index){
+        if (currentSticker != index){
             sticker = Instantiate(WhiteRect, newTransform);
         } else {
             sticker = Instantiate(HighlightRect, newTransform);
@@ -103,7 +111,7 @@ public class ImagePointsScript : MonoBehaviour
     }
 
     void setGameObjectParams(GameObject currentObject, ARTrackedImage image, Vector2 position, Vector2 size)
-    {   float imageZPos = image.transform.position.z;
+    {
         float imageZScale = image.transform.localScale.z;
         //Größe
         // Unity world size / pixel = multiplier für Pixelumrechnung in Unity scala
@@ -121,19 +129,11 @@ public class ImagePointsScript : MonoBehaviour
     }
 
     void onSwitchPosition(){
-        float alpha = 1.0f;
         string stickerIndex = getObjectName();
-        if (_instantiatedSticker[stickerIndex].GetComponent<SpriteRenderer>().sprite.name.Contains("Rect")){
-            alpha = 0.5f;
-        }
+        float alpha = _instantiatedSticker[stickerIndex].GetComponent<SpriteRenderer>().sprite.name.Contains("Square") ? 0.5f : 0.8f;
         _instantiatedSticker[stickerIndex].GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alpha);
-        if (currentSticker + 1 == _instantiatedSticker.Count)
-        {
-            currentSticker = 0;
-        } else {
-            currentSticker += 1;
-        }
-        _instantiatedSticker[getObjectName()].GetComponent<SpriteRenderer>().color = new Color(0.18f, 0.64f, 0.94f, 0.5f);
+        currentSticker = currentSticker + 1 == _instantiatedSticker.Count ? 0 : currentSticker + 1;
+        _instantiatedSticker[getObjectName()].GetComponent<SpriteRenderer>().color = new Color(0.18f, 0.64f, 0.94f, alpha);
     }
 
     string getObjectName(){
@@ -142,22 +142,35 @@ public class ImagePointsScript : MonoBehaviour
         return currentKey;
     }
 
-    void onChangeObject(VisualElement btn, int index)
+    void setSticker()
     {
-        objectIndex = index;
-        activateButton(btn);
         var objectName = getObjectName();
-        _instantiatedSticker[objectName].GetComponent<SpriteRenderer>().sprite = images[objectIndex];
-        _instantiatedSticker[objectName].GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        _instantiatedSticker[objectName].GetComponent<SpriteRenderer>().sprite = prefabs[currentPrefabIndex];
+        _instantiatedSticker[objectName].GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.8f);
     }
 
-    void activateButton(VisualElement btn)
+    private void onRightBtnClick()
     {
-        VisualElement result = uiDocument.Q(className: "is-active");
-        if (result != null)
+        if (currentPrefabIndex + 1 == prefabs.Length)
         {
-            result.RemoveFromClassList("is-active");
+            currentPrefabIndex = 0;
         }
-        btn.AddToClassList("is-active");
+        else
+        {
+            currentPrefabIndex += 1;
+        }
+        setThumbnail();
+    }
+    private void onLeftBtnClick()
+    {
+        if (currentPrefabIndex == 0)
+        {
+            currentPrefabIndex = prefabs.Length - 1;
+        }
+        else
+        {
+            currentPrefabIndex -= 1;
+        }
+        setThumbnail();
     }
 }

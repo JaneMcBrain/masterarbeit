@@ -31,6 +31,10 @@
                     <ui:Button text="Nächstes Bild" display-tooltip-when-elided="true" name="ChangeImageBtn" class="button" />
                 </ui:VisualElement>
                 <ui:Instance template="ChangeObjectButtons" name="ChangeObjectButtons" class="hidden" />
+                <ui:VisualElement name="PositionNavigation" class="hidden">
+                    <ui:Button text="Nächstes Element auswählen" display-tooltip-when-elided="true" name="PositionSelect" class="button" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 10px;" />
+                    <ui:Button text="Sticker aktivieren" display-tooltip-when-elided="true" name="ApplyButton" class="button" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;" />
+                </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="ScanFooter" style="position: relative; left: auto; right: auto; bottom: auto; background-color: rgb(255, 255, 255); border-top-left-radius: 30px; border-top-right-radius: 30px; padding-left: 8%; padding-right: 8%; padding-top: 4%; padding-bottom: 50px;">
                 <ui:VisualElement name="FooterInfoToggle" style="flex-direction: row; align-items: center; justify-content: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;">

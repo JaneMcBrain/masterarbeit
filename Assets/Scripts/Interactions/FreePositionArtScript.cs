@@ -5,7 +5,6 @@ using UnityEngine.XR.ARSubsystems;
 using SaveLoadSystem;
 using UnityEngine.UIElements;
 using Lean.Touch;
-using Unity.VisualScripting;
 
 public class FreePositionArtScript : MonoBehaviour
 {

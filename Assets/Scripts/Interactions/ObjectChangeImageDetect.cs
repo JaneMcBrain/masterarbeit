@@ -15,7 +15,6 @@ public class ObjectChangeImageDetect : MonoBehaviour
 
     [SerializeField]
     public Sprite[] images;
-    public GameObject StickerPrefab;
     public GameObject WhiteRect;
     public GameObject UI;
     private VisualElement uiDocument;
