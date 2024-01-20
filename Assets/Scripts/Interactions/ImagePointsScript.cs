@@ -4,6 +4,7 @@ using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using UnityEngine.UIElements;
 using SaveLoadSystem;
+using System;
 
 
 public class ImagePointsScript : MonoBehaviour
@@ -49,10 +50,12 @@ public class ImagePointsScript : MonoBehaviour
         //get Buttons
         var btnLeft = uiDocument.Q<Button>("AssetLeftClick");
         var btnRight = uiDocument.Q<Button>("AssetRightClick");
-        var switchBtn = uiDocument.Q<Button>("PositionSelect");
+        var switchPlus = uiDocument.Q<Button>("PositionSelectPlus");
+        var switchMinus = uiDocument.Q<Button>("PositionSelectMinus");
         var applyBtn = uiDocument.Q<Button>("ApplyButton");
         //add onClick event handler
-        switchBtn.clicked += () => onSwitchPosition();
+        switchPlus.clicked += () => onSwitchPosition(1);
+        switchMinus.clicked += () => onSwitchPosition(-1);
         applyBtn.clicked += () => setSticker();
         btnLeft.clicked += () => onLeftBtnClick();
         btnRight.clicked += () => onRightBtnClick();
@@ -128,11 +131,19 @@ public class ImagePointsScript : MonoBehaviour
         currentObject.transform.position = posZero + faceCoordinates;
     }
 
-    void onSwitchPosition(){
+    void onSwitchPosition(int step){
         string stickerIndex = getObjectName();
         float alpha = _instantiatedSticker[stickerIndex].GetComponent<SpriteRenderer>().sprite.name.Contains("Square") ? 0.5f : 0.8f;
         _instantiatedSticker[stickerIndex].GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alpha);
-        currentSticker = currentSticker + 1 == _instantiatedSticker.Count ? 0 : currentSticker + 1;
+        int newIndex = currentSticker + step;
+        if(newIndex == _instantiatedSticker.Count){
+            currentSticker = 0;
+        } else if(newIndex == -1) {
+            currentSticker = _instantiatedSticker.Count - 1;
+        } else {
+            currentSticker = newIndex;
+        }
+        alpha = _instantiatedSticker[stickerIndex].GetComponent<SpriteRenderer>().sprite.name.Contains("Square") ? 0.5f : 0.8f;
         _instantiatedSticker[getObjectName()].GetComponent<SpriteRenderer>().color = new Color(0.18f, 0.64f, 0.94f, alpha);
     }
 

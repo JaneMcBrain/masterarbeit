@@ -11,7 +11,7 @@
       "exercises": [
         {
           "id": "tour1_exercise1",
-          "name": "Objektaustauch - Image Points",
+          "name": "Objektaustauch - Celebreties",
           "text": "Das nächste Bild zeigt vor allem elegante Kleidung, festliche Atmosphäre und kulinarische Genüsse - ein Anlass für die Highsociety des 18. Jahrhunderts.",
           "image": "ballsouper",
           "imageTitle": "Das Ballsouper",
@@ -20,12 +20,12 @@
         },
         {
           "id": "tour1_exercise2",
-          "name": "Objektaustauch - Image Track",
+          "name": "Objektaustauch - Memes",
           "text": "Finde den Sohn von Johann Sebastian Back, welcher an einem Cembalo sitzend nicht so viel von den musikalischen Künsten seines Arbeitgebers hält.",
           "image": "floetenkonzert",
           "imageTitle": "Flötenkonzert Friedrichs des Großen in Sanssouci",
           "imageArtist": "Adolph Friedrich Erdmann von Menzel",
-          "type": "ObjectChangeSticker"
+          "type": "ImagePointMeme"
         },
         {
           "id": "tour1_exercise3",

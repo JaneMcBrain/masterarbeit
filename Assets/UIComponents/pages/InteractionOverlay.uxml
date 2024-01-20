@@ -26,14 +26,13 @@
                     </ui:VisualElement>
                     <ui:Button display-tooltip-when-elided="true" name="AssetRightClick" class="button" style="background-image: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=-1087164816274819069&amp;guid=16cba54ae354f49d0988f2b61cb8b1c5&amp;type=3#arrow-right@2x&apos;); -unity-background-image-tint-color: rgb(132, 132, 132); width: 100px; height: 100px;" />
                 </ui:VisualElement>
-                <ui:VisualElement name="TrackedImageSelect" class="hidden" style="flex-direction: row; justify-content: center; align-items: center; margin-bottom: 16px;">
-                    <ui:VisualElement name="TrackedImage" style="margin-right: 16px; border-left-width: 5px; border-right-width: 5px; border-top-width: 5px; border-bottom-width: 5px; width: 150px; height: 150px; background-image: resource(&apos;Sprites/Tours/default_tour&apos;); -unity-background-scale-mode: scale-and-crop; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255);" />
-                    <ui:Button text="Nächstes Bild" display-tooltip-when-elided="true" name="ChangeImageBtn" class="button" />
-                </ui:VisualElement>
                 <ui:Instance template="ChangeObjectButtons" name="ChangeObjectButtons" class="hidden" />
-                <ui:VisualElement name="PositionNavigation" class="hidden">
-                    <ui:Button text="Nächstes Element auswählen" display-tooltip-when-elided="true" name="PositionSelect" class="button" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 10px;" />
-                    <ui:Button text="Sticker aktivieren" display-tooltip-when-elided="true" name="ApplyButton" class="button" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;" />
+                <ui:VisualElement name="PositionNavigation">
+                    <ui:Button text="Sticker aktivieren" display-tooltip-when-elided="true" name="ApplyButton" class="button" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 16px;" />
+                    <ui:VisualElement style="flex-direction: row; justify-content: space-between;">
+                        <ui:Button text="Position zurück" display-tooltip-when-elided="true" name="PositionSelectMinus" class="button" style="min-width: 300px;" />
+                        <ui:Button text="Position vor" display-tooltip-when-elided="true" name="PositionSelectPlus" class="button" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 10px; min-width: 300px;" />
+                    </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="ScanFooter" style="position: relative; left: auto; right: auto; bottom: auto; background-color: rgb(255, 255, 255); border-top-left-radius: 30px; border-top-right-radius: 30px; padding-left: 8%; padding-right: 8%; padding-top: 4%; padding-bottom: 50px;">
@@ -48,7 +47,7 @@
                     </ui:VisualElement>
                     <ui:Instance template="TourItem" name="TourItem" />
                     <ui:VisualElement style="flex-direction: row; justify-content: space-around; margin-top: 32px;">
-                        <ui:Button text="Schließen" display-tooltip-when-elided="true" name="InteractionStart" class="button" style="min-width: 30%;" />
+                        <ui:Button text="Schließen" display-tooltip-when-elided="true" name="InteractionStop" class="button" style="min-width: 30%;" />
                         <ui:Button text="Nächste Aufgabe" display-tooltip-when-elided="true" name="NextImage" class="button" style="min-width: 30%;" />
                     </ui:VisualElement>
                 </ui:VisualElement>
