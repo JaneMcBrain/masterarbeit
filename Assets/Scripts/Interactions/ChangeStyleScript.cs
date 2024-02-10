@@ -21,6 +21,8 @@ public class ChangeStyleScript : MonoBehaviour
     public GameObject UI;
     private VisualElement uiDocument;
 
+    private GameObject instantiatedOverlay;
+
     void Start()
     {
         //instantiate xrTrackedImageManager runtime
@@ -31,12 +33,15 @@ public class ChangeStyleScript : MonoBehaviour
         //UI
         uiDocument = UI.GetComponent<UIDocument>().rootVisualElement;
         uiDocument.Q<VisualElement>("ChangeObjectButtons").RemoveFromClassList("hidden");
-        for(int i = 0; i< artworks.Length; i++){
-            var button = uiDocument.Q<Button>("ChangeObject" + (i+1));
+        for(int i = 0; i < artworks.Length; i++){
+            Button button = uiDocument.Q<Button>("ChangeObject" + (i+1));
             button.text = artworks[i].name;
-            button.clicked += () => changeStyle(i);
+            Debug.Log($"YOLO changeStyle: {i}");
+            int index = i;
+            button.clicked += () => changeStyle(index, button);
         }
-        uiDocument.Q<Button>("ChangeObjectReset").clicked += () => resetImage();
+        Button resetBtn = uiDocument.Q<Button>("ChangeObjectReset");
+        resetBtn.clicked += () => resetImage(resetBtn);
     }
 
 
@@ -52,7 +57,7 @@ public class ChangeStyleScript : MonoBehaviour
                 if (!_instantiatedArtworks.ContainsKey(artworkName))
                 {
                     _instantiatedArtworks[artworkName] = trackedImage;
-                    var instantiatedOverlay = Instantiate(artObject, trackedImage.transform);
+                    instantiatedOverlay = Instantiate(artObject, trackedImage.transform);
                     instantiatedOverlay.transform.localScale = new Vector3(trackedImage.referenceImage.size.x, trackedImage.referenceImage.size.y, trackedImage.transform.localScale.z);
                     instantiatedOverlay.SetActive(true);
                 }
@@ -60,18 +65,30 @@ public class ChangeStyleScript : MonoBehaviour
         }
     }
 
-    void changeStyle(int index)
+    void changeStyle(int index, Button btn)
     {
-        SpriteRenderer sr = artObject.GetComponent<SpriteRenderer>();
+        resetActiveBtn();
+        SpriteRenderer sr = instantiatedOverlay.GetComponent<SpriteRenderer>();
         Sprite sprite = artworks[index];
         sr.sprite = sprite;
         sr.color = new Color(1, 1, 1, 1);
+        btn.AddToClassList("is-active");
     }
-    void resetImage()
+    void resetImage(Button btn)
     {
-        SpriteRenderer sr = artObject.GetComponent<SpriteRenderer>();
+        resetActiveBtn();
+        SpriteRenderer sr = instantiatedOverlay.GetComponent<SpriteRenderer>();
         sr.sprite = null;
         sr.color = new Color(1, 1, 1, 0);
+        btn.AddToClassList("is-active");
+    }
+
+    void resetActiveBtn(){
+        var activeButton = uiDocument.Q<Button>(className: "is-active");
+        if (activeButton != null)
+        {
+            activeButton.RemoveFromClassList("is-active");
+        }
     }
 
 
