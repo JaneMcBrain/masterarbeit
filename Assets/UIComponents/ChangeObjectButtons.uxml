@@ -1,6 +1,11 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Styles/Components.uss?fileID=7433441132597879392&amp;guid=9832dfd09299b47d2901075e28f92a99&amp;type=3#Components" />
-    <ui:Button text="Element 1" display-tooltip-when-elided="true" name="ChangeObject1" class="button is-active" />
-    <ui:Button text="Element 2" display-tooltip-when-elided="true" enable-rich-text="false" name="ChangeObject2" class="button" />
-    <ui:Button text="Element 3" display-tooltip-when-elided="true" enable-rich-text="false" name="ChangeObject3" class="button" />
+    <ui:VisualElement style="flex-direction: row; flex-wrap: wrap;">
+        <ui:Button text="Element 1" display-tooltip-when-elided="true" name="ChangeObject1" class="button is-active" style="width: 48%; white-space: normal;" />
+        <ui:Button text="Element 2" display-tooltip-when-elided="true" enable-rich-text="false" name="ChangeObject2" class="button" style="width: 48%; white-space: normal;" />
+        <ui:Button text="Element 3" display-tooltip-when-elided="true" enable-rich-text="false" name="ChangeObject3" class="button" style="width: 48%; white-space: normal;" />
+        <ui:Button text="Element 4" display-tooltip-when-elided="true" enable-rich-text="false" name="ChangeObject4" class="button" style="width: 48%; white-space: normal;" />
+        <ui:Button text="Element 5" display-tooltip-when-elided="true" enable-rich-text="false" name="ChangeObject5" class="button" style="width: 48%; white-space: normal;" />
+        <ui:Button text="Zurücksetzen" display-tooltip-when-elided="false" enable-rich-text="false" name="ChangeObjectReset" class="button" style="width: 48%; white-space: normal;" />
+    </ui:VisualElement>
 </ui:UXML>

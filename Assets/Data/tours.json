@@ -51,8 +51,17 @@
           "text": "In dampferfüllter Dämmerung mischen sich flackerndes Glutlicht und bizarre Schatten zu einem dämonischen Schauspiel des Ringens von Mensch und Maschine.",
           "image": "eisenwalzwerk",
           "imageTitle": "Eisenwalzwerk (Moderne Cyklopen)",
-          "imageArtist": "Adolph Friedrich Erdmann von Menzel 1872 - 1875",
+          "imageArtist": "Adolph Friedrich Erdmann von Menzel",
           "type": "FreePositionArt"
+        },
+        {
+          "id": "tour1_exercise6",
+          "name": "Kunstrichtung ändern",
+          "text": "Das erste Gemälde diente einst als Zielscheibe in einem Schützenverein.\nFinde ein Gemälde mit zwei Vögeln.",
+          "image": "voegel",
+          "imageTitle": "Falke auf eine Taube stoßend, um 1844",
+          "imageArtist": "Adolph Friedrich Erdmann von Menzel",
+          "type": "ChangeStyle"
         }
       ]
     },
@@ -72,7 +81,7 @@
           "image": "voegel",
           "imageTitle": "Falke auf eine Taube stoßend, um 1844",
           "imageArtist": "Adolph Friedrich Erdmann von Menzel",
-          "type": "ObjectChangeFace"
+          "type": "FaceFilter"
         },
         {
           "id": "tour2_exercise2",
@@ -99,7 +108,7 @@
           "image": "tafelrunde",
           "imageTitle": "König Friedrichs II. Tafelrunde in Sanssouci",
           "imageArtist": "Adolph Friedrich Erdmann von Menzel",
-          "type": "ObjectChangeFace"
+          "type": "FaceFilter"
         }
       ]
     },

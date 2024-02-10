@@ -1,6 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:Template name="BackButton" src="project://database/Assets/UIComponents/BackButton.uxml?fileID=9197481963319205126&amp;guid=8115715deeb9b4533a7edd23683b9794&amp;type=3#BackButton" />
     <ui:Template name="TourItem" src="project://database/Assets/UIComponents/TourItem.uxml?fileID=9197481963319205126&amp;guid=35761c3bd5583416e8c07547e8e2e806&amp;type=3#TourItem" />
+    <ui:Template name="ChangeObjectButtons" src="project://database/Assets/UIComponents/ChangeObjectButtons.uxml?fileID=9197481963319205126&amp;guid=de0c12bd426684a01974c068af5ebc0c&amp;type=3#ChangeObjectButtons" />
     <Style src="project://database/Assets/Styles/Components.uss?fileID=7433441132597879392&amp;guid=9832dfd09299b47d2901075e28f92a99&amp;type=3#Components" />
     <Style src="project://database/Assets/Styles/Fonts.uss?fileID=7433441132597879392&amp;guid=46027659cbf7543619a8b0e4a04acfba&amp;type=3#Fonts" />
     <ui:VisualElement class="container">
@@ -32,6 +33,7 @@
                         <ui:Button text="Position vor" display-tooltip-when-elided="true" name="PositionSelectPlus" class="button" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 10px; min-width: 300px;" />
                     </ui:VisualElement>
                 </ui:VisualElement>
+                <ui:Instance template="ChangeObjectButtons" name="ChangeObjectButtons" class="hidden" />
             </ui:VisualElement>
             <ui:VisualElement name="ScanFooter" style="position: relative; left: auto; right: auto; bottom: auto; background-color: rgb(255, 255, 255); border-top-left-radius: 30px; border-top-right-radius: 30px; padding-left: 8%; padding-right: 8%; padding-top: 4%; padding-bottom: 50px;">
                 <ui:VisualElement name="FooterInfoToggle" style="flex-direction: row; align-items: center; justify-content: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;">

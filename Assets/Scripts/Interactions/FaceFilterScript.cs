@@ -228,12 +228,8 @@ public class FaceFilterScript : MonoBehaviour
     void setSticker()
     {
         var objectName = getObjectName();
-        Debug.Log($"YOLO objectName: {objectName}");
         GameObject go = instantiatedRects[objectName];
         SpriteRenderer sr = go.GetComponent<SpriteRenderer>();
-        Debug.Log($"YOLO sr transform Scale: {sr.transform.localScale}");
-        Debug.Log($"YOLO go transform Scale: {go.transform.localScale}");
-        Debug.Log($"YOLO sr Scale in px?: {sr.transform.localScale / multiplier}");
         Sprite sprite = sprites[currentPrefabIndex];
         sr.sprite = sprite;
         sr.color = new Color(1, 1, 1, 0.8f);

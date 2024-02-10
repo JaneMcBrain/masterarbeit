@@ -87,7 +87,6 @@ public class DetectImageTracker : MonoBehaviour
         var overlay = UI.GetComponent<UIDocument>().rootVisualElement;
         var currentExercise = SaveGameManager.CurrentActivityData.currentExercise.exercise;
         var exType = currentExercise.type;
-        Debug.Log(currentExercise);
         //Hide Help Button
         overlay.Q<VisualElement>("FooterHelpToggle").AddToClassList("hidden");
         //Show Image Info
