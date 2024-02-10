@@ -75,10 +75,8 @@ public class FreePositionArtScript : MonoBehaviour
             // SpriteRenderer-Komponente hinzufügen
             SpriteRenderer spriteRenderer = spriteObject.AddComponent<SpriteRenderer>();
             spriteRenderer.sprite = prefabs[currentPrefabIndex];
-            Debug.Log($"Yolo spriteRenderer.size: {spriteRenderer.size}");
+
             spriteRenderer.size = new Vector2(spriteRenderer.size.x * 0.5f, spriteRenderer.size.y * 0.5f);
-            Debug.Log($"Yolo new spriteRenderer.size: {spriteRenderer.size}");
-            Debug.Log($"Yolo Image Size: {instantiatedArtworks[searchedImage].transform.localScale}");
             instantiatedPrefabs[objName] = Instantiate(spriteObject, instantiatedArtworks[searchedImage].transform);
             // GameObject um 90 Grad nach unten kippen
             instantiatedPrefabs[objName].transform.Rotate(Vector3.right, 90f);

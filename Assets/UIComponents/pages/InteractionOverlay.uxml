@@ -1,6 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:Template name="BackButton" src="project://database/Assets/UIComponents/BackButton.uxml?fileID=9197481963319205126&amp;guid=8115715deeb9b4533a7edd23683b9794&amp;type=3#BackButton" />
-    <ui:Template name="ChangeObjectButtons" src="project://database/Assets/UIComponents/ChangeObjectButtons.uxml?fileID=9197481963319205126&amp;guid=de0c12bd426684a01974c068af5ebc0c&amp;type=3#ChangeObjectButtons" />
     <ui:Template name="TourItem" src="project://database/Assets/UIComponents/TourItem.uxml?fileID=9197481963319205126&amp;guid=35761c3bd5583416e8c07547e8e2e806&amp;type=3#TourItem" />
     <Style src="project://database/Assets/Styles/Components.uss?fileID=7433441132597879392&amp;guid=9832dfd09299b47d2901075e28f92a99&amp;type=3#Components" />
     <Style src="project://database/Assets/Styles/Fonts.uss?fileID=7433441132597879392&amp;guid=46027659cbf7543619a8b0e4a04acfba&amp;type=3#Fonts" />
@@ -26,8 +25,7 @@
                     </ui:VisualElement>
                     <ui:Button display-tooltip-when-elided="true" name="AssetRightClick" class="button" style="background-image: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=-1087164816274819069&amp;guid=16cba54ae354f49d0988f2b61cb8b1c5&amp;type=3#arrow-right@2x&apos;); -unity-background-image-tint-color: rgb(132, 132, 132); width: 100px; height: 100px;" />
                 </ui:VisualElement>
-                <ui:Instance template="ChangeObjectButtons" name="ChangeObjectButtons" class="hidden" />
-                <ui:VisualElement name="PositionNavigation">
+                <ui:VisualElement name="PositionNavigation" class="hidden">
                     <ui:Button text="Sticker aktivieren" display-tooltip-when-elided="true" name="ApplyButton" class="button" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 16px;" />
                     <ui:VisualElement style="flex-direction: row; justify-content: space-between;">
                         <ui:Button text="Position zurück" display-tooltip-when-elided="true" name="PositionSelectMinus" class="button" style="min-width: 300px;" />

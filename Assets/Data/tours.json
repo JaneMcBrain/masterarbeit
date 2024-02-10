@@ -16,7 +16,7 @@
           "image": "ballsouper",
           "imageTitle": "Das Ballsouper",
           "imageArtist": "Adolph Friedrich Erdmann von Menzel",
-          "type": "ImagePointChange"
+          "type": "ImagePointCelebrity"
         },
         {
           "id": "tour1_exercise2",
@@ -43,7 +43,7 @@
           "image": "tafelrunde",
           "imageTitle": "König Friedrichs II. Tafelrunde in Sanssouci",
           "imageArtist": "Adolph Friedrich Erdmann von Menzel",
-          "type": "ObjectChangeFace"
+          "type": "FaceFilter"
         },
         {
           "id": "tour1_exercise5",
