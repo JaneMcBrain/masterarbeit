@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &221848106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 764cc6b46f74d44c0a63b07850dc1508, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jsonFile: {fileID: 4900000, guid: 022ba9db3d7114af98aba46204337b8f, type: 3}
+  TourEndView: {fileID: 1284532508}
 --- !u!1 &999738200
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,12 +282,12 @@ GameObject:
   - component: {fileID: 1284532510}
   - component: {fileID: 1284532509}
   m_Layer: 5
-  m_Name: UIDocument
+  m_Name: TourEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1284532509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,7 +302,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PanelSettings: {fileID: 11400000, guid: 66ad14cfa1a36492abcb73f5d15ad670, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 9d28acc24d8054698b7527cb6dfaac13,
+    type: 3}
   m_SortingOrder: 0
 --- !u!4 &1284532510
 Transform:
@@ -402,7 +405,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1827073283
 MonoBehaviour:
   m_ObjectHideFlags: 0

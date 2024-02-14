@@ -252,6 +252,7 @@ MonoBehaviour:
   start_uiDocument: {fileID: 409561791}
   LocationPanel: {fileID: 1200671334}
   TourPanel: {fileID: 1074622568}
+  Footer: {fileID: 1456920740}
 --- !u!114 &409561793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -564,6 +565,7 @@ GameObject:
   - component: {fileID: 1441858409}
   - component: {fileID: 1441858411}
   - component: {fileID: 1441858412}
+  - component: {fileID: 1441858413}
   m_Layer: 5
   m_Name: AccountContent
   m_TagString: Untagged
@@ -587,7 +589,7 @@ MonoBehaviour:
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: db852a408e6eb43218dd4289c653f2a3,
     type: 3}
-  m_SortingOrder: 0
+  m_SortingOrder: 1
 --- !u!4 &1441858410
 Transform:
   m_ObjectHideFlags: 0
@@ -629,6 +631,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jsonFile: {fileID: 4900000, guid: 022ba9db3d7114af98aba46204337b8f, type: 3}
   ListEntryTemplate: {fileID: 9197481963319205126, guid: 35761c3bd5583416e8c07547e8e2e806,
+    type: 3}
+--- !u!114 &1441858413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441858408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8a548139d554c1eaf7ff8f53c4a0fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jsonLocationFile: {fileID: 4900000, guid: b7462cfe5fbd0423486b796d93ba5a56, type: 3}
+  jsonTopicFile: {fileID: 4900000, guid: d2cdb23b7cddb47a093df0145f98aeaa, type: 3}
+  jsonTourFile: {fileID: 4900000, guid: 022ba9db3d7114af98aba46204337b8f, type: 3}
+  LocationDetailPanel: {fileID: 1029350296}
+  TopicDetailPanel: {fileID: 239504848}
+  ListEntryTemplate: {fileID: 9197481963319205126, guid: 831c9b3fe3e2e429db11aec762966562,
+    type: 3}
+  TopicEntryTemplate: {fileID: 9197481963319205126, guid: 8f6ec9d8198134507b2e8ecb82ef052f,
+    type: 3}
+  TourEntryTemplate: {fileID: 9197481963319205126, guid: 35761c3bd5583416e8c07547e8e2e806,
     type: 3}
 --- !u!1 &1456920740
 GameObject:
@@ -698,6 +723,7 @@ MonoBehaviour:
   TourPanel: {fileID: 1074622568}
   AccountPanel: {fileID: 1441858408}
   InfoPanel: {fileID: 1610034948}
+  TopicDetailPanel: {fileID: 239504848}
 --- !u!1 &1610034948
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,7 +757,7 @@ MonoBehaviour:
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: da0bbedf585d74b2d8612e34febf97d6,
     type: 3}
-  m_SortingOrder: 0
+  m_SortingOrder: 1
 --- !u!4 &1610034950
 Transform:
   m_ObjectHideFlags: 0

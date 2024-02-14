@@ -89,17 +89,11 @@ public class TopicListController
         // Hide List and show detail panel
         TopicDetailPanel.SetActive(true);
 
-        //Overwrite the content of DetailView
+        // Find the LocationDetailScript component attached to the detail panel's UIDocument
+        TopicDetailScript topicDetailScript = TopicDetailPanel.GetComponent<TopicDetailScript>();
+        topicDetailScript.UpdateDetailPanel(selectedTopic);
+
         var detailUi = TopicDetailPanel.GetComponent<UIDocument>().rootVisualElement;
-        detailUi.Q<Label>("TopicNameLabel").text = selectedTopic.name;
-        string imagePath = selectedTopic.image;
-        if (imagePath.Length == 0)
-        {
-            imagePath = "Sprites/Topics/default_tour";
-        }
-        Debug.Log(imagePath);
-        detailUi.Q<VisualElement>("DetailHeader").style.backgroundImage = new StyleBackground(Resources.Load<Sprite>(imagePath));
-        detailUi.Q<Label>("InfoText").text = selectedTopic.info;
 
         //Filter Tours via Topic ID
         List<Tour> topicTours = new List<Tour>();

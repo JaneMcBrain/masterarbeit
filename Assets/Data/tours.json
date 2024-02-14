@@ -75,26 +75,26 @@
       "progress": "0",
       "exercises": [
         {
-          "id": "tour2_exercise1",
-          "name": "Objektaustauch - Face Track Vögel",
-          "text": "Das erste Gemälde diente einst als Zielscheibe in einem Schützenverein.\nFinde ein Gemälde mit zwei Vögeln.",
-          "image": "voegel",
-          "imageTitle": "Falke auf eine Taube stoßend, um 1844",
+          "id": "tour1_exercise1",
+          "name": "Objektaustauch - Celebreties",
+          "text": "Das nächste Bild zeigt vor allem elegante Kleidung, festliche Atmosphäre und kulinarische Genüsse - ein Anlass für die Highsociety des 18. Jahrhunderts.",
+          "image": "ballsouper",
+          "imageTitle": "Das Ballsouper",
           "imageArtist": "Adolph Friedrich Erdmann von Menzel",
-          "type": "FaceFilter"
+          "type": "ImagePointCelebrity"
         },
         {
-          "id": "tour2_exercise2",
-          "name": "Objektaustauch - Free Position Flötenkonzert",
+          "id": "tour1_exercise2",
+          "name": "Objektaustauch - Memes",
           "text": "Finde den Sohn von Johann Sebastian Back, welcher an einem Cembalo sitzend nicht so viel von den musikalischen Künsten seines Arbeitgebers hält.",
           "image": "floetenkonzert",
           "imageTitle": "Flötenkonzert Friedrichs des Großen in Sanssouci",
           "imageArtist": "Adolph Friedrich Erdmann von Menzel",
-          "type": "FreePosition"
+          "type": "ImagePointMeme"
         },
         {
-          "id": "tour2_exercise3",
-          "name": "Objektaustauch - Free Position Opernplatz",
+          "id": "tour1_exercise3",
+          "name": "Objektaustauch - Free Position",
           "text": "Finde die Parade auf dem Opernplatz in Berlin.",
           "image": "parade",
           "imageTitle": "Parade auf dem Opernplatz",
@@ -102,13 +102,31 @@
           "type": "FreePosition"
         },
         {
-          "id": "tour2_exercise4",
-          "name": "Objektaustauch - Face Track Tafelrunde",
+          "id": "tour1_exercise4",
+          "name": "Objektaustauch - Face Track",
           "text": "Gemütlich sitzen sie beisammen - der Adel beim Kaffee Klatsch!",
           "image": "tafelrunde",
           "imageTitle": "König Friedrichs II. Tafelrunde in Sanssouci",
           "imageArtist": "Adolph Friedrich Erdmann von Menzel",
           "type": "FaceFilter"
+        },
+        {
+          "id": "tour1_exercise5",
+          "name": "Objektaustauch - Free Position Art",
+          "text": "In dampferfüllter Dämmerung mischen sich flackerndes Glutlicht und bizarre Schatten zu einem dämonischen Schauspiel des Ringens von Mensch und Maschine.",
+          "image": "eisenwalzwerk",
+          "imageTitle": "Eisenwalzwerk (Moderne Cyklopen)",
+          "imageArtist": "Adolph Friedrich Erdmann von Menzel",
+          "type": "FreePositionArt"
+        },
+        {
+          "id": "tour1_exercise6",
+          "name": "Kunstrichtung ändern",
+          "text": "Das erste Gemälde diente einst als Zielscheibe in einem Schützenverein.\nFinde ein Gemälde mit zwei Vögeln.",
+          "image": "voegel",
+          "imageTitle": "Falke auf eine Taube stoßend, um 1844",
+          "imageArtist": "Adolph Friedrich Erdmann von Menzel",
+          "type": "ChangeStyle"
         }
       ]
     },
@@ -124,7 +142,7 @@
     {
       "id": "tour4",
       "location": "location3",
-      "name": "Menzel und Friedich II",
+      "name": "Menzel und Friedrich II",
       "topics": ["menzel1", "realismus2"],
       "image": "Sprites/Tours/floetenkonzert",
       "info": "Lipsum",
@@ -138,6 +156,71 @@
       "image": "Sprites/Tours/future",
       "info": "",
       "progress": "0"
+    },
+    {
+      "id": "tour6",
+      "location": "location3",
+      "name": "Adolph von Menzel entdecken",
+      "topics": ["menzel1", "realismus1"],
+      "image": "Sprites/Tours/floetenkonzert",
+      "info": "Adolph Friedrich Erdmann Menzel, ab 1898 von Menzel (* 8. Dezember 1815 in Breslau; † 9. Februar 1905 in Berlin), war ein deutscher Maler, Zeichner und Illustrator. Er gilt als der bedeutendste deutsche Realist des 19. Jahrhunderts. Sein Werk ist außerordentlich vielfältig; bekannt und zu Lebzeiten hoch geehrt wurde er vor allem wegen seiner historisierenden Darstellungen aus dem Leben Friedrichs des Großen.",
+      "progress": "0",
+      "exercises": [
+        {
+          "id": "tour1_exercise1",
+          "name": "Objektaustauch - Celebreties",
+          "text": "Das nächste Bild zeigt vor allem elegante Kleidung, festliche Atmosphäre und kulinarische Genüsse - ein Anlass für die Highsociety des 18. Jahrhunderts.",
+          "image": "ballsouper",
+          "imageTitle": "Das Ballsouper",
+          "imageArtist": "Adolph Friedrich Erdmann von Menzel",
+          "type": "ImagePointCelebrity"
+        },
+        {
+          "id": "tour1_exercise2",
+          "name": "Objektaustauch - Memes",
+          "text": "Finde den Sohn von Johann Sebastian Back, welcher an einem Cembalo sitzend nicht so viel von den musikalischen Künsten seines Arbeitgebers hält.",
+          "image": "floetenkonzert",
+          "imageTitle": "Flötenkonzert Friedrichs des Großen in Sanssouci",
+          "imageArtist": "Adolph Friedrich Erdmann von Menzel",
+          "type": "ImagePointMeme"
+        },
+        {
+          "id": "tour1_exercise3",
+          "name": "Objektaustauch - Free Position",
+          "text": "Finde die Parade auf dem Opernplatz in Berlin.",
+          "image": "parade",
+          "imageTitle": "Parade auf dem Opernplatz",
+          "imageArtist": "Franz Krüger",
+          "type": "FreePosition"
+        },
+        {
+          "id": "tour1_exercise4",
+          "name": "Objektaustauch - Face Track",
+          "text": "Gemütlich sitzen sie beisammen - der Adel beim Kaffee Klatsch!",
+          "image": "tafelrunde",
+          "imageTitle": "König Friedrichs II. Tafelrunde in Sanssouci",
+          "imageArtist": "Adolph Friedrich Erdmann von Menzel",
+          "type": "FaceFilter"
+        },
+        {
+          "id": "tour1_exercise5",
+          "name": "Objektaustauch - Free Position Art",
+          "text": "In dampferfüllter Dämmerung mischen sich flackerndes Glutlicht und bizarre Schatten zu einem dämonischen Schauspiel des Ringens von Mensch und Maschine.",
+          "image": "eisenwalzwerk",
+          "imageTitle": "Eisenwalzwerk (Moderne Cyklopen)",
+          "imageArtist": "Adolph Friedrich Erdmann von Menzel",
+          "type": "FreePositionArt"
+        },
+        {
+          "id": "tour1_exercise6",
+          "name": "Kunstrichtung ändern",
+          "text": "Das erste Gemälde diente einst als Zielscheibe in einem Schützenverein.\nFinde ein Gemälde mit zwei Vögeln.",
+          "image": "voegel",
+          "imageTitle": "Falke auf eine Taube stoßend, um 1844",
+          "imageArtist": "Adolph Friedrich Erdmann von Menzel",
+          "type": "ChangeStyle"
+        }
+      ]
     }
   ]
 }

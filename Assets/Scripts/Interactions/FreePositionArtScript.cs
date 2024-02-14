@@ -60,7 +60,6 @@ public class FreePositionArtScript : MonoBehaviour
         //check if image correct tracked, finger on the image area
         if (instantiatedArtworks.ContainsKey(searchedImage) && FingerIsOnImage(finger))
         {
-
             setObjectOnScreen();
         }
     }
@@ -69,6 +68,7 @@ public class FreePositionArtScript : MonoBehaviour
     {
         var searchedImage = SaveGameManager.CurrentActivityData.currentExercise.exercise.image;
         string objName = "prefab_" + currentPrefabIndex;
+        Debug.Log($"YOLO setObjectOnScreen: {objName}");
         if (!instantiatedPrefabs.ContainsKey(objName)){
             // GameObject erstellen
             GameObject spriteObject = new GameObject("SpriteObject");
@@ -76,7 +76,7 @@ public class FreePositionArtScript : MonoBehaviour
             SpriteRenderer spriteRenderer = spriteObject.AddComponent<SpriteRenderer>();
             spriteRenderer.sprite = prefabs[currentPrefabIndex];
 
-            spriteRenderer.size = new Vector2(spriteRenderer.size.x * 0.5f, spriteRenderer.size.y * 0.5f);
+            //spriteRenderer.size = new Vector2(spriteRenderer.size.x * 0.5f, spriteRenderer.size.y * 0.5f);
             instantiatedPrefabs[objName] = Instantiate(spriteObject, instantiatedArtworks[searchedImage].transform);
             // GameObject um 90 Grad nach unten kippen
             instantiatedPrefabs[objName].transform.Rotate(Vector3.right, 90f);
@@ -97,7 +97,9 @@ public class FreePositionArtScript : MonoBehaviour
     void fixObjectOnScreen()
     {
         string objName = "prefab_" + currentPrefabIndex;
+        Debug.Log($"YOLO fixObjectOnScreen: {objName}");
         if (instantiatedPrefabs.ContainsKey(objName)){
+            Debug.Log("YOLO activate fix Object");
             var scale = instantiatedPrefabs[objName].GetComponent<LeanPinchScale>();
             var translate = instantiatedPrefabs[objName].GetComponent<LeanDragTranslate>();
             var rotate = instantiatedPrefabs[objName].GetComponent<LeanTwistRotate>();

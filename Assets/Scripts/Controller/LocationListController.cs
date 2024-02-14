@@ -87,25 +87,17 @@ public class LocationListController
         LocationListPanel.SetActive(false);
         LocationDetailPanel.SetActive(true);
 
+        // Find the LocationDetailScript component attached to the detail panel's UIDocument
+        LocationDetailScript locationDetailScript = LocationDetailPanel.GetComponent<LocationDetailScript>();
+
+        if (locationDetailScript != null)
+        {
+            // Call the UpdateDetailPanel method to update the detail panel
+            locationDetailScript.UpdateDetailPanel(selectedLocation);
+        }
+
         //Overwrite the content of DetailView
         var detailUi = LocationDetailPanel.GetComponent<UIDocument>().rootVisualElement;
-        detailUi.Q<Label>("LocationNameLabel").text = selectedLocation.name;
-        string imagePath = selectedLocation.image;
-        if (imagePath.Length == 0)
-        {
-            imagePath = "Sprites/Locations/default_location";
-        }
-        detailUi.Q<VisualElement>("DetailHeader").style.backgroundImage = new StyleBackground(Resources.Load<Sprite>(imagePath));
-        detailUi.Q<Label>("InfoText").text = selectedLocation.info;
-        var topicText = "Themen";
-        detailUi.Q<Label>("HeadlineTour").text = topicText;
-        detailUi.Q<Button>("SwitchTourButton").text = topicText;
-        //check if adress is available
-        if(selectedLocation.adress != null){
-            detailUi.Q<VisualElement>("DetailAdress").AddToClassList("show");
-            detailUi.Q<Label>("StreetLabel").text = selectedLocation.adress.street;
-            detailUi.Q<Label>("ZipLabel").text = selectedLocation.adress.zip + " " + selectedLocation.adress.city;
-        }
 
         //Filter Topics via Location ID
         List<Topic> locationTopics = new List<Topic>();

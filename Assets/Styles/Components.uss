@@ -117,7 +117,7 @@
 }
 
 .icon-button__icon--account.is-active {
-    background-image: url('project://database/Assets/Icons/user.png?fileID=2800000&guid=9e4236e8d0734447eaa86f320b926b8c&type=3#user');
+    background-image: url('project://database/Assets/Icons/user-primary.png?fileID=2800000&guid=67ba4a11128b947fe916353459a99904&type=3#user-primary');
 }
 
 .icon-button__icon--account:hover {
@@ -178,10 +178,6 @@
 
 .icon-button__icon--bookmark.is-active {
     background-image: url('project://database/Assets/Icons/bookmark-primary.png?fileID=2800000&guid=ef5d3cf0feadb47a69c5c89c992f348f&type=3#bookmark-primary');
-}
-
-.icon-button__icon--bookmark.is-active {
-    background-color: rgb(194, 223, 255);
 }
 
 .input {
@@ -302,12 +298,12 @@
     flex-basis: auto;
 }
 
-.thumbnail{
+.thumbnail {
     width: 100px;
     height: 100px;
 }
 
-.thumbnail--big{
+.thumbnail--big {
     width: 250px;
     height: 250px;
 }

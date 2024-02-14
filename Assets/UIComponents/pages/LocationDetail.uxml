@@ -7,7 +7,7 @@
         <ui:VisualElement name="DetailHeader" class="detail-header">
             <ui:Instance template="BackButton" name="BackButton" style="position: absolute; top: 8%; left: 5%;" />
             <ui:Button display-tooltip-when-elided="true" name="BookmarkButton" class="detail-header__button icon-button-std icon-button" style="position: absolute; right: 5%; top: 0;">
-                <ui:VisualElement class="icon-button-std__icon icon-button__icon icon-button__icon--bookmark" />
+                <ui:VisualElement name="Icon" class="icon-button-std__icon icon-button__icon icon-button__icon--bookmark" />
             </ui:Button>
         </ui:VisualElement>
         <ui:ScrollView class="detail-container">

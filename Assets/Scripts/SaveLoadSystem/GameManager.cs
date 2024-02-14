@@ -30,5 +30,20 @@ namespace SaveLoadSystem
       CurrentActivityData = tempData;
       return true;
     }
+
+    // Methode zum Löschen der gespeicherten Daten
+    public static bool DeleteSavedData()
+    {
+      string fullPath = Application.persistentDataPath + directoryPath + FileName;
+      if (File.Exists(fullPath))
+      {
+        File.Delete(fullPath);
+        // Optional: Zurücksetzen der CurrentActivityData auf den Standardzustand
+        CurrentActivityData = new ActivityData();
+        return true;
+      }
+      Debug.Log("No saved data to delete.");
+      return false;
+    }
   }
 }

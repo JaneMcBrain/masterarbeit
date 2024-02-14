@@ -6,9 +6,21 @@ using SaveLoadSystem;
 
 public class AccountPanelScript : MonoBehaviour
 {
+    private UIDocument uiDocument;
     void OnEnable()
     {
-        var uiDocument = GetComponent<UIDocument>();
-        uiDocument.rootVisualElement.Q<Label>("JsonText").text = JsonUtility.ToJson(SaveGameManager.CurrentActivityData.currentExercise, true);
+        uiDocument = GetComponent<UIDocument>();
+        setActivityText();
+        Button resetBtn = uiDocument.rootVisualElement.Q<Button>("ResetActivity");
+        resetBtn.clicked += () => resetActivity();
+    }
+
+    void setActivityText(){
+        uiDocument.rootVisualElement.Q<Label>("JsonText").text = JsonUtility.ToJson(SaveGameManager.CurrentActivityData, true);
+    }
+
+    void resetActivity(){
+        SaveGameManager.DeleteSavedData();
+        setActivityText();
     }
 }

@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="BackButton" src="project://database/Assets/UIComponents/BackButton.uxml?fileID=9197481963319205126&amp;guid=8115715deeb9b4533a7edd23683b9794&amp;type=3#BackButton" />
+    <Style src="project://database/Assets/Styles/Components.uss?fileID=7433441132597879392&amp;guid=9832dfd09299b47d2901075e28f92a99&amp;type=3#Components" />
+    <Style src="project://database/Assets/Styles/Fonts.uss?fileID=7433441132597879392&amp;guid=46027659cbf7543619a8b0e4a04acfba&amp;type=3#Fonts" />
+    <ui:VisualElement style="flex-wrap: wrap; align-items: flex-start; justify-content: flex-start; background-color: rgb(233, 233, 233); height: 100%;">
+        <ui:VisualElement class="container app-bg" style="flex-direction: column; flex-wrap: wrap; height: 714px; justify-content: center; align-items: center; width: 460px;">
+            <ui:VisualElement name="TourEndImage" style="width: 200px; height: 200px; margin-bottom: 32px;" />
+            <ui:Label name="TourEndText" text="Herzlichen Glückwunsch, du hast alle Bilder der Tour gefunden!" display-tooltip-when-elided="true" class="h1" style="-unity-text-align: upper-center; -unity-paragraph-spacing: 20px; word-spacing: 20px;" />
+            <ui:Button name="TourEndButton" text="Tour Beenden" display-tooltip-when-elided="true" class="button" style="width: 300px;" />
+        </ui:VisualElement>
+        <ui:Instance template="BackButton" name="BackButton" tabindex="0" style="position: absolute; left: 5%; top: 4%;" />
+    </ui:VisualElement>
+</ui:UXML>

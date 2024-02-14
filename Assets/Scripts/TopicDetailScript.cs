@@ -2,16 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using SaveLoadSystem;
 
 public class TopicDetailScript : MonoBehaviour
 {
     public GameObject LocationDetailPanel;
-    // Start is called before the first frame update
+
     VisualElement rootElement;
-    // Start is called before the first frame update
+    Topic topic;
+    Button bookmarkBtn;
+    List<string> bookmarks;
     void OnEnable()
     {
         rootElement = GetComponent<UIDocument>().rootVisualElement;
+
+        //Init Bookmarks
+        bookmarkBtn = rootElement.Q<Button>("BookmarkButton");
+        bookmarkBtn.clicked += () => toggleBookmark();
+        bookmarks = SaveGameManager.CurrentActivityData.bookmarkedTopics;
 
         // Init BackButton
         var back_Button = rootElement.Q<Button>("BackButton");
@@ -22,6 +30,43 @@ public class TopicDetailScript : MonoBehaviour
         var info_Button = rootElement.Q<Button>("SwitchInfoButton");
         tour_Button.clicked += () => OnSwitchButtonClicked(tour_Button, "DetailTours");
         info_Button.clicked += () => OnSwitchButtonClicked(info_Button, "DetailInfo");
+    }
+
+    public void UpdateDetailPanel(Topic selectedTopic)
+    {
+        topic = selectedTopic;
+        //Overwrite the content of DetailView
+        rootElement.Q<Label>("TopicNameLabel").text = selectedTopic.name;
+        string imagePath = selectedTopic.image;
+        if (imagePath.Length == 0)
+        {
+            imagePath = "Sprites/Topics/default_tour";
+        }
+        Debug.Log(imagePath);
+        rootElement.Q<VisualElement>("DetailHeader").style.backgroundImage = new StyleBackground(Resources.Load<Sprite>(imagePath));
+        rootElement.Q<Label>("InfoText").text = selectedTopic.info;
+
+        //Activate Bookmark
+        if (bookmarks.Contains(selectedTopic.id))
+        {
+            bookmarkBtn.Q<VisualElement>("Icon").AddToClassList("is-active");
+        }
+    }
+
+    void toggleBookmark()
+    {
+        if (bookmarks.Contains(topic.id))
+        {
+            bookmarks.Remove(topic.id);
+            bookmarkBtn.Q<VisualElement>("Icon").RemoveFromClassList("is-active");
+        }
+        else
+        {
+            bookmarks.Add(topic.id);
+            bookmarkBtn.Q<VisualElement>("Icon").AddToClassList("is-active");
+        }
+        SaveGameManager.CurrentActivityData.bookmarkedTopics = bookmarks;
+        SaveGameManager.SaveState();
     }
 
     // Update is called once per frame
