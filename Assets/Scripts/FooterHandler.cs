@@ -12,6 +12,7 @@ public class FooterHandler : MonoBehaviour
    public GameObject TourPanel;
    public GameObject AccountPanel;
    public GameObject InfoPanel;
+   public GameObject LocationDetailPanel;
    public GameObject TopicDetailPanel;
     private VisualElement rootElement;
 
@@ -41,6 +42,8 @@ public class FooterHandler : MonoBehaviour
         TourPanel.SetActive(type == "Tours");
         AccountPanel.SetActive(type == "Account");
         InfoPanel.SetActive(type == "Info");
+        LocationDetailPanel.SetActive(false);
+        TopicDetailPanel.SetActive(false);
         setBtnActive(type);
     }
 

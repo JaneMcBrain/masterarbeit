@@ -58,16 +58,7 @@ public class TourListController
         }
 
         SaveGameManager.LoadState();
-        SaveGameManager.CurrentActivityData.currentTour = selectedTour.id;
-        if(SaveGameManager.CurrentActivityData.openExercises.Find(e => e.tourId == selectedTour.id) != null){
-            List<string> exIds = new List<string>();
-            foreach (var exercise in selectedTour.exercises)
-            {
-                exIds.Add(exercise.id);
-            }
-            OpenExercise tourExercises = new OpenExercise() { tourId = selectedTour.id, exerciseIds = exIds };
-            SaveGameManager.CurrentActivityData.openExercises.Add(tourExercises);
-        }
+        SaveGameManager.CurrentActivityData.StartTour(selectedTour.id);
         SaveGameManager.SaveState();
         SceneManager.LoadScene("InteractionNavi");
     }

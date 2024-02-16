@@ -42,8 +42,10 @@
                 </ui:VisualElement>
                 <ui:VisualElement name="InteractionTextBox" class="hidden">
                     <ui:VisualElement name="InteractionInfo" style="margin-bottom: 0;">
-                        <ui:Label text="Aufagbe: Objekte austauschen" display-tooltip-when-elided="true" name="TypeTitle" class="h2" style="margin-bottom: 16px;" />
-                        <ui:Label text="In dieser Aufgabe kannst du Elemente im Bild austauschen. Scanne das Bild und sobald sich Elemente verändern, kannst du die Buttons klicken, um das Element auszuwählen." display-tooltip-when-elided="true" name="TypeText" class="large-text text-large" style="white-space: normal; margin-bottom: 32px;" />
+                        <ui:Label text="Aufgabe: Objekte austauschen" display-tooltip-when-elided="true" name="TypeTitle" class="h2" style="margin-bottom: 16px;" />
+                        <ui:Label text="In dieser Aufgabe kannst du Elemente auf das Bild legen. Tippe auf den Bildschirm um das angezeigte Element darauf zu legen. Du kannst es mit den gängigen Touch-Gestiken verkleinern und bewegen. Um ein anderes Element auszuwählen, klicke auf die Pfeiltasten. Löschen geht leider noch nicht." display-tooltip-when-elided="true" name="FreePositionText" class="large-text text-large hidden" style="white-space: normal; margin-bottom: 32px;" />
+                        <ui:Label text="In dieser Aufgabe kannst du Elemente im Bild austauschen. Scanne das Bild und sobald sich Elemente verändern, kannst du die Buttons klicken, um das Element auszuwählen." display-tooltip-when-elided="true" name="FixedPositionText" class="large-text text-large hidden" style="white-space: normal; margin-bottom: 32px;" />
+                        <ui:Label text="In dieser Aufgabe kannst du das Werk in eine andere Kunstrichtung verändern! Wechsel einfach zwischen den verschiedenen Richtungen." display-tooltip-when-elided="true" name="ChangeStyleText" class="large-text text-large hidden" style="white-space: normal; margin-bottom: 32px;" />
                     </ui:VisualElement>
                     <ui:Instance template="TourItem" name="TourItem" />
                     <ui:VisualElement style="flex-direction: row; justify-content: space-around; margin-top: 32px;">

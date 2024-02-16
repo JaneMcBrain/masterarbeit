@@ -16,11 +16,11 @@ public class ActivityScript : MonoBehaviour
     Tours toursInJson = JsonUtility.FromJson<Tours>(jsonFile.text);
     //get the started exercises
     SaveGameManager.LoadState();
-    var startedExercises = SaveGameManager.CurrentActivityData.activeExercises;
+    var startedTourIds = SaveGameManager.CurrentActivityData.activeTours;
     List<Tour> startedTours = new List<Tour>();
     foreach (var tour in toursInJson.tours)
     {
-      if (startedExercises.Find(x => x.tourId == tour.id) != null)
+      if (startedTourIds.Contains(tour.id))
       {
         startedTours.Add(tour);
       }

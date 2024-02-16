@@ -84,7 +84,6 @@ public class LocationListController
         var selectedLocation = LocationList.selectedItem as Location;
         
         // Hide List and show detail panel
-        LocationListPanel.SetActive(false);
         LocationDetailPanel.SetActive(true);
 
         // Find the LocationDetailScript component attached to the detail panel's UIDocument

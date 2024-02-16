@@ -97,6 +97,5 @@ public class LocationDetailScript : MonoBehaviour
 
     void OnBackButtonClicked(){
         gameObject.SetActive(false);
-        LocationPanel.SetActive(true);
     }
 }

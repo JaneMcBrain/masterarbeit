@@ -1,6 +1,7 @@
 using UnityEngine.UIElements;
 using UnityEditor;
 using UnityEngine;
+using SaveLoadSystem;
 
 public class TourListEntryController
 {
@@ -17,7 +18,7 @@ public class TourListEntryController
     public void SetTourData(Tour tour)
     {
         NameLabel.text = tour.name;
-        ProgressLabel.text = tour.progress + "%";
+        ProgressLabel.text = SaveGameManager.CurrentActivityData.getProgress(tour) + "%";
         string imagePath = tour.image;
         if (imagePath.Length > 0)
         {

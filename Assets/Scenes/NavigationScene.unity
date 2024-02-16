@@ -157,7 +157,7 @@ MonoBehaviour:
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: e53992b2d7ad2484981341e659a511d9,
     type: 3}
-  m_SortingOrder: 1
+  m_SortingOrder: 3
 --- !u!4 &239504850
 Transform:
   m_ObjectHideFlags: 0
@@ -386,7 +386,7 @@ MonoBehaviour:
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 1eb71bc43a6f44985bdd0c077fbf8766,
     type: 3}
-  m_SortingOrder: 0
+  m_SortingOrder: 2
 --- !u!4 &1029350298
 Transform:
   m_ObjectHideFlags: 0
@@ -689,7 +689,7 @@ MonoBehaviour:
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: ebd6eb328d7294160844bdcace5bab35,
     type: 3}
-  m_SortingOrder: 2
+  m_SortingOrder: 4
 --- !u!4 &1456920742
 Transform:
   m_ObjectHideFlags: 0
@@ -723,6 +723,7 @@ MonoBehaviour:
   TourPanel: {fileID: 1074622568}
   AccountPanel: {fileID: 1441858408}
   InfoPanel: {fileID: 1610034948}
+  LocationDetailPanel: {fileID: 1029350296}
   TopicDetailPanel: {fileID: 239504848}
 --- !u!1 &1610034948
 GameObject:
