@@ -8,7 +8,7 @@
             <ui:Label text="Name des Bildes" display-tooltip-when-elided="true" name="ImageTitle" class="h1" style="-unity-text-align: upper-left; flex-wrap: wrap;" />
             <ui:Label text="Name des Künstlers" display-tooltip-when-elided="true" name="ImageArtist" class="large-text text-large" style="-unity-text-align: upper-right; flex-wrap: nowrap; white-space: normal;" />
         </ui:VisualElement>
-        <ui:VisualElement name="ScanFooter" style="position: absolute; left: 0; right: 0; bottom: 0; background-color: rgb(255, 255, 255); border-top-left-radius: 30px; border-top-right-radius: 30px; padding-left: 8%; padding-right: 8%; padding-top: 4%; padding-bottom: 50px;">
+        <ui:VisualElement name="ScanFooter" style="position: absolute; left: 0; right: 0; bottom: 0; background-color: rgb(255, 255, 255); border-top-left-radius: 30px; border-top-right-radius: 30px; padding-left: 8%; padding-right: 8%; padding-top: 4%; padding-bottom: 70px;">
             <ui:VisualElement name="FooterHelpToggle" style="flex-direction: row; align-items: center; justify-content: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;">
                 <ui:VisualElement name="HelpIcon" style="width: 48px; height: 48px; background-image: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=3316425174430470091&amp;guid=16cba54ae354f49d0988f2b61cb8b1c5&amp;type=3#arrow-up@2x&apos;); -unity-background-image-tint-color: rgb(132, 132, 132); -unity-background-scale-mode: stretch-to-fill;" />
                 <ui:Label text="HILFE" display-tooltip-when-elided="true" name="HelpButtonText" class="text-large" style="color: rgb(132, 132, 132);" />

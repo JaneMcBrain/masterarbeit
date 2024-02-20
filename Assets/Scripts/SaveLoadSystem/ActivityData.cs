@@ -58,20 +58,16 @@ namespace SaveLoadSystem
           setCurrentExerciseByTour(currentTourObj, nextExercise);
         }
       }
-      Debug.Log("Nothing todo here");
       //no else-statemet needed nothing happens when currentExercise is set
     }
 
     public void FinishExercise(){
       int index = finishedExercises.FindIndex(e => e.tourId == currentExercise.tourId);
-      Debug.Log($"YOLO FinishExercise Index: {index}");
       if (index >= 0)
       {
-        Debug.Log($"YOLO FinishExercise just add current");
         // tourId already exists in finishedExercises
         finishedExercises[index].exerciseIds.Add(currentExercise.exercise.id);
       } else {
-        Debug.Log($"YOLO FinishExercise create new and add current");
         List<string> idList = new List<string>();
         idList.Add(currentExercise.exercise.id);
         ExerciseOrder done = new ExerciseOrder(){ tourId = currentTour, exerciseIds = idList };
@@ -88,14 +84,15 @@ namespace SaveLoadSystem
     }
 
     public int getProgress(Tour tour){
-      if(finishedTours.Contains(tour.id)){
-        return 100;
-      }
       if(openExercises.Exists(e => e.tourId == tour.id)){
         int multiplier = 100 / tour.exercises.Count;
         int diff = tour.exercises.Count - openExercises.Find(e => e.tourId == tour.id).exerciseIds.Count;
         return diff * multiplier;
-      } else {
+      } else if (finishedTours.Contains(tour.id))
+      {
+        return 100;
+      } else
+      {
         return 0;
       }
     }
@@ -110,9 +107,15 @@ namespace SaveLoadSystem
 
     public void FinishTour()
     {
+      int indexFinished = finishedExercises.FindIndex(e => e.tourId == currentTour);
+      finishedExercises.RemoveAt(indexFinished);
+      int indexOpen = openExercises.FindIndex(e => e.tourId == currentTour);
+      openExercises.RemoveAt(indexOpen);
       activeTours.Remove(currentTour);
-      finishedTours.Add(currentTour);
-      currentExercise = null;
+      if(!finishedTours.Contains(currentTour)){
+        finishedTours.Add(currentTour);
+      }
+      //currentExercise = null;
       currentTour = "";
     }
   }

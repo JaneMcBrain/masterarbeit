@@ -68,7 +68,6 @@ public class FreePositionArtScript : MonoBehaviour
     {
         var searchedImage = SaveGameManager.CurrentActivityData.currentExercise.exercise.image;
         string objName = "prefab_" + currentPrefabIndex;
-        Debug.Log($"YOLO setObjectOnScreen: {objName}");
         if (!instantiatedPrefabs.ContainsKey(objName)){
             // GameObject erstellen
             GameObject spriteObject = new GameObject("SpriteObject");
@@ -97,9 +96,7 @@ public class FreePositionArtScript : MonoBehaviour
     void fixObjectOnScreen()
     {
         string objName = "prefab_" + currentPrefabIndex;
-        Debug.Log($"YOLO fixObjectOnScreen: {objName}");
         if (instantiatedPrefabs.ContainsKey(objName)){
-            Debug.Log("YOLO activate fix Object");
             var scale = instantiatedPrefabs[objName].GetComponent<LeanPinchScale>();
             var translate = instantiatedPrefabs[objName].GetComponent<LeanDragTranslate>();
             var rotate = instantiatedPrefabs[objName].GetComponent<LeanTwistRotate>();

@@ -19,10 +19,9 @@ public class ARPhotoCapture : MonoBehaviour
 
   void SavePhoto()
   {
-    Debug.Log("YOLO SavePhoto");
     Camera camera = Camera.main;
     int width = Screen.width;
-    int height = Screen.width;
+    int height = Screen.height;
     RenderTexture rt = new RenderTexture(width, height, 24);
     camera.targetTexture = rt;
     // The Render Texture in RenderTexture.active is the one

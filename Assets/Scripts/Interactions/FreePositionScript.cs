@@ -43,10 +43,10 @@ public class FreePositionScript : MonoBehaviour
 
     void setThumbnail()
     {
-        //var imagePath = "Sprites/Artwork/" + prefabs[currentPrefab].name;
-        assetName.text = prefabs[currentPrefab].name;
-        //Texture2D image = prefabs[currentPrefab].GetComponent<Texture2D>();
-        //thumbnail.style.backgroundImage = new StyleBackground(Resources.Load<Sprite>(imagePath));
+        string name = prefabs[currentPrefab].name.Split("_")[0];
+        var imagePath = "Sprites/Animals/" + name;
+        assetName.text = name;
+        assetImage.style.backgroundImage = new StyleBackground(Resources.Load<Sprite>(imagePath));
     }
 
     void OnDisable()
@@ -54,11 +54,18 @@ public class FreePositionScript : MonoBehaviour
         Lean.Touch.LeanTouch.OnFingerTap -= HandleFingerTap;
     }
 
+    private bool FingerIsOnImage(Lean.Touch.LeanFinger finger)
+    {
+        var infoIsClosed = uiDocument.Q<VisualElement>("InteractionTextBox").ClassListContains("hidden");
+        int height = infoIsClosed ? 630 : 1500;
+        return finger.StartScreenPosition.y > height && finger.StartScreenPosition.y < 2300;
+    }
+
     void HandleFingerTap(Lean.Touch.LeanFinger finger)
     {
-        Debug.Log($"YOLO Tap on: {finger.StartScreenPosition}");
+
         var searchedImage = SaveGameManager.CurrentActivityData.currentExercise.exercise.image;
-        if (_instantiatedArtworks.ContainsKey(searchedImage) && finger.StartScreenPosition.y > 360)
+        if (_instantiatedArtworks.ContainsKey(searchedImage) && FingerIsOnImage(finger))
         {
             if (currentObject != null)
             {

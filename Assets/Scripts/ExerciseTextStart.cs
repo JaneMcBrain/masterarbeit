@@ -14,8 +14,6 @@ public class ExerciseTextStart : MonoBehaviour
     void OnEnable()
     {
         SaveGameManager.LoadState();
-        //get current exercise
-        var currentEx = SaveGameManager.CurrentActivityData.currentExercise;
         //get selected Tour
         tourId = SaveGameManager.CurrentActivityData.currentTour;
 
@@ -23,7 +21,8 @@ public class ExerciseTextStart : MonoBehaviour
         Tour selectedTour = toursInJson.tours.Find(t => t.id.Contains(tourId));
         SaveGameManager.CurrentActivityData.StartExercise(selectedTour);
         SaveGameManager.SaveState();
-        if(currentEx.tourId == ""){
+
+        if (SaveGameManager.CurrentActivityData.currentExercise.tourId == ""){
             TourEndView.SetActive(true);
         } else {
             setExerciseText();
