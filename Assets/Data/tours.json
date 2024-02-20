@@ -21,7 +21,7 @@
         {
           "id": "tour1_exercise2",
           "name": "Objektaustauch - Memes",
-          "text": "Finde den Sohn von Johann Sebastian Back, welcher an einem Cembalo sitzend nicht so viel von den musikalischen Künsten seines Arbeitgebers hält.",
+          "text": "Finde den Sohn von Johann Sebastian Bach, welcher an einem Cembalo sitzend nicht so viel von den musikalischen Künsten seines Arbeitgebers hält.",
           "image": "floetenkonzert",
           "imageTitle": "Flötenkonzert Friedrichs des Großen in Sanssouci",
           "imageArtist": "Adolph Friedrich Erdmann von Menzel",
@@ -39,9 +39,9 @@
         {
           "id": "tour1_exercise4",
           "name": "Objektaustauch - Face Track",
-          "text": "Gemütlich sitzen sie beisammen - der Adel beim Kaffee Klatsch!",
-          "image": "tafelrunde",
-          "imageTitle": "König Friedrichs II. Tafelrunde in Sanssouci",
+          "text": "Sie ist die Tochter des Künstler's Mentor und Freund Carl Heinrich Arnold. Doch direkt nach der Abreise des Besuchs überarbeitete der Künstler dieses Portrait komplett aus dem Kopf.",
+          "image": "frederike",
+          "imageTitle": "Porträt Friederike Arnold",
           "imageArtist": "Adolph Friedrich Erdmann von Menzel",
           "type": "FaceFilter"
         },
@@ -86,7 +86,7 @@
         {
           "id": "tour1_exercise2",
           "name": "Objektaustauch - Memes",
-          "text": "Finde den Sohn von Johann Sebastian Back, welcher an einem Cembalo sitzend nicht so viel von den musikalischen Künsten seines Arbeitgebers hält.",
+          "text": "Finde den Sohn von Johann Sebastian Bach, welcher an einem Cembalo sitzend nicht so viel von den musikalischen Künsten seines Arbeitgebers hält.",
           "image": "floetenkonzert",
           "imageTitle": "Flötenkonzert Friedrichs des Großen in Sanssouci",
           "imageArtist": "Adolph Friedrich Erdmann von Menzel",
@@ -104,9 +104,9 @@
         {
           "id": "tour1_exercise4",
           "name": "Objektaustauch - Face Track",
-          "text": "Gemütlich sitzen sie beisammen - der Adel beim Kaffee Klatsch!",
-          "image": "tafelrunde",
-          "imageTitle": "König Friedrichs II. Tafelrunde in Sanssouci",
+          "text": "Sie ist die Tochter des Künstler's Mentor und Freund Carl Heinrich Arnold. Doch direkt nach der Abreise des Besuchs überarbeitete der Künstler dieses Portrait komplett aus dem Kopf.",
+          "image": "frederike",
+          "imageTitle": "Porträt Friederike Arnold",
           "imageArtist": "Adolph Friedrich Erdmann von Menzel",
           "type": "FaceFilter"
         },
@@ -178,7 +178,7 @@
         {
           "id": "tour1_exercise2",
           "name": "Objektaustauch - Memes",
-          "text": "Finde den Sohn von Johann Sebastian Back, welcher an einem Cembalo sitzend nicht so viel von den musikalischen Künsten seines Arbeitgebers hält.",
+          "text": "Finde den Sohn von Johann Sebastian Bach, welcher an einem Cembalo sitzend nicht so viel von den musikalischen Künsten seines Arbeitgebers hält.",
           "image": "floetenkonzert",
           "imageTitle": "Flötenkonzert Friedrichs des Großen in Sanssouci",
           "imageArtist": "Adolph Friedrich Erdmann von Menzel",
@@ -196,9 +196,9 @@
         {
           "id": "tour1_exercise4",
           "name": "Objektaustauch - Face Track",
-          "text": "Gemütlich sitzen sie beisammen - der Adel beim Kaffee Klatsch!",
-          "image": "tafelrunde",
-          "imageTitle": "König Friedrichs II. Tafelrunde in Sanssouci",
+          "text": "Sie ist die Tochter des Künstler's Mentor und Freund Carl Heinrich Arnold. Doch direkt nach der Abreise des Besuchs überarbeitete der Künstler dieses Portrait komplett aus dem Kopf.",
+          "image": "frederike",
+          "imageTitle": "Porträt Friederike Arnold",
           "imageArtist": "Adolph Friedrich Erdmann von Menzel",
           "type": "FaceFilter"
         },

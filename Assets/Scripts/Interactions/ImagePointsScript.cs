@@ -91,6 +91,7 @@ public class ImagePointsScript : MonoBehaviour
                     if (!_instantiatedSticker.ContainsKey(key)){
                         addRectPointer(trackedImage, key, i);
                     } else {
+                        Debug.Log("YOLO New Position");
                         setGameObjectParams(_instantiatedSticker[key], trackedImage, positions[i], sizes[i]);
                     }
 

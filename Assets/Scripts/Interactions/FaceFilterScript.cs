@@ -71,6 +71,9 @@ public class FaceFilterScript : MonoBehaviour
 
     private Vector2 multiplier;
 
+    private Button switchPlus;
+    private Button switchMinus;
+
     void OnEnable()
     {
         //instantiate xrTrackedImageManager runtime
@@ -85,8 +88,8 @@ public class FaceFilterScript : MonoBehaviour
         //get Buttons
         var btnLeft = uiDocument.Q<Button>("AssetLeftClick");
         var btnRight = uiDocument.Q<Button>("AssetRightClick");
-        var switchPlus = uiDocument.Q<Button>("PositionSelectPlus");
-        var switchMinus = uiDocument.Q<Button>("PositionSelectMinus");
+        switchPlus = uiDocument.Q<Button>("PositionSelectPlus");
+        switchMinus = uiDocument.Q<Button>("PositionSelectMinus");
         var applyBtn = uiDocument.Q<Button>("ApplyButton");
 
         if (jsonFile != null)
@@ -100,8 +103,13 @@ public class FaceFilterScript : MonoBehaviour
         }
 
         //add onClick event handler
-        switchPlus.clicked += () => onSwitchPosition(1);
-        switchMinus.clicked += () => onSwitchPosition(-1);
+        if(allFacesData.images.Count > 1){
+            switchPlus.clicked += () => onSwitchPosition(1);
+            switchMinus.clicked += () => onSwitchPosition(-1);
+        } else {
+            switchPlus.AddToClassList("hidden");
+            switchMinus.AddToClassList("hidden");
+        }
         applyBtn.clicked += () => setSticker();
         btnLeft.clicked += () => onLeftBtnClick();
         btnRight.clicked += () => onRightBtnClick();
