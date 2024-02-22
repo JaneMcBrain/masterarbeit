@@ -81,7 +81,7 @@
           "image": "ballsouper",
           "imageTitle": "Das Ballsouper",
           "imageArtist": "Adolph Friedrich Erdmann von Menzel",
-          "type": "ImagePointCelebrity"
+          "type": "FaceFilterCeleb"
         },
         {
           "id": "tour1_exercise2",
@@ -90,43 +90,7 @@
           "image": "floetenkonzert",
           "imageTitle": "Flötenkonzert Friedrichs des Großen in Sanssouci",
           "imageArtist": "Adolph Friedrich Erdmann von Menzel",
-          "type": "ImagePointMeme"
-        },
-        {
-          "id": "tour1_exercise3",
-          "name": "Objektaustauch - Free Position",
-          "text": "Finde die Parade auf dem Opernplatz in Berlin.",
-          "image": "parade",
-          "imageTitle": "Parade auf dem Opernplatz",
-          "imageArtist": "Franz Krüger",
-          "type": "FreePosition"
-        },
-        {
-          "id": "tour1_exercise4",
-          "name": "Objektaustauch - Face Track",
-          "text": "Sie ist die Tochter des Künstler's Mentor und Freund Carl Heinrich Arnold. Doch direkt nach der Abreise des Besuchs überarbeitete der Künstler dieses Portrait komplett aus dem Kopf.",
-          "image": "frederike",
-          "imageTitle": "Porträt Friederike Arnold",
-          "imageArtist": "Adolph Friedrich Erdmann von Menzel",
-          "type": "FaceFilter"
-        },
-        {
-          "id": "tour1_exercise5",
-          "name": "Objektaustauch - Free Position Art",
-          "text": "In dampferfüllter Dämmerung mischen sich flackerndes Glutlicht und bizarre Schatten zu einem dämonischen Schauspiel des Ringens von Mensch und Maschine.",
-          "image": "eisenwalzwerk",
-          "imageTitle": "Eisenwalzwerk (Moderne Cyklopen)",
-          "imageArtist": "Adolph Friedrich Erdmann von Menzel",
-          "type": "FreePositionArt"
-        },
-        {
-          "id": "tour1_exercise6",
-          "name": "Kunstrichtung ändern",
-          "text": "Das erste Gemälde diente einst als Zielscheibe in einem Schützenverein.\nFinde ein Gemälde mit zwei Vögeln.",
-          "image": "voegel",
-          "imageTitle": "Falke auf eine Taube stoßend, um 1844",
-          "imageArtist": "Adolph Friedrich Erdmann von Menzel",
-          "type": "ChangeStyle"
+          "type": "FaceFilterMeme"
         }
       ]
     },

@@ -24,6 +24,8 @@ public class DetectImageTracker : MonoBehaviour
     private readonly Dictionary<string, string> interactionText = new Dictionary<string, string>()
     {
         {"FaceFilter", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Gesichter im Bild austauschen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
+        {"FaceFilterCeleb", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Gesichter im Bild austauschen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
+        {"FaceFilterMeme", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Gesichter im Bild austauschen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
         {"ImagePointMeme", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Memes und Comigfiguren in das Bild setzen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
         {"ImagePointCelebrity", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Celebrities in das Bild setzen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
         {"FreePosition", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du neue Tiere in das Bild packen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},

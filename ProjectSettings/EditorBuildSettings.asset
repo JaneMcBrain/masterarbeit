@@ -44,6 +44,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Interactions/ImagePointMemeScene.unity
     guid: 416c478c7b45447e4b22b33e9dbb312d
+  - enabled: 1
+    path: Assets/Scenes/Interactions/FaceFilterCelebScene.unity
+    guid: 1c26e8dc6db7b4450b15899e069577bb
+  - enabled: 1
+    path: Assets/Scenes/Interactions/FaceFilterMemeScene.unity
+    guid: 247e8814a85a54a2f9e93bdc3ebad4db
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 744b813df90924c169af73489b8325de,
       type: 2}
