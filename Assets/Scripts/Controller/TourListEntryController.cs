@@ -18,7 +18,7 @@ public class TourListEntryController
     public void SetTourData(Tour tour)
     {
         NameLabel.text = tour.name;
-        ProgressLabel.text = SaveGameManager.CurrentActivityData.getProgress(tour) + "%";
+        ProgressLabel.text = SaveGameManager.CurrentActivityData.GetProgress(tour) + "%";
         string imagePath = tour.image;
         if (imagePath.Length > 0)
         {

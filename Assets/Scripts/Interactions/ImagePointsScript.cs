@@ -19,7 +19,7 @@ public class ImagePointsScript : MonoBehaviour
     public GameObject HighlightRect;
     public GameObject UI;
     private VisualElement uiDocument;
-    private int currentSticker = 0;
+    private int currentObjectIndex = 0;
     private readonly Dictionary<string, GameObject> _instantiatedSticker = new Dictionary<string, GameObject>();
 
     [SerializeField]
@@ -31,7 +31,7 @@ public class ImagePointsScript : MonoBehaviour
     [SerializeField]
     List<Vector2> sizes;
 
-    private int currentPrefabIndex = 0;
+    private int currentStickerIndex = 0;
     private VisualElement assetImage;
     private Label assetName;
 
@@ -68,8 +68,8 @@ public class ImagePointsScript : MonoBehaviour
     void setThumbnail()
     {
 
-        assetName.text = prefabs[currentPrefabIndex].name;
-        assetImage.style.backgroundImage = new StyleBackground(prefabs[currentPrefabIndex]);
+        assetName.text = prefabs[currentStickerIndex].name;
+        assetImage.style.backgroundImage = new StyleBackground(prefabs[currentStickerIndex]);
     }
 
     private void OnDisable() => _imageManager.trackedImagesChanged -= OnTrackedImagesChanged;
@@ -91,7 +91,6 @@ public class ImagePointsScript : MonoBehaviour
                     if (!_instantiatedSticker.ContainsKey(key)){
                         addRectPointer(trackedImage, key, i);
                     } else {
-                        Debug.Log("YOLO New Position");
                         setGameObjectParams(_instantiatedSticker[key], trackedImage, positions[i], sizes[i]);
                     }
 
@@ -104,7 +103,7 @@ public class ImagePointsScript : MonoBehaviour
     {
         GameObject sticker;
         Transform newTransform = image.transform;
-        if (currentSticker != index){
+        if (currentObjectIndex != index){
             sticker = Instantiate(WhiteRect, newTransform);
         } else {
             sticker = Instantiate(HighlightRect, newTransform);
@@ -136,13 +135,13 @@ public class ImagePointsScript : MonoBehaviour
         string stickerIndex = getObjectName();
         float alpha = _instantiatedSticker[stickerIndex].GetComponent<SpriteRenderer>().sprite.name.Contains("Square") ? 0.5f : 0.8f;
         _instantiatedSticker[stickerIndex].GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alpha);
-        int newIndex = currentSticker + step;
+        int newIndex = currentObjectIndex + step;
         if(newIndex == _instantiatedSticker.Count){
-            currentSticker = 0;
+            currentObjectIndex = 0;
         } else if(newIndex == -1) {
-            currentSticker = _instantiatedSticker.Count - 1;
+            currentObjectIndex = _instantiatedSticker.Count - 1;
         } else {
-            currentSticker = newIndex;
+            currentObjectIndex = newIndex;
         }
         alpha = _instantiatedSticker[stickerIndex].GetComponent<SpriteRenderer>().sprite.name.Contains("Square") ? 0.5f : 0.8f;
         _instantiatedSticker[getObjectName()].GetComponent<SpriteRenderer>().color = new Color(0.18f, 0.64f, 0.94f, alpha);
@@ -150,38 +149,38 @@ public class ImagePointsScript : MonoBehaviour
 
     string getObjectName(){
         List<string> stickerKeys = new List<string>(_instantiatedSticker.Keys);
-        var currentKey = stickerKeys[currentSticker];
+        var currentKey = stickerKeys[currentObjectIndex];
         return currentKey;
     }
 
     void setSticker()
     {
         var objectName = getObjectName();
-        _instantiatedSticker[objectName].GetComponent<SpriteRenderer>().sprite = prefabs[currentPrefabIndex];
+        _instantiatedSticker[objectName].GetComponent<SpriteRenderer>().sprite = prefabs[currentStickerIndex];
         _instantiatedSticker[objectName].GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.8f);
     }
 
     private void onRightBtnClick()
     {
-        if (currentPrefabIndex + 1 == prefabs.Length)
+        if (currentStickerIndex + 1 == prefabs.Length)
         {
-            currentPrefabIndex = 0;
+            currentStickerIndex = 0;
         }
         else
         {
-            currentPrefabIndex += 1;
+            currentStickerIndex += 1;
         }
         setThumbnail();
     }
     private void onLeftBtnClick()
     {
-        if (currentPrefabIndex == 0)
+        if (currentStickerIndex == 0)
         {
-            currentPrefabIndex = prefabs.Length - 1;
+            currentStickerIndex = prefabs.Length - 1;
         }
         else
         {
-            currentPrefabIndex -= 1;
+            currentStickerIndex -= 1;
         }
         setThumbnail();
     }

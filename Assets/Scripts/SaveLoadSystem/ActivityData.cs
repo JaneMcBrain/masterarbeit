@@ -31,22 +31,18 @@ namespace SaveLoadSystem
     public void StartExercise(Tour currentTourObj){
       if (currentExercise == null || currentTour != currentExercise.tourId){
         //currentExercise is not from currentTour
-        Debug.Log("currentExercise is not from currentTour");
         if (openExercises.Exists(e => e.tourId == currentTour)){
           //currentTour has open Exercises
-          Debug.Log("currentTour has open Exercises");
           string nextExercise = GetRandomExerciseByTourIdAndRemove(currentTour);
           if (nextExercise != ""){
             //nextExercise available
-            Debug.Log($"nextExercise available: {nextExercise}");
-            setCurrentExerciseByTour(currentTourObj, nextExercise);
+            SetCurrentExerciseByTour(currentTourObj, nextExercise);
           } else{
             //no nextExercise available
-            Debug.Log("This should never happen - Spooky");
+            return;
           }
         } else {
           //currentTour has no open Exercises
-          Debug.Log("currentTour has no open Exercises - lets create them");
           List<string> ids = new List<string>();
           foreach (var ex in currentTourObj.exercises)
           {
@@ -55,7 +51,7 @@ namespace SaveLoadSystem
           var openEx = new OpenExercise() { tourId = currentTour, exerciseIds = ids };
           openExercises.Add(openEx);
           string nextExercise = GetRandomExerciseByTourIdAndRemove(currentTour);
-          setCurrentExerciseByTour(currentTourObj, nextExercise);
+          SetCurrentExerciseByTour(currentTourObj, nextExercise);
         }
       }
       //no else-statemet needed nothing happens when currentExercise is set
@@ -76,14 +72,13 @@ namespace SaveLoadSystem
       currentExercise = null;
     }
 
-    private void setCurrentExerciseByTour(Tour tour, string exerciseId)
+    private void SetCurrentExerciseByTour(Tour tour, string exerciseId)
     {
-      Debug.Log("YOLO setCurrentExerciseByTour");
       var exercise = tour.exercises.Find(e => e.id == exerciseId);
       currentExercise = new ActiveExercise() { tourId = tour.id, exercise = exercise };
     }
 
-    public int getProgress(Tour tour){
+    public int GetProgress(Tour tour){
       if(openExercises.Exists(e => e.tourId == tour.id)){
         int multiplier = 100 / tour.exercises.Count;
         int diff = tour.exercises.Count - openExercises.Find(e => e.tourId == tour.id).exerciseIds.Count;

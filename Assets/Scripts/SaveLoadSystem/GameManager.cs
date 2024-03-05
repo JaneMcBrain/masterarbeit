@@ -5,7 +5,7 @@ namespace SaveLoadSystem
   public static class SaveGameManager{
     public static ActivityData CurrentActivityData = new ActivityData();
     public const string directoryPath = "/Data/";
-    public const string FileName = "user.json";
+    public const string FileName = "user";
     public static bool SaveState(){
       var dir = Application.persistentDataPath + directoryPath;
       if (!Directory.Exists(dir)){
