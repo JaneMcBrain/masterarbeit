@@ -24,8 +24,6 @@ public class DetectImageTracker : MonoBehaviour
     private readonly Dictionary<string, string> interactionText = new Dictionary<string, string>()
     {
         {"FaceFilter", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Gesichter im Bild austauschen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
-        {"FaceFilterCeleb", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Gesichter im Bild austauschen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
-        {"FaceFilterMeme", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Gesichter im Bild austauschen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
         {"ImagePointMeme", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Memes und Comigfiguren in das Bild setzen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
         {"ImagePointCelebrity", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du Celebrities in das Bild setzen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
         {"FreePosition", "Du hast eine Interaktion freigeschaltet! Bei diesem Aufgabentyp, kannst du neue Tiere in das Bild packen. Klicke 'Start' um fortzufahren oder such das nächste Bild, indem du auf 'Nächstes Bild' klickst."},
@@ -47,7 +45,6 @@ public class DetectImageTracker : MonoBehaviour
     private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs){
         SaveGameManager.LoadState();
         var searchedImage = SaveGameManager.CurrentActivityData.currentExercise.exercise.image;
-        Debug.Log($"YOLO searchedImage: " + SaveGameManager.CurrentActivityData.currentExercise.exercise.image);
         foreach(var trackedImage in eventArgs.updated){
             var trackImageName = trackedImage.referenceImage.name;
             //check if trackedImages is tracked && is the correct artwork
@@ -99,7 +96,6 @@ public class DetectImageTracker : MonoBehaviour
         overlay.Q<Label>("ImageTitle").text = SaveGameManager.CurrentActivityData.currentExercise.exercise.imageTitle;
         overlay.Q<Label>("ImageArtist").text = SaveGameManager.CurrentActivityData.currentExercise.exercise.imageArtist;
         overlay.Q<Label>("InteractionText").text = interactionText[exType];
-        Debug.Log($"YOLO InteractionStart with type: {exType}");
         overlay.Q<Button>("InteractionStart").clicked += () => LoadInteraction(exType);
         //Here we need to change th currentExercise to ensure the right next Exercise
         overlay.Q<Button>("NextImage").clicked += () => nextExercise();

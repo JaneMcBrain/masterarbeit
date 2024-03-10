@@ -177,16 +177,13 @@ public class FaceFilterScript : MonoBehaviour
     {
         Vector3 posZero = img.transform.position - new Vector3(img.size.x / 2, -img.size.y / 2, 0);
         Vector3 faceCoordinates = new Vector3(face.x * multiplier.x + (face.width / 2), -(face.y * multiplier.y) - (face.height / 2), 0);
-        Debug.Log($"YOLO setRectPosition: {posZero + faceCoordinates}");
         gameO.transform.position = posZero + faceCoordinates;
     }
 
     void ApplyFaceFilter(GameObject rectangle, LandmarkData landmarksData, ARTrackedImage img, RectangleData rec)
     {
         Vector2 recTopLeft = new Vector2(rec.x, rec.y);
-        Vector2 recTopRight = new Vector2(rec.x, rec.y + rec.width);
         Vector2 recBottomLeft = new Vector2(landmarksData.x[29], rec.y);
-        Vector2 recBottomRight = new Vector2(landmarksData.x[29], rec.y + rec.width);
         float zPos = img.transform.position.z;
 
         // Rechteckgröße neu berechnen
