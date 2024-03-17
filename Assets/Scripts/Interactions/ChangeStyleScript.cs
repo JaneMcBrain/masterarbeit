@@ -4,7 +4,6 @@ using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using SaveLoadSystem;
 using UnityEngine.UIElements;
-using Lean.Touch;
 
 public class ChangeStyleScript : MonoBehaviour
 {
